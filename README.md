@@ -1,1 +1,1 @@
-# Snap-it-web---React
+# Snap-it-web-React
