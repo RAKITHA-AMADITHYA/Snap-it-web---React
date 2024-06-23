@@ -18,6 +18,7 @@
     "@mui/material": "^5.15.14",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
+    "countries-list": "^3.1.0",
     "flowbite-react": "^0.8.0",
     "framer-motion": "^11.2.10",
     "gsap": "^3.12.5",

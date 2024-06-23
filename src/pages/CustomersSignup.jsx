@@ -9,27 +9,8 @@ import 'slick-carousel/slick/slick.css';
 import QR from '../assets/img/qr.png';
 import PlayStore from '../assets/img/playstore.png';
 
-
-
-
-
-
-
-
 const CustomersSignup = () => {
-    const section2Ref = useRef(null);
-    const settings = {
-
-        dots: false,
-        infinite: true,
-        speed: 500,
-        arrows: false,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1000,
-    };
-
+  
     useEffect(() => {
         AOS.init({
             duration: 1000, // Duration of the animation in milliseconds
@@ -38,22 +19,7 @@ const CustomersSignup = () => {
         });
     }, []);
 
-    const cardVariants = {
-        offscreen: {
-            y: -300,
-            opacity: 0
-        },
-        onscreen: {
-            y: 0,
-            opacity: 1,
-            // rotate: -10,
-            transition: {
-                type: "spring",
-                bounce: 0.4,
-                duration: 2
-            }
-        }
-    };
+   
 
 
     const leftVariants = {

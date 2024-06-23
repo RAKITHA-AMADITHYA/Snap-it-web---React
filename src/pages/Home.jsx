@@ -12,6 +12,7 @@ import ServiceCard from '../components/ContentCard/ServiceCard';
 import product1 from '../assets/img/product1.png';
 import product2 from '../assets/img/product2.png';
 import product3 from '../assets/img/product3.png';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -21,6 +22,10 @@ import product3 from '../assets/img/product3.png';
 
 const Home = () => {
   const section2Ref = useRef(null);
+  const navigate=useNavigate();
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
   const settings = {
     
     dots: false,
@@ -106,7 +111,7 @@ const Home = () => {
             <Typography variant='h5' mt={1} fontWeight={400} textAlign={'justify'}>
               Transforming Your Everyday Shopping Into A Rewards When Purchasing Your Favourite Brands And Products From Any Store Anywhere.
             </Typography>
-            <Button variant='contained' sx={{mt:5}}>Get Started</Button>
+            <Button variant='contained' onClick={() => handleNavigate('/signup')} sx={{mt:5}}>Get Started</Button>
           </Grid>
          
 

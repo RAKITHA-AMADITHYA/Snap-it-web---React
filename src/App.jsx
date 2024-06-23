@@ -9,6 +9,9 @@ import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 import CustomersSignup from './pages/CustomersSignup';
 import PublicSignup from './pages/PublicSignup';
+import Customer from './pages/Customer';
+import BrandSignup from './pages/BrandSignup';
+import MerchantSignup from './pages/MerchantSignup';
 
 const Home = lazy(() => import("./pages/Home"));
 const Layout = lazy(() => import("./layouts/Layout"));
@@ -35,6 +38,10 @@ function App() {
               <Route path="/contact-us" element={<Contact />} />
               <Route path="/customer-signup" element={<CustomersSignup />} />
               <Route path="/signup" element={<PublicSignup />} />
+              <Route path="/customer" element={<Customer />} />
+              <Route path="/brand-signup" element={<BrandSignup />} />
+              <Route path="/merchant-signup" element={<MerchantSignup />} />
+
 
 
 

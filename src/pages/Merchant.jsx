@@ -1,41 +1,33 @@
 
-import { Box, Button, Card, Divider, Grid, Typography } from '@mui/material';
+import { Box, Button, Card, Grid, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import Merchant from '../assets/img/merchant1.png';
-import Reward from '../assets/img/reward.png';
 import Analize from '../assets/img/analize.png';
 import chart from '../assets/img/chart.png';
-import reward2 from '../assets/img/reward2.png';
+import Merchant from '../assets/img/merchant1.png';
 import msteps from '../assets/img/msteps.png';
-import downArrow1 from '../assets/img/downArrow1.png';
-import downleftArrow from '../assets/img/downleftArrow.png';
-
-
-
-
+import Reward from '../assets/img/reward.png';
+import reward2 from '../assets/img/reward2.png';
 import ServiceCardTwo from '../components/Card/ServiceCardTwo';
-
-
-
-
-
-
+import { useNavigate } from 'react-router-dom';
 
 const Merchants = () => {
     const section2Ref = useRef(null);
+    const navigate=useNavigate();
 
 
+    const handleNavigate = (path) => {
+        navigate(path);
+      };
     useEffect(() => {
         AOS.init({
-            duration: 1000, // Duration of the animation in milliseconds
-            once: false, // Whether animation should happen only once - while scrolling down
-            mirror: true, // Whether elements should animate out while scrolling past them
+            duration: 1000, 
+            once: false,
+            mirror: true, 
         });
     }, []);
     const cardVariants = {
@@ -70,9 +62,7 @@ const Merchants = () => {
             }
         }
     };
-    const handleButtonClick = () => {
-        section2Ref.current.scrollIntoView({ behavior: 'smooth' });
-    };
+  
 
 
     return (
@@ -97,7 +87,7 @@ const Merchants = () => {
                         <Typography variant='subtitle1' mt={1} textAlign={'justify'}>
                             Elevate customer loyalty with SnapIt's innovative program. Shoppers snap QR codes to effortlessly earn rewards across any store. Join as a merchant for streamlined payments, increased visibility, and a tech-forward solution to boost footfall.
                         </Typography>
-                        <Button variant='contained' sx={{ mt: 2 }}>Get Started</Button>
+                        <Button variant='contained' sx={{ mt: 2 }} onClick={() => handleNavigate('/merchant-signup')}>Get Started</Button>
                     </Grid>
 
 

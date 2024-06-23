@@ -1,10 +1,12 @@
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MailIcon from '@mui/icons-material/Mail';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Divider, Grid, Typography } from '@mui/material';
 import appstore from '../assets/img/appstore.png';
 import logo from '../assets/img/footer3.png';
 import playstore from '../assets/img/playstore.png';
+import copyrights from '../assets/img/copyrights.png';
+import footer1 from '../assets/img/footer1.png';
 
 
 
@@ -13,8 +15,9 @@ const Footer = () => {
   return (
     <section style={{
       background: '#2f2f2f',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
+      backgroundSize: 'fit',
+      backgroundRepeat: 'no-repeat',
+      // backgroundImage: `url(${footer1})`,
     }}>
 
       <Grid container p={5} justifyContent={'space-between'}>
@@ -24,8 +27,8 @@ const Footer = () => {
             Snap it effortlessly brings your favorite brands to your fingertips,rewarding your loyalty. The platform also assists merchants in gaining a deeper understanding of their customers and incentivizing loyalty.          </Typography>
 
           <Box display={'flex'} gap={2} mt={2}>
-            <img src={playstore}  width={'60%'} height={'50%'} alt="" />
-            <img src={appstore}  width={'60%'} height={'50%'} alt="" />
+            <img src={playstore} width={'60%'} height={'50%'} alt="" />
+            <img src={appstore} width={'60%'} height={'50%'} alt="" />
           </Box>
         </Grid>
 
@@ -62,42 +65,13 @@ const Footer = () => {
           </div>
         </Grid>
 
-        {/* <Grid item xs={6} sm={6} md={6} lg={6} xl={6} display={'flex'} justifyContent={'end'} alignItems={'end'} flexDirection={'column'}>
-            <Typography variant='p' color={'white'} fontWeight={400}>Contact</Typography>
-            <Typography variant='p' color={'white'} fontWeight={600}>(+94) 70 000 0000</Typography>
-
-
-            <Typography variant='subtitle1' color={'white'} fontWeight={400} >Email</Typography>
-            <Typography variant='subtitle1' color={'white'} fontWeight={600}>support@studiomojo.lk</Typography>
-          </Grid>
-
-        </Grid>
-        <Divider sx={{ my: 2 }} />
-        <Grid item display={'flex'} justifyContent={'start'} alignItems={'start'} spacing={2} p={1}>
-          <Typography variant='p' color={'white'} fontWeight={400}>© 2023 StudioMojo</Typography>
-
-        </Grid>
-
-        <Grid item display={'flex'} justifyContent={'center'} alignItems={'center'} spacing={2}>
-          <Typography variant='p' color={'white'} fontWeight={500}>Terms & Conditions</Typography>
-          <Box mx={2} />
-          <Typography variant='p' color={'white'} fontWeight={500}>Privacy Policy</Typography>
-        </Grid>
-
-        <Grid container justify="space-between" alignItems="end" justifyContent={'end'} spacing={5}>
-          <Grid item>
-            <FacebookIcon style={{ color: 'white' }} />
-          </Grid>
-          <Grid item>
-            <YouTubeIcon style={{ color: 'white' }} />
-          </Grid>
-          <Grid item>
-            <InstagramIcon style={{ color: 'white' }} />
-          </Grid>
-        </Grid> */}
 
       </Grid>
+      <Divider sx={{ backgroundColor: '#2e2930' }} />
 
+      <Box sx={{ display: 'flex', justifyContent: 'center',mt:'5px' }}>
+        <img src={copyrights} width={'200px'} alt="" />
+      </Box>
     </section>
   )
 }

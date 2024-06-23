@@ -30,7 +30,7 @@ const PublicSignup = () => {
 
     const cardVariants = {
         offscreen: {
-            y: 300,
+            // y: 300,
             opacity: 0
         },
         onscreen: {
@@ -128,7 +128,9 @@ const PublicSignup = () => {
                         justifyContent={'center'}
                         flexDirection={'column'}
                     >
-                        <Card sx={{
+                        <Card
+                        onClick={() => handleNavigate('/brand-signup')}
+                        sx={{
                             bgcolor: '#190e0e',
                             transition: 'transform 0.3s ease-in-out',
                             '&:hover': {
@@ -142,6 +144,7 @@ const PublicSignup = () => {
                                 <img src={brandsCard} width={'100%'} style={{
                                     '&:hover': {
                                         transform: 'scale(1.05)',
+                                        cursor:'pointer'
                                     }
                                 }} alt="" />
                                 <Typography variant='h4' p={1} fontWeight={800} color={'#eda632'}>Brand</Typography>
@@ -158,11 +161,14 @@ const PublicSignup = () => {
                         justifyContent={'center'}
                         flexDirection={'column'}
                     >
-                        <Card sx={{
+                        <Card 
+                        onClick={() => handleNavigate('/brand-signup')}
+                        sx={{
                             bgcolor: '#190e0e',
                             transition: 'transform 0.3s ease-in-out',
                             '&:hover': {
                                 transform: 'scale(1.05)',
+                                cursor:'pointer'
                             },
                             height:'285px'
                         }}>
