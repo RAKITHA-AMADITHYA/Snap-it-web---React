@@ -1,0 +1,182 @@
+import { Box, Grid, useMediaQuery,Typography,TextField, Button  } from '@mui/material';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+let DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow,
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
+
+const Contact = () => {
+    const isMediumUp = useMediaQuery((theme) => theme.breakpoints.up('md'));
+    const isMediumDown = useMediaQuery((theme) => theme.breakpoints.down('md'));
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // Duration of the animation in milliseconds
+            once: true, // Whether animation should happen only once - while scrolling down
+            mirror: true, // Whether elements should animate out while scrolling past them
+        });
+    }, []);
+
+    const position = [6.9061, 79.8537]; // Coordinates for 12 Ridgeway Pl, Colombo 00400
+
+    return (
+        <section  id="section1">
+            {isMediumUp && (
+                <Grid container>
+                    <Grid item xs={12} md={6} p={5} data-aos="zoom-in-right">
+      <Typography variant="h3" gutterBottom>Contact</Typography>
+      
+      <form style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '20px' }}>
+        <TextField 
+          label="Name" 
+          variant="outlined" 
+          fullWidth 
+          required 
+        />
+        <TextField 
+          label="Email" 
+          type="email" 
+          variant="outlined" 
+          fullWidth 
+          required 
+        />
+        <TextField 
+          label="Phone Number" 
+          type="tel" 
+          variant="outlined" 
+          fullWidth 
+          required 
+        />
+        <TextField 
+          label="Message" 
+          variant="outlined" 
+          multiline 
+          rows={4} 
+          fullWidth 
+          required 
+        />
+
+        <Box>
+            <Button fullWidth variant='contained'>Submit</Button>
+        </Box>
+      </form>
+    </Grid>
+
+                    <Grid item xs={12} md={6} display="flex" justifyContent="center" alignItems="center" p={2} data-aos="zoom-in-left">
+      <div style={{ display: 'flex', flexDirection: 'column', width: '100%', gap: '20px', marginTop: '10px' }}>
+        
+        <div style={{ display: 'flex', gap: '20px' }}>
+          <a href="mailto:gdsasrilanka@gmail.com">
+            {/* <PhoneButton /> */}
+          </a>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <h1>Contact</h1>
+            <h3 style={{ fontWeight: 600 }}>(+94)-761234565 / (+94)-718395305</h3>
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', gap: '20px' }}>
+          <a href="mailto:info@mobios.lk">
+            {/* <PhoneButton /> */}
+          </a>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <h1>Email</h1>
+            <h3 style={{ fontWeight: 600 }}>info@mobios.lk</h3>
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', gap: '20px' }}>
+          <a href="mailto:gdsasrilanka@gmail.com">
+            {/* <PhoneButton /> */}
+          </a>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <h1>Address</h1>
+            <h3 style={{ fontWeight: 600 }}>
+              No.12 Ridgeway Place,<br />
+              Colombo 04,<br />
+              Sri Lanka.
+            </h3>
+          </div>
+        </div>
+
+        <div style={{ height: '300px', width: '100%' }}>
+          <MapContainer center={position} zoom={15} style={{ height: '100%', width: '100%' }}>
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+            />
+            <Marker position={position}>
+              <Popup>
+                No.12 Ridgeway Place, Colombo 04, Sri Lanka
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </div>
+      </div>
+    </Grid>
+                </Grid>
+            )}
+
+            {isMediumDown && (
+                <Grid container>
+                    <Grid item xs={12} p={1} data-aos="zoom-in-right">
+                        <div style={{ display: 'flex', flex: 1, gap: '20px' }}>
+                            <a href="tel:+94112853415">
+                                <img src={contactI} alt="" />
+                            </a>
+                            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                                <h3>Contact Numbers</h3>
+                                <h3>(+94)-112853415 / (+94)-718395305</h3>
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'flex', flex: 1, gap: '20px', marginTop: '10px' }}>
+                            <a href="mailto:gdsasrilanka@gmail.com">
+                                <PhoneButton />
+                            </a>
+                            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                                <h3>Email</h3>
+                                <h3>gdsasrilanka@gmail.com</h3>
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'flex', flex: 1, gap: '20px', marginTop: '10px' }}>
+                            <FbBtn />
+                            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                                <h3>Facebook</h3>
+                                <h3>Guna dev suwa Arana</h3>
+                            </div>
+                        </div>
+                    </Grid>
+
+                    <Grid item xs={12} md={6} display={'flex'} justifyContent={'center'} alignItems={'center'} p={2} data-aos="zoom-in-left">
+                        <MapContainer center={position} zoom={15} style={{ height: '400px', width: '100%' }}>
+                            <TileLayer
+                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                            />
+                            <Marker position={position}>
+                                <Popup>
+                                    No.12 Ridgeway Place, Colombo 04, Sri Lanka
+                                </Popup>
+                            </Marker>
+                        </MapContainer>
+                    </Grid>
+                </Grid>
+            )}
+            {/* <Footer /> */}
+        </section>
+    );
+};
+
+export default Contact;
