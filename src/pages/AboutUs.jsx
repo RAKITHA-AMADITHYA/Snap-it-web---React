@@ -10,22 +10,15 @@ import Snapit from '../assets/img/logo.png';
 import Mobios from '../assets/img/mobios.png';
 
 
-
-
-
-
-
-
-
 const AboutUs = () => {
     const section2Ref = useRef(null);
 
 
     useEffect(() => {
         AOS.init({
-            duration: 1000, // Duration of the animation in milliseconds
-            once: false, // Whether animation should happen only once - while scrolling down
-            mirror: true, // Whether elements should animate out while scrolling past them
+            duration: 1000, 
+            once: false, 
+            mirror: true,
         });
     }, []);
     const cardVariants = {
@@ -72,7 +65,7 @@ const AboutUs = () => {
             <section>
 
                 <Grid container>
-                    <Grid item xs={12} md={8} p={10}
+                    <Grid item xs={12} md={8} p={{ xs: 2, lg: 10 }}
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
@@ -83,7 +76,7 @@ const AboutUs = () => {
 
                         </Typography>
 
-                        <Typography variant='h6' mt={1} textAlign={'justify'}>
+                        <Typography variant='h6' mt={1}   textAlign={'justify'} sx={{ fontSize: { xs: '12px', lg: '18px' } }} >
                             Snap it is a product of mobiOs Private Limited. An innovative and pioneering software development company based in Sri Lanka, that has been at the forefront of delivering cutting-edge enterprise solutions for over a decade. Our flagship solutions, Mobile Marketing solution for telecommunications operators, MEDICA – the Clinical Record Management Solution, and Engagement platform for TextWare Sri Lanka, stands as a testament to our commitment to innovation, excellence, and unwavering dedication to addressing the ever-evolving requirements to our clients and societies.
                         </Typography>
                     </Grid>
@@ -96,10 +89,10 @@ const AboutUs = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'center', p: 5, alignItems: 'center' }}
+                        sx={{ display: 'flex', justifyContent: 'center', p: { xs: 10, lg: 10 }, alignItems: 'center' }}
                     >
                         <motion.div variants={leftVariants}>
-                            <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 5 }}>
+                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: { xs: 5, lg: 10 } , mt: { xs: -10, sm: 0 }}}>
 
 
                                 <img src={Snapit} width={'100%'} alt="" /></Card>
@@ -123,7 +116,7 @@ const AboutUs = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'center', p: 5, alignItems: 'center' }}
+                        sx={{ display: {xs:"none",sm:'flex'}, justifyContent: 'center', p: 5, alignItems: 'center' }}
                     >
                         <motion.div variants={leftVariants}>
                             <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 5 }}>
@@ -133,7 +126,7 @@ const AboutUs = () => {
 
                         </motion.div>
                     </Grid>
-                    <Grid item xs={12} md={8} p={10}
+                    <Grid item xs={12} md={8}  p={{ xs: 2, lg: 10 }}
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
@@ -152,6 +145,24 @@ const AboutUs = () => {
 
 
                 </Grid>
+
+                <Grid
+                        item
+                        xs={12} md={4}
+                        component={motion.div}
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ once: true, amount: 0.8 }}
+                        sx={{ display: {xs:"flex",sm:'none'}, justifyContent: 'center', p: 5, alignItems: 'center' }}
+                    >
+                        <motion.div variants={leftVariants}>
+                            <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 5 }}>
+
+
+                                <img src={Mobios} width={'100%'} alt="" /></Card>
+
+                        </motion.div>
+                    </Grid>
             </section>
 
 
@@ -166,7 +177,6 @@ const AboutUs = () => {
                     sx={{ display: 'flex', justifyContent: 'start', p: 4 }}
                 >
                     <motion.div variants={leftVariants}>
-                        {/* <ServiceCard title={service.title} /> */}
                         <Typography variant='h2' fontWeight={700}>Our Global Reach
 
                         </Typography>
@@ -195,7 +205,6 @@ const AboutUs = () => {
                     sx={{ display: 'flex', justifyContent: 'end', p: 4 }}
                 >
                     <motion.div variants={leftVariants}>
-                        {/* <ServiceCard title={service.title} /> */}
                         <Typography variant='h2' fontWeight={700}>Our Commitment to Innovation
 
 

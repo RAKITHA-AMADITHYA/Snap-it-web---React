@@ -47,13 +47,13 @@ const BrandSignup = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', p: 5 }}
+                        sx={{ display: {xs:"none",sm:'block'}, justifyContent: 'start', alignItems: 'center',  p:{ xs: 1, lg: 10} }}
                     >
                         <motion.div variants={leftVariants}>
                             <img src={Brand} width={'100%'} alt="" />
                         </motion.div>
                     </Grid>
-                    <Grid item xs={12} md={7} p={5}>
+                    <Grid item xs={12} md={7} p={{ xs: 2, lg: 5 }}>
                         <Typography variant='h3' fontWeight={800}>
                             Sign up your <span> </span>
                             <span style={{ color: '#f2b51c' }}>Brand</span>

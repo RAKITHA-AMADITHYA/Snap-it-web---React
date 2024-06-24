@@ -10,7 +10,7 @@ import QR from '../assets/img/qr.png';
 import PlayStore from '../assets/img/playstore.png';
 
 const CustomersSignup = () => {
-  
+
     useEffect(() => {
         AOS.init({
             duration: 1000, // Duration of the animation in milliseconds
@@ -19,7 +19,7 @@ const CustomersSignup = () => {
         });
     }, []);
 
-   
+
 
 
     const leftVariants = {
@@ -43,7 +43,7 @@ const CustomersSignup = () => {
 
     const handleClick = () => {
         window.location.href = 'https://play.google.com/store/apps/details?id=com.snapitonline.snap_it';
-      };
+    };
 
 
     return (
@@ -57,6 +57,9 @@ const CustomersSignup = () => {
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
+                        sx={{
+                            display: { xs: 'none', sm: 'block' },
+                        }}
                     >
                         <Typography variant='h2' fontWeight={800}>
                             Download today Snap it<span> </span>
@@ -92,13 +95,15 @@ const CustomersSignup = () => {
 
 
                     <Grid
+                        sx={{
+                            display: { xs: 'none', sm: 'block' }, justifyContent: 'start', p: 5
+                        }}
                         item
                         xs={12} md={6.5}
                         component={motion.div}
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'start', p: 5 }}
                     >
                         <motion.div variants={leftVariants}>
                             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -106,6 +111,15 @@ const CustomersSignup = () => {
                             </Box>
                         </motion.div>
                     </Grid>
+
+                    <Box sx={{
+                        display: { xs: 'block', sm: 'none' },justifyContent:'center',
+                    }}
+                    p={5}
+                    >
+                        <img src={QR} width={'100%'} alt="" />
+
+                    </Box>
 
                 </Grid>
             </section>

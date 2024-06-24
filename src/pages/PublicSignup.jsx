@@ -23,7 +23,7 @@ const PublicSignup = () => {
     useEffect(() => {
         AOS.init({
             duration: 1000,
-            once: false,
+            once: true,
             mirror: true,
         });
     }, []);
@@ -67,10 +67,9 @@ const PublicSignup = () => {
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
-                    sx={{ display: 'flex', justifyContent: 'center', p: 2 }}
+                    sx={{ display: 'flex', justifyContent: 'center', p: 2,textAlign:'center' }}
                 >
                     <motion.div variants={cardVariants}>
-                        {/* <ServiceCard title={service.title} /> */}
                         <Typography variant='h2' fontWeight={800}>
                             Sign up <span> </span>
                             <span style={{ color: '#f2b51c' }}>Now!</span></Typography>
@@ -78,16 +77,14 @@ const PublicSignup = () => {
                     </motion.div>
                 </Grid>
 
-                <Box sx={{ display: 'flex', justifyContent: 'center', p: 5 }} >
-                    {/* <img src={msteps} alt="" /> */}
-                </Box>
+              
 
             </section>
             <section>
 
-                <Grid container mt={-15}>
+                <Grid container >
 
-                    <Grid item xs={12} md={4} p={10}
+                    <Grid item xs={12} md={4} p={{ xs: 5, lg: 10 }}
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
@@ -120,7 +117,7 @@ const PublicSignup = () => {
                         </Card>
                     </Grid>
 
-                    <Grid item xs={12} md={4} p={10}
+                    <Grid item xs={12} md={4} p={{ xs: 5, lg: 10 }}
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
@@ -153,7 +150,7 @@ const PublicSignup = () => {
                         </Card>
                     </Grid>
 
-                    <Grid item xs={12} md={4} p={10}
+                    <Grid item xs={12} md={4} p={{ xs: 4, lg: 10 }}
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
@@ -162,7 +159,7 @@ const PublicSignup = () => {
                         flexDirection={'column'}
                     >
                         <Card 
-                        onClick={() => handleNavigate('/brand-signup')}
+                        onClick={() => handleNavigate('/merchant-signup')}
                         sx={{
                             bgcolor: '#190e0e',
                             transition: 'transform 0.3s ease-in-out',

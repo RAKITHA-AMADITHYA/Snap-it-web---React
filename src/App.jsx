@@ -3,60 +3,59 @@ import React, { lazy, Suspense } from "react";
 import Loader from 'react-loaders';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import ThemeProvider from "./theme";
-import Brands from './pages/Brands';
-import Merchants from './pages/Merchant';
-import AboutUs from './pages/AboutUs';
-import Contact from './pages/Contact';
-import CustomersSignup from './pages/CustomersSignup';
-import PublicSignup from './pages/PublicSignup';
-import Customer from './pages/Customer';
-import BrandSignup from './pages/BrandSignup';
-import MerchantSignup from './pages/MerchantSignup';
 
 const Home = lazy(() => import("./pages/Home"));
 const Layout = lazy(() => import("./layouts/Layout"));
-const Error1 = lazy(() => import("./components/error/Error1"));
+const Error404 = lazy(() => import("./components/error/Error1"));
+const Brands = lazy(() => import("./pages/Brands"));
+const Merchants = lazy(() => import("./pages/Merchant"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const Contact = lazy(() => import("./pages/Contact"));
+const CustomersSignup = lazy(() => import("./pages/CustomersSignup"));
+const PublicSignup = lazy(() => import("./pages/PublicSignup"));
+const Customer = lazy(() => import("./pages/Customer"));
+const BrandSignup = lazy(() => import("./pages/BrandSignup"));
+const MerchantSignup = lazy(() => import("./pages/MerchantSignup"));
+
+
+function SuspenseWrapper({ children }) {
+  return (
+    <Suspense
+      fallback={
+        <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+          <Loader type="line-scale" color="#f2b51c" active />
+        </div>
+      }
+    >
+      {children}
+    </Suspense>
+  );
+}
+
+
 
 function App() {
   return (
+   
     <ThemeProvider>
       <Router>
-        <Suspense
-          fallback={
-            <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-              <Loader type="line-scale" color="#0070C0" active />
-            </div>
-          }
-        >
-          <Routes>
-            <Route path="/*" element={<Error1 />} />
-            <Route element={<Layout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/brands" element={<Brands />} />
-              <Route path="/merchants" element={<Merchants />} />
-              <Route path="/about-us" element={<AboutUs />} />
-              <Route path="/contact-us" element={<Contact />} />
-              <Route path="/customer-signup" element={<CustomersSignup />} />
-              <Route path="/signup" element={<PublicSignup />} />
-              <Route path="/customer" element={<Customer />} />
-              <Route path="/brand-signup" element={<BrandSignup />} />
-              <Route path="/merchant-signup" element={<MerchantSignup />} />
+        <Routes>
+        <Route path="/*" element={<Error404 />} />
+        <Route element={<Layout />}>
+        <Route path="/" element={<SuspenseWrapper><Home /></SuspenseWrapper>} />
+        <Route path="/brands" element={<SuspenseWrapper><Brands /></SuspenseWrapper>} />
+        <Route path="/merchants" element={<SuspenseWrapper><Merchants /></SuspenseWrapper>} />
+        <Route path="/about-us" element={<SuspenseWrapper><AboutUs /></SuspenseWrapper>} />
+        <Route path="/contact-us" element={<SuspenseWrapper><Contact /></SuspenseWrapper>} />
+        <Route path="/customer-signup" element={<SuspenseWrapper><CustomersSignup /></SuspenseWrapper>} />
+        <Route path="/signup" element={<SuspenseWrapper><PublicSignup /></SuspenseWrapper>} />
+        <Route path="/customer" element={<SuspenseWrapper><Customer /></SuspenseWrapper>} />
+        <Route path="/brand-signup" element={<SuspenseWrapper><BrandSignup /></SuspenseWrapper>} />
+        <Route path="/merchant-signup" element={<SuspenseWrapper><MerchantSignup /></SuspenseWrapper>} />
 
-
-
-
-
-
-
-              
-
-              
-
-
-           
-            </Route>
-          </Routes>
-        </Suspense>
+        
+        </Route>
+        </Routes>
       </Router>
     </ThemeProvider>
   );

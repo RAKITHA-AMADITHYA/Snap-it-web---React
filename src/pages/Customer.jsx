@@ -16,10 +16,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Customer = () => {
     const section2Ref = useRef(null);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const handleNavigate = (path) => {
         navigate(path);
-      };
+    };
+
+
 
     useEffect(() => {
         AOS.init({
@@ -72,20 +74,20 @@ const Customer = () => {
             <section>
 
                 <Grid container>
-                    <Grid item xs={12} md={6} p={10}
+                    <Grid item xs={12} md={6} p={{ xs: 2, lg: 10 }}
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
                     >
-                        <Typography variant='h1' fontWeight={800}>
+                        <Typography variant='h1' fontWeight={800} sx={{ fontSize: { xs: '2.5rem', lg: '3.5rem' } }}>
                             Snap it for <br /><span> </span>
                             <span style={{ color: '#f2b51c' }}>Customers</span>
 
                         </Typography>
 
-                        <Typography variant='subtitle1' mt={1} textAlign={'justify'}>
+                        <Typography variant='subtitle1' mt={1} textAlign={'justify'} sx={{ fontSize: { xs: '15px', lg: '18px' } }}>
 
-                        Snap it is a revolutionary platform that offers delightful rewards to customers by connecting with favorite brands. It transforms everyday interactions into rewarding experiences, making shopping journeys more enjoyable and memorable. It ensures customers feel appreciated and valued.
+                            Snap it is a revolutionary platform that offers delightful rewards to customers by connecting with favorite brands. It transforms everyday interactions into rewarding experiences, making shopping journeys more enjoyable and memorable. It ensures customers feel appreciated and valued.
                         </Typography>
                         <Button variant='contained' sx={{ mt: 2 }} onClick={() => handleNavigate('/customer-signup')}>Get Started</Button>
                     </Grid>
@@ -98,10 +100,10 @@ const Customer = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'center', p: 5 }}
+                        sx={{ display: 'flex', mt: { xs: -8, sm: 0, md: 5, lg: -5 }, justifyContent: 'center', p: { xs: 5, lg: 10 } }}
                     >
                         <motion.div variants={leftVariants}>
-                            <img src={CustomerImg} width={'100%'} alt="" />
+                            <img src={CustomerImg} width={{ xs: '100%' }} alt="" />
 
                         </motion.div>
                     </Grid>
@@ -110,8 +112,8 @@ const Customer = () => {
             </section>
 
 
-            {/* Section 2 */}
-            <section style={{ marginTop: '20px' }}>
+            {/* Section 2- Features Title */}
+            <section >
 
                 <Grid
                     item
@@ -119,12 +121,11 @@ const Customer = () => {
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
-                    sx={{ display: 'flex', justifyContent: 'center', p: 5 }}
+                    sx={{ display: 'flex', justifyContent: 'center', p: { xs: 2, lg: 2 } }}
                 >
                     <motion.div variants={leftVariants}>
-                        {/* <ServiceCard title={service.title} /> */}
                         <Typography variant='h2' textAlign={'center'} fontWeight={700}>The core features of<span> </span>
-                        <span style={{ color: '#f2b51c' }}>SnapIt</span>    </Typography>
+                            <span style={{ color: '#f2b51c' }}>SnapIt</span>    </Typography>
 
                     </motion.div>
                 </Grid>
@@ -137,42 +138,50 @@ const Customer = () => {
             <section ref={section2Ref} style={{ marginTop: '20px' }}>
 
                 <Grid container >
+
+                    {/* wallet card */}
                     <Grid
                         item
                         component={motion.div}
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'start', p: 5 }}
+                        sx={{
+                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 5 }
+                        }}
                         md={6}
                     >
                         <motion.div variants={cardVariants}>
                             <ServiceCardTwo fontsize={'18px'} img={Wallet} widthImg={'180px'} marginTop={'-15px'} title={"Wallet"} description={"Effortlessly accumulate your rewards by scanning the QR codes offered by brands. Our rewards never expire, so you can collect as much as you want and reach the goal you have in mind."} />
                         </motion.div>
                     </Grid>
-
+                    {/* My Shopping list card */}
                     <Grid
                         item
                         component={motion.div}
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'start', p: 5 }}
+                        sx={{ display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 5 } }}
                         md={6}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo img={ShoppingList} fontsize={'18px'} imgMt={'10px'} marginTop={'-10px'}  widthImg={'130px'} title={"My Shopping List"} description={"Snap it shopping list management feature helps you to shop efficiently. Add new items to your list, save a list, or even share a list, making your trips to the store/s more organized and rewarding."} />
+                            <ServiceCardTwo img={ShoppingList} fontsize={'18px'} imgMt={'10px'} marginTop={'-10px'} widthImg={'130px'} title={"My Shopping List"} description={"Snap it shopping list management feature helps you to shop efficiently. Add new items to your list, save a list, or even share a list, making your trips to the store/s more organized and rewarding."} />
                         </motion.div>
                     </Grid>
 
+                    {/* Wish list */}
                     <Grid
                         item
                         component={motion.div}
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'start', p: 5 }}
-                        md={6}
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'start',
+                            p: { xs: 2, lg: 5 }
+                        }} md={6}
                     >
                         <motion.div variants={cardVariants}>
                             <ServiceCardTwo fontsize={'18px'} img={WishList} imgMt={'30px'} widthImg={'100px'} title={"Wish Lists"} description={"List out items you would like to have promotional offers on to your Wish list. The wish list will help the Snap it team negotiate with brand owners for customer-driven offers."} />
@@ -185,11 +194,11 @@ const Customer = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'start', p: 5 }}
+                        sx={{ display: 'flex', justifyContent: 'start',  p: { xs: 2, lg: 5 } }}
                         md={6}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo img={reward2}fontsize={'18px'}  imgMt={'30px'} widthImg={'100px'} title={"Favourites"} description={"Add your preferred items on Snap it onto the Favourites list for easy viewing of available offers."} />
+                            <ServiceCardTwo img={reward2} fontsize={'18px'} imgMt={'30px'} widthImg={'100px'} title={"Favourites"} description={"Add your preferred items on Snap it onto the Favourites list for easy viewing of available offers."} />
                         </motion.div>
                     </Grid>
 
