@@ -68,7 +68,7 @@ const CustomersSignup = () => {
                         </Typography>
 
                         <Typography variant='h5' mt={1} fontWeight={400} textAlign={'justify'}>
-                            Now yo can scan the QR code form your mobile and checkout our mobile App or download from below
+                            Now you can scan the QR code form your mobile and checkout our mobile App or download from below
                         </Typography>
 
                         <Button

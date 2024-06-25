@@ -142,7 +142,7 @@ const Brands = () => {
 
             <section ref={section2Ref} style={{ marginTop: '20px' }}>
 
-                <Grid container >
+                <Grid container p={1}>
                     <Grid
                         item
                         component={motion.div}
@@ -150,8 +150,8 @@ const Brands = () => {
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
                         sx={{
-                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 5 }
-                        }}                        md={6}
+                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 }
+                        }}                        md={3}
                     >
                         <motion.div variants={cardVariants}>
                             <ServiceCardTwo img={Reward} widthImg={'150px'} marginTop={'-25px'} title={"Mass Rewarding"} description={"The core features of Snap it focuses on revolutionizing the traditional approach to consumer engagement"} />
@@ -165,8 +165,8 @@ const Brands = () => {
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
                         sx={{
-                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 5 }
-                        }}                        md={6}
+                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 }
+                        }}                        md={3}
                     >
                         <motion.div variants={cardVariants}>
                             <ServiceCardTwo img={Analize} imgMt={'30px'} widthImg={'100px'} title={"Real-time Analytics"} description={"Snap it incorporates real-time analytics to provide brands with valuable insights into consumer behavior and preferences. This data-driven approach empowers businesses to make informed decisions, refine their marketing strategies, and tailor their offerings to better resonate with their target audience. Real-time analytics enable brands to adapt quickly to market trends and consumer expectations."} />
@@ -180,8 +180,8 @@ const Brands = () => {
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
                         sx={{
-                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 5 }
-                        }}                        md={6}
+                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 }
+                        }}                        md={3}
                     >
                         <motion.div variants={cardVariants}>
                             <ServiceCardTwo img={chart} imgMt={'30px'} widthImg={'100px'} title={"Streamlined Process"} description={"The platform streamlines the process of rewarding consumers, ensuring efficiency and ease of use. Brands can seamlessly distribute rewards, fostering a positive and memorable experience for the consumers. Snap it’'s user-friendly interface ensures that both brands and consumers can engage effortlessly, enhancing the overall user experience."} />
@@ -195,8 +195,8 @@ const Brands = () => {
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
                         sx={{
-                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 5 }
-                        }}                        md={6}
+                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 }
+                        }}                        md={3}
                     >
                         <motion.div variants={cardVariants}>
                             <ServiceCardTwo img={reward2} imgMt={'30px'} widthImg={'100px'} title={"One-to-One Rewards"} description={"Snap it emphasizes personalized engagement through its one-to-one rewards system. This individualized approach ensures that consumers feel valued and recognized by the brands they interact with. By tailoring rewards to specific consumer preferences and behaviors, brands can cultivate a sense of loyalty and encourage repeat purchases."} />

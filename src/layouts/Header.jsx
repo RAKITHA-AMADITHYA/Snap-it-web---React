@@ -3,6 +3,14 @@ import { Badge, Box, Button, Drawer, Grid, IconButton, Link, List, ListItem, Lis
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Make sure this import is correct
 import Logo from '../assets/img/logo.png';
+import qrBtn from '../assets/img/qrBtn.png';
+import qrcode from '../assets/img/qr.png';
+import playstore from '../assets/img/playstore.png';
+import appstore from '../assets/img/appstore.png';
+
+
+
+
 
 function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -89,8 +97,10 @@ function Header() {
               ))}
 
             </List>
+
+
             <Box sx={{ display: 'flex', justifyContent: 'center', p: 1 }}>
-              <Button variant='outlined' fullWidth  onClick={() => { handleLoginClick(); handleDrawerClose(); }}>Login</Button>
+              <Button variant='outlined' fullWidth onClick={() => { handleLoginClick(); handleDrawerClose(); }}>Login</Button>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', p: 1 }}>
               <Button variant='contained' fullWidth onClick={() => { handleNavigate('/signup'); handleDrawerClose(); }}>Sign up</Button>
@@ -107,8 +117,8 @@ function Header() {
         >
           <Grid container p={1} onMouseLeave={handleClose}>
             {/* Logo */}
-            <Grid item xs={11} md={2} display={'flex'} justifyContent={'center'} alignItems={'end'} >
-              <img src={Logo} width={'30%'} alt="Logo" />
+            <Grid item xs={11} md={1} display={'flex'} justifyContent={'center'} alignItems={'end'} >
+              <img src={Logo} width={'65%'} alt="Logo" />
             </Grid>
 
             <Grid item xs={1} sm={1} md={1} display={{ xs: 'flex', sm: 'flex', md: 'none', lg: 'none', xl: 'none' }} justifyContent={'center'} alignItems={'center'}>
@@ -118,7 +128,7 @@ function Header() {
             </Grid>
 
             {/* Nav Links */}
-            <Grid item md={8} display={{ xs: 'none', sm: 'none', md: 'flex', lg: 'flex' }} justifyContent={'center'} p={2}>
+            <Grid item md={8} display={{ xs: 'none', sm: 'none', md: 'flex', lg: 'flex' }} justifyContent={'center'} alignItems={'end'} p={2}>
               <Grid container spacing={4} display={'flex'} justifyContent={'center'} alignItems={'end'} textAlign={'center'}>
 
                 {/*Home  */}
@@ -268,9 +278,101 @@ function Header() {
               </Grid>
             </Grid>
 
-            <Grid item md={2} display={{ xs: 'none', sm: 'none', md: 'flex', lg: 'flex' }} gap={1} justifyContent={'center'} alignItems={'end'} p={2}>
-              <Button variant='outlined' onClick={handleLoginClick}>Log In</Button>
-              <Button variant='contained' onClick={() => handleNavigate('/signup')}>Sign Up</Button>
+
+
+
+            <Grid item md={1} display={{ xs: 'none', md: 'flex' }} justifyContent={'center'} alignItems={'center'}>
+              <div style={{ position: 'relative' }}>
+                <img
+                  src={qrBtn}
+                  width="140px"
+                  alt=""
+                  onMouseEnter={() => setDrawerOpen(true)}
+                  onMouseLeave={handleDrawerClose}
+                />
+
+                <Box sx={{
+                  position: 'absolute',
+                  bottom: 'auto',
+                  left: '150%',
+                  transform: 'translateX(-50%)',
+                  width: '350px',
+                  height: 'auto',
+                  backgroundColor: '#FFFF',
+                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                  display: drawerOpen ? 'block' : 'none',
+                  mt: 3,
+                  borderBottomLeftRadius: '10px'
+                }}>
+                  <Grid container>
+                    <Grid item xs={5} display={'flex'} p={1} justifyContent={'center'}>
+                      <img src={qrcode} width={'90%'} alt="" />
+                    </Grid>
+                    <Grid item xs={7} p={1}>
+                      <Typography variant='subtitle1' fontWeight={600}>Download Snap it Now</Typography>
+                      <Typography variant='p' >Scan the QR to download</Typography>
+
+                    
+                      {/* <Button
+                        variant="contained"
+                        // onClick={handleClick}
+                        fullWidth
+                        sx={{
+                          mt: 2,
+                          backgroundImage: `url(${playstore})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          height: '40%', // Set the height as per your image dimensions
+                          padding: 0, // Remove any default padding
+                          borderRadius: '8px', // Optional: adjust border radius
+                          '&:hover': {
+                            backgroundImage: `url(${playstore})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                          }
+                        }}
+                      ></Button> */}
+                      <Box mt={1}>
+                        <img src={playstore}width={'70%'} alt="" />
+                      </Box>
+                      <Box mt={1}>
+                        <img src={appstore} width={'70%'} alt="" />
+                      </Box>
+{/* <Button
+                        variant="contained"
+                        // onClick={handleClick}
+                        fullWidth
+                        sx={{
+                          mt: 2,
+                          backgroundImage: `url(${appstore})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          height: '40%', // Set the height as per your image dimensions
+                          padding: 0, // Remove any default padding
+                          borderRadius: '8px', // Optional: adjust border radius
+                          '&:hover': {
+                            backgroundImage: `url(${appstore})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                          }
+                        }}
+                      ></Button> */}
+
+                    </Grid>
+                  </Grid>
+
+                </Box>
+
+
+              </div>
+            </Grid>
+
+            <Grid item md={1} display={{ xs: 'none', md: 'flex', }} sx={{ p: 1 }} justifyContent={'center'} alignItems={'center'}>
+              <Button variant='outlined' fullWidth sx={{ height: '35px' }} onClick={handleLoginClick}>Log In</Button>
+
+            </Grid>
+            <Grid item md={1} display={{ xs: 'none', md: 'flex', }} sx={{ p: 1 }} justifyContent={'center'} alignItems={'center'}>
+              <Button variant='contained' sx={{ height: '35px' }} fullWidth onClick={() => handleNavigate('/signup')}>Sign Up</Button>
 
             </Grid>
 

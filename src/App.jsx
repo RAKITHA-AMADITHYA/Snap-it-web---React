@@ -16,6 +16,8 @@ const PublicSignup = lazy(() => import("./pages/PublicSignup"));
 const Customer = lazy(() => import("./pages/Customer"));
 const BrandSignup = lazy(() => import("./pages/BrandSignup"));
 const MerchantSignup = lazy(() => import("./pages/MerchantSignup"));
+const MerchantSteps = lazy(() => import("./pages/MerchantSteps"));
+
 
 
 function SuspenseWrapper({ children }) {
@@ -52,6 +54,7 @@ function App() {
         <Route path="/customer" element={<SuspenseWrapper><Customer /></SuspenseWrapper>} />
         <Route path="/brand-signup" element={<SuspenseWrapper><BrandSignup /></SuspenseWrapper>} />
         <Route path="/merchant-signup" element={<SuspenseWrapper><MerchantSignup /></SuspenseWrapper>} />
+        <Route path="/merchant-steps" element={<SuspenseWrapper><MerchantSteps /></SuspenseWrapper>} />
 
         
         </Route>

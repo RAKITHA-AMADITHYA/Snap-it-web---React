@@ -20,7 +20,7 @@ body{
   
   /* Apply styles to the scrollbar thumb */
   ::-webkit-scrollbar-thumb {
-    background-color: #db6262; 
+    background-color: #f2b51c; 
     border-radius: 3px; 
   }
 

@@ -137,7 +137,7 @@ const Customer = () => {
 
             <section ref={section2Ref} style={{ marginTop: '20px' }}>
 
-                <Grid container >
+                <Grid container p={1} >
 
                     {/* wallet card */}
                     <Grid
@@ -147,12 +147,12 @@ const Customer = () => {
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
                         sx={{
-                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 5 }
+                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 }
                         }}
-                        md={6}
+                        md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo fontsize={'18px'} img={Wallet} widthImg={'180px'} marginTop={'-15px'} title={"Wallet"} description={"Effortlessly accumulate your rewards by scanning the QR codes offered by brands. Our rewards never expire, so you can collect as much as you want and reach the goal you have in mind."} />
+                            <ServiceCardTwo fontsize={'15px'} img={Wallet} widthImg={'180px'} marginTop={'-15px'} title={"Wallet"} description={"Effortlessly accumulate your rewards by scanning the QR codes offered by brands. Our rewards never expire, so you can collect as much as you want and reach the goal you have in mind."} />
                         </motion.div>
                     </Grid>
                     {/* My Shopping list card */}
@@ -162,11 +162,11 @@ const Customer = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 5 } }}
-                        md={6}
+                        sx={{ display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 } }}
+                        md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo img={ShoppingList} fontsize={'18px'} imgMt={'10px'} marginTop={'-10px'} widthImg={'130px'} title={"My Shopping List"} description={"Snap it shopping list management feature helps you to shop efficiently. Add new items to your list, save a list, or even share a list, making your trips to the store/s more organized and rewarding."} />
+                            <ServiceCardTwo img={ShoppingList} fontsize={'15px'} imgMt={'10px'} marginTop={'-10px'} widthImg={'130px'} title={"My Shopping List"} description={"Snap it shopping list management feature helps you to shop efficiently. Add new items to your list, save a list, or even share a list, making your trips to the store/s more organized and rewarding."} />
                         </motion.div>
                     </Grid>
 
@@ -180,11 +180,11 @@ const Customer = () => {
                         sx={{
                             display: 'flex',
                             justifyContent: 'start',
-                            p: { xs: 2, lg: 5 }
-                        }} md={6}
+                            p: { xs: 2, lg: 1 }
+                        }} md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo fontsize={'18px'} img={WishList} imgMt={'30px'} widthImg={'100px'} title={"Wish Lists"} description={"List out items you would like to have promotional offers on to your Wish list. The wish list will help the Snap it team negotiate with brand owners for customer-driven offers."} />
+                            <ServiceCardTwo fontsize={'15px'} img={WishList} imgMt={'30px'} widthImg={'100px'} title={"Wish Lists"} description={"List out items you would like to have promotional offers on to your Wish list. The wish list will help the Snap it team negotiate with brand owners for customer-driven offers."} />
                         </motion.div>
                     </Grid>
 
@@ -194,11 +194,11 @@ const Customer = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'start',  p: { xs: 2, lg: 5 } }}
-                        md={6}
+                        sx={{ display: 'flex', justifyContent: 'start',  p: { xs: 2, lg: 1 } }}
+                        md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo img={reward2} fontsize={'18px'} imgMt={'30px'} widthImg={'100px'} title={"Favourites"} description={"Add your preferred items on Snap it onto the Favourites list for easy viewing of available offers."} />
+                            <ServiceCardTwo img={reward2} fontsize={'15px'} imgMt={'30px'} widthImg={'100px'} title={"Favourites"} description={"Add your preferred items on Snap it onto the Favourites list for easy viewing of available offers."} />
                         </motion.div>
                     </Grid>
 

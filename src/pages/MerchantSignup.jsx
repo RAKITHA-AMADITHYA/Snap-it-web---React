@@ -1,7 +1,7 @@
-import { Grid, Typography, TextField, Button, Box } from '@mui/material';
+import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
-import Merchant from '../assets/img/merchant1.png';
+import React from 'react';
+import Merchant from '../assets/img/merchant33.png';
 
 const MerchantSignup = () => {
     const [nicFileName, setNicFileName] = React.useState('');

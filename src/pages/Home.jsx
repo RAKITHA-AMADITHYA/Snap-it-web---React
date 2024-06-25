@@ -127,7 +127,7 @@ const Home = () => {
               sx={{ 
                 display: 'flex', 
                 justifyContent: 'start', 
-                p: [2, null, 10], // Responsive array syntax: [xs, sm, md, lg, xl]
+                p: [2, null,2], // Responsive array syntax: [xs, sm, md, lg, xl]
               }}            >
               <motion.div variants={leftVariants}>
               <img src={Landingpage} width={'100%'} alt="" />
