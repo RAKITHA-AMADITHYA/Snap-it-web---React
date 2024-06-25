@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import Landingpage from '../assets/img/landingpage.png';
+import Landingpage from '../assets/img/l2.png';
 import product2 from '../assets/img/product2.png';
 import product3 from '../assets/img/product3.png';
 import ServiceCard from '../components/ContentCard/ServiceCard';

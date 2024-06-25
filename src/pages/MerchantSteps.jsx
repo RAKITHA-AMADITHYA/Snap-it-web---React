@@ -65,13 +65,13 @@ const MSteps = () => {
                     </Typography>
 
 
-                    <Button variant='contained' onClick={() => handleNavigate('/signup')} sx={{ mt: 5 }}>Get Started</Button>
+                    <Button variant='contained' onClick={() => handleNavigate('/merchant-signup')} sx={{ mt: 5 }}>Get Started</Button>
                 </Grid>
 
 
-              <Grid item xs={12} lg={6} display={'flex'} justifyContent={'center'} p={{ xs: 2, lg: 10 }} >
-                <img src={MerchantShop} width={'80%'} alt="" />
-              </Grid>
+                <Grid item xs={12} lg={6} display={'flex'} justifyContent={'center'} p={{ xs: 2, lg: 10 }} >
+                    <img src={MerchantShop} width={'80%'} alt="" />
+                </Grid>
 
             </Grid>
 
@@ -88,14 +88,14 @@ const MSteps = () => {
                     sx={{ display: 'flex', justifyContent: 'center', p: { xs: 2, lg: 5 } }}>
 
                     <motion.div variants={leftVariants}>
-                        <Box sx={{ display: { xs: 'none', sm: 'flex' }, justifyContent: 'center',  }} >
+                        <Box sx={{ display: { xs: 'none', sm: 'flex' }, justifyContent: 'center', }} >
                             <img src={msteps} alt="" />
                         </Box>
                     </motion.div>
                 </Grid>
 
 
-              
+
             </section>
 
 
@@ -122,91 +122,82 @@ const MSteps = () => {
 
             </section>
 
-            <Grid container>
-                
-            </Grid>
+            <Grid container style={{display:'flex',justifyContent:'center'}}>
+                <Grid
+                    item
+                    component={motion.div}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.8 }}
+                    sx={{
+                        display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 }
+                    }} md={2}
+                >
+                    <motion.div variants={leftVariants}>
+                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 3, minHeight: '300px' }}>
+                            <Typography variant='subtitle1' textAlign={'center'} fontWeight={700}> <span> </span>
+                                <span style={{ color: '#f2b51c' }}>Registration</span>
 
-            {/* <section> */}
-                {/* <Grid container p={1}>
+                            </Typography>
+                            <Typography variant='subtitle2' textAlign={'center'} fontWeight={400} mt={1}>
+                                Sign up easily as a merchant on Snap it. Gain access to powerful tools to create unique QR codes connecting your physical store to the digital Snap it payment system.
+                            </Typography>
 
-                    <Grid
-                        item
-                        component={motion.div}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true, amount: 0.8 }}
-                        sx={{
-                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 }
-                        }} md={2}
-                    >
-                        <motion.div variants={leftVariants}>
-                            <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 3, minHeight: '250px' }}>
-                                <Typography variant='subtitle1' textAlign={'center'} fontWeight={700}> (1)<span> </span>
-                                    <span style={{ color: '#f2b51c' }}>Registration</span>
+                        </Card>
+                    </motion.div>
+                </Grid>
 
-                                </Typography>
-                                <Typography variant='subtitle2' textAlign={'center'} fontWeight={400} mt={1}>
-                                    Sign up easily as a merchant on Snap it. Gain access to powerful tools to create unique QR codes connecting your physical store to the digital Snap it payment system.
-                                </Typography>
+                <Grid
+                    item
+                    component={motion.div}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.8 }}
+                    sx={{
+                        display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 }
+                    }} md={2}
+                >
+                    <motion.div variants={leftVariants}>
+                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 3, minHeight: '300px' }}>
+                            <Typography variant='subtitle1' textAlign={'center'} fontWeight={700}><span> </span>
+                                <span style={{ color: '#f2b51c' }}>Payment Made Simple</span>
 
-                            </Card>
-                        </motion.div>
-                    </Grid>
+                            </Typography>
+                            <Typography variant='subtitle2' textAlign={'center'} fontWeight={400} mt={2} >
+                                Customers scan your Snap it QR code for swift and secure payment transactions using Snap it rewards. Say goodbye to traditional payment hassles.
 
-                    <Grid
-                        item
-                        component={motion.div}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true, amount: 0.8 }}
-                        sx={{
-                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 }
-                        }} md={2}
-                    >
-                        <motion.div variants={leftVariants}>
-                            <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 3, minHeight: '235px' }}>
-                                <Typography variant='subtitle1' textAlign={'center'} fontWeight={700}>(2)<span> </span>
-                                    <span style={{ color: '#f2b51c' }}>Payment Made Simple</span>
-
-                                </Typography>
-                                <Typography variant='subtitle2' textAlign={'center'} fontWeight={400} mt={2} >
-                                    Customers scan your Snap it QR code for swift and secure payment transactions using Snap it rewards. Say goodbye to traditional payment hassles.
-
-                                </Typography>
+                            </Typography>
 
 
-                            </Card>
-                        </motion.div>
-                    </Grid>
+                        </Card>
+                    </motion.div>
+                </Grid>
 
+                <Grid
+                    item
+                    component={motion.div}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.8 }}
+                    sx={{
+                        display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 2 }
+                    }} md={2}
+                >
+                    <motion.div variants={leftVariants}>
+                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 2, minHeight: '293px' }} >
+                            <Typography variant='subtitle1' textAlign={'center'} fontWeight={700}><span> </span>
+                                <span style={{ color: '#f2b51c' }}>Earn Snap it Rewards</span>
 
+                            </Typography>
+                            <Typography variant='subtitle2' textAlign={'center'} fontWeight={400} mt={2}>
+                                Every transaction on Snap it earns you rewards, a virtual currency within our ecosystem. Encourage customer loyalty by offering a unique payment experience.
+                            </Typography>
 
-                    <Grid
-                        item
-                        component={motion.div}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true, amount: 0.8 }}
-                        sx={{
-                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 2 }
-                        }} md={2}
-                    >
-                        <motion.div variants={leftVariants}>
-                            <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 2, minHeight: '225px' }} >
-                                <Typography variant='subtitle1' textAlign={'center'} fontWeight={700}>(3)<span> </span>
-                                    <span style={{ color: '#f2b51c' }}>Earn Snap it Rewards</span>
+                        </Card>
+                    </motion.div>
+                </Grid>
 
-                                </Typography>
-                                <Typography variant='subtitle2' textAlign={'center'} fontWeight={400} mt={2}>
-                                    Every transaction on Snap it earns you rewards, a virtual currency within our ecosystem. Encourage customer loyalty by offering a unique payment experience.
-                                </Typography>
-
-                            </Card>
-                        </motion.div>
-                    </Grid>
-
-
-                    <Grid
+                <Grid
                         item
                         component={motion.div}
                         initial="offscreen"
@@ -217,8 +208,8 @@ const MSteps = () => {
                         }} md={2}
                     >
                         <motion.div variants={leftVariants}>
-                            <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 2, minHeight: '225px' }}>
-                                <Typography variant='h6' textAlign={'center'} fontWeight={700}>(4)<span> </span>
+                            <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 2, minHeight: '293px' }}>
+                                <Typography variant='h6' textAlign={'center'} fontWeight={700}><span> </span>
                                     <span style={{ color: '#f2b51c' }}>Cash Payback Flexibility</span>
 
                                 </Typography>
@@ -229,6 +220,44 @@ const MSteps = () => {
                             </Card>
                         </motion.div>
                     </Grid>
+
+
+                    <Grid
+                            item
+                            component={motion.div}
+                            initial="offscreen"
+                            whileInView="onscreen"
+                            viewport={{ once: true, amount: 0.8 }}
+                            sx={{
+                                display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 2 }
+                            }} md={2}
+                        >
+                            <motion.div variants={leftVariants}>
+                                <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 2, minHeight: '293px'  }}>
+                                    <Typography variant='h6' textAlign={'center'} fontWeight={700}> <span> </span>
+                                        <span style={{ color: '#f2b51c' }}>Instant CFT Transfer</span>
+
+                                    </Typography>
+                                    <Typography variant='subtitle2' textAlign={'justify'} fontWeight={400} >
+                                        Request cash payback, and we’ll initiate an instant Credit Transfer Fund (CFT) to your bank account. Quick access to funds for enhanced financial liquidity and operational efficiency.
+                                    </Typography>
+
+                                </Card>
+                            </motion.div>
+                        </Grid>
+
+            </Grid>
+
+            {/* <section> */}
+            {/* <Grid container p={1}>
+
+                 
+
+                
+
+
+
+                  
 
 
                         <Grid
