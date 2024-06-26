@@ -70,7 +70,7 @@ function Header() {
     <Box
       sx={{
         backgroundColor: '#ffffff',
-        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+        // boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
       }}
     >
       {!isLgScreen ? (
@@ -112,7 +112,7 @@ function Header() {
         <Box
           sx={{
             backgroundColor: '#ffffff',
-            boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+            // boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
           }}
         >
           <Grid container p={1} onMouseLeave={handleClose}>
@@ -293,6 +293,7 @@ function Header() {
 
                 <Box sx={{
                   position: 'absolute',
+                  zIndex:1,
                   bottom: 'auto',
                   left: '150%',
                   transform: 'translateX(-50%)',

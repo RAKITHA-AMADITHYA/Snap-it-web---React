@@ -204,9 +204,9 @@ const Merchants = () => {
             </section>
 
 
-            <section ref={section2Ref} style={{ marginTop: '20px' }}>
+            <section ref={section2Ref}>
 
-                <Grid container p={1}>
+                <Grid container p={5}>
                     <Grid
                         item
                         component={motion.div}
