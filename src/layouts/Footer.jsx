@@ -37,21 +37,26 @@ const Footer = () => {
           <div style={{ display: 'flex', gap: '25px', color: '#fff', marginTop: '10px', justifyContent: 'center', alignItems: 'end' }}>
             <LocalPhoneIcon sx={{ fontSize: { lg: '30px', color: '#FFFF' } }} />
             <Typography variant='h6' textAlign={'center'}>
-              (+94) 115 968 000<br />
+              (+94) 77 7331496<br />
 
 
             </Typography>
           </div>
 
           {/* Mail */}
-          <div style={{ display: 'flex', gap: '35px', color: '#fff', marginTop: '10px', justifyContent: 'center', alignItems: 'end' }}>
-            <MailIcon sx={{ fontSize: { lg: '30px' }, color: '#FFF' }} />
-            <Typography variant='h6' textAlign={'justify'}>info@mobios.lk</Typography>
+          <div style={{ display: 'flex', gap: '45px', color: '#fff', marginTop: '10px', justifyContent: 'center', alignItems: 'end' }}>
+            <MailIcon  sx={{ 
+        fontSize: { lg: '30px' }, 
+        color: '#FFF',
+       
+      }}  />
+            <Typography variant='h6' textAlign={'justify'}>info@snapit.lk</Typography>
           </div>
           {/* Location */}
           <div style={{ display: 'flex', gap: '20px', color: '#fff', marginTop: '10px', justifyContent: 'center', alignItems: 'start' }}>
             <LocationOnIcon sx={{ fontSize: { lg: '30px', color: '#FFFF' } }} />
             <Typography variant='p ' textAlign={'end'}>
+              Snapit PVT Ltd.<br/>
               No.12  Ridgeway Place, <br />
               Colombo 04,<br />
               Sri Lanka.
@@ -95,24 +100,30 @@ const Footer = () => {
 
 
               {/* Phone */}
-              <div style={{ display: 'flex', gap: '25px', color: '#fff', marginTop: '10px', justifyContent: 'end', alignItems: 'end', marginLeft: '-60px' }}>
-                <LocalPhoneIcon sx={{ fontSize: { lg: '30px', color: '#FFFF' }, ml: '-100px' }} />
+              <div style={{ display: 'flex',  color: '#fff', marginTop: '10px', justifyContent: 'end', alignItems: 'end',  flexDirection:'column' }}>
+                {/* <LocalPhoneIcon sx={{ fontSize: { lg: '30px', color: '#FFFF' }, ml: '-100px' }} /> */}
+                <Typography variant='h5' fontWeight={800} textAlign={'end'}>Contact</Typography>
                 <Typography variant='h6' textAlign={'end'}>
-                  (+94) 115 968 000<br />
+                  (+94) 77 7331496<br />
 
 
                 </Typography>
               </div>
 
               {/* Mail */}
-              <div style={{ display: 'flex', gap: '35px', color: '#fff', marginTop: '10px', justifyContent: 'end', alignItems: 'end' }}>
-                <MailIcon sx={{ fontSize: { lg: '30px' }, color: '#FFF' }} />
-                <Typography variant='h6' textAlign={'end'}>info@mobios.lk</Typography>
+              <div style={{ display: 'flex', color: '#fff', marginTop: '10px', justifyContent: 'end', alignItems: 'end',  flexDirection:'column' }}>
+                {/* <MailIcon sx={{ fontSize: { lg: '30px' }, color: '#FFF' ,ml:-20}} /> */}
+                <Typography variant='h5' fontWeight={800} textAlign={'end'}>Email</Typography>
+
+                <Typography variant='h6' textAlign={'end'}>info@snapit.lk</Typography>
               </div>
               {/* Location */}
-              <div style={{ display: 'flex', gap: '20px', color: '#fff', marginTop: '10px', justifyContent: 'end', alignItems: 'start' }}>
-                <LocationOnIcon sx={{ fontSize: { lg: '30px', color: '#FFFF' } }} />
+              <div style={{ display: 'flex',  color: '#fff', marginTop: '10px', justifyContent: 'end', alignItems: 'end',  flexDirection:'column' }}>
+                {/* <LocationOnIcon sx={{ fontSize: { lg: '30px', color: '#FFFF' } }} /> */}
+                <Typography variant='h5' fontWeight={800} textAlign={'end'}>Address</Typography>
+
                 <Typography variant='p ' textAlign={'end'}>
+                  Snapit PVT Ltd.<br/>
                   No.12  Ridgeway Place, <br />
                   Colombo 04,<br />
                   Sri Lanka.

@@ -8,6 +8,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import QR from '../assets/img/qr.png';
 import PlayStore from '../assets/img/playstore.png';
+import Appstore from '../assets/img/appstore.png';
+
 
 const CustomersSignup = () => {
 
@@ -71,26 +73,51 @@ const CustomersSignup = () => {
                             Now you can scan the QR code form your mobile and checkout our mobile App or download from below
                         </Typography>
 
-                        <Button
-                            variant="contained"
-                            onClick={handleClick}
+                        <div style={{gap:'2px'}}>
+                            <Button
+                                variant="contained"
+                                onClick={handleClick}
 
-                            sx={{
-                                mt: 5,
-                                backgroundImage: `url(${PlayStore})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                                width: '45%', // Set the width as per your image dimensions
-                                height: '20%', // Set the height as per your image dimensions
-                                padding: 0, // Remove any default padding
-                                borderRadius: '8px', // Optional: adjust border radius
-                                '&:hover': {
+                                sx={{
+                                    mt: 5,
                                     backgroundImage: `url(${PlayStore})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
-                                }
-                            }}
-                        ></Button>
+                                    width: '45%', // Set the width as per your image dimensions
+                                    height: '10vh', // Set the height as per your image dimensions
+                                    padding: 0, // Remove any default padding
+                                    borderRadius: '8px', // Optional: adjust border radius
+                                    '&:hover': {
+                                        backgroundImage: `url(${PlayStore})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                    }
+                                }}
+                            ></Button>
+
+<Button
+                                variant="contained"
+                                // onClick={handleClick}
+
+                                sx={{
+                                    mt: 5,
+                                    ml:2,
+                                    backgroundImage: `url(${Appstore})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    width: '45%', // Set the width as per your image dimensions
+                                    height: '10vh', // Set the height as per your image dimensions
+                                    padding: 0, // Remove any default padding
+                                    borderRadius: '8px', // Optional: adjust border radius
+                                    '&:hover': {
+                                        backgroundImage: `url(${Appstore})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                    }
+                                }}
+                            ></Button>
+                        </div>
+
                     </Grid>
 
 
@@ -113,9 +140,9 @@ const CustomersSignup = () => {
                     </Grid>
 
                     <Box sx={{
-                        display: { xs: 'block', sm: 'none' },justifyContent:'center',
+                        display: { xs: 'block', sm: 'none' }, justifyContent: 'center',
                     }}
-                    p={5}
+                        p={5}
                     >
                         <img src={QR} width={'100%'} alt="" />
 

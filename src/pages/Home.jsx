@@ -1,5 +1,5 @@
 
-import { Button, Divider, Grid, Typography } from '@mui/material';
+import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
@@ -8,7 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import Landingpage from '../assets/img/landingpage.png';
+import Landingpage from '../assets/img/landing3.png';
+import LogoImg from '../assets/img/logo2.png';
+
 import product2 from '../assets/img/product2.png';
 import product3 from '../assets/img/product3.png';
 import ServiceCard from '../components/ContentCard/ServiceCard';
@@ -21,7 +23,7 @@ import ServiceCard from '../components/ContentCard/ServiceCard';
 
 const Home = () => {
   const section2Ref = useRef(null);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const handleNavigate = (path) => {
     navigate(path);
   };
@@ -55,7 +57,38 @@ const Home = () => {
       },
     ],
   };
-  
+
+  const settingsHedder = {
+    dots: false,
+    infinite: true,
+    speed: 5000,
+    arrows: false,
+    slidesToShow: 1, // Default setting for all screen sizes
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    responsive: [
+      {
+        breakpoint: 1024, // Medium devices (tablets, less than 1024px)
+        settings: {
+          slidesToShow: 5, // Show 5 slides on medium devices
+        },
+      },
+      {
+        breakpoint: 768, // Small devices (landscape phones, 768px and up)
+        settings: {
+          slidesToShow: 2, // Show 2 slides on small devices
+        },
+      },
+      {
+        breakpoint: 480, // Extra small devices (portrait phones, less than 480px)
+        settings: {
+          slidesToShow: 1, // Show 2 slides on extra small devices
+        },
+      },
+    ],
+  };
+
 
   useEffect(() => {
     AOS.init({
@@ -94,10 +127,90 @@ const Home = () => {
   return (
     <>
 
-    {/* Section 1 */}
+      {/* Section 1 */}
       <section>
 
-        <Grid container>
+        <Grid item >
+          <Slider {...settingsHedder}>
+
+            <div style={{display:'flex',justifyContent:'start',alignItems:'start',flexDirection:'column',height:'40vh'}}>
+              <Grid container display={'flex'} justifyContent={'start'}>
+                <Grid
+                  item
+                  xs={12} md={6.5}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems:'center',
+                    p: [2, null, 2], // Responsive array syntax: [xs, sm, md, lg, xl]
+                  }}            >
+                  
+                    <img src={LogoImg} width={'45%'} height={'75%'} alt="" />
+
+                  
+                </Grid>
+
+
+                <Grid item xs={12} md={5.5}  p={{ xs: 2, lg: 10}   }
+                      
+          >
+            <Typography variant='h2' sx={{ fontSize: { xs: '2.3rem', lg: '3.5rem' } }} fontWeight={700}>
+              Experience The
+              Thrill of<span> </span>
+              <span style={{ color: '#f2b51c' }}>Discovery!</span>
+
+            </Typography>
+
+            {/* <Typography variant='h5' sx={{ fontSize: { xs: '15px', lg: '18px' } }} mt={1} fontWeight={400} textAlign={'justify'}>
+              Transforming Your Everyday Shopping Into A Rewards When Purchasing Your Favourite Brands And Products From Any Store Anywhere.
+            </Typography> */}
+            <Button variant='contained' onClick={() => handleNavigate('/signup')} sx={{mt:5}}>Get Started</Button>
+          </Grid>
+              </Grid>                  {/* <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"}/> */}
+            </div>  
+            
+            <div style>
+              <Grid container display={'flex'} justifyContent={'start'}>
+                <Grid
+                  item
+                  xs={12} md={6.5}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'start',
+                    alignItems:'start',
+                    p: [2, null, 2], // Responsive array syntax: [xs, sm, md, lg, xl]
+                  }}            >
+                  
+                  <img src={Landingpage} width={'100%'} alt="" />
+
+                  
+                </Grid>
+
+
+                <Grid item xs={12} md={5.5}  p={{ xs: 2, lg: 10} }
+                       
+          >
+            {/* <Typography variant='h2' sx={{ fontSize: { xs: '2.3rem', lg: '4rem' } }} fontWeight={800}>
+              Experience The
+              Thrill of<span> </span>
+              <span style={{ color: '#f2b51c' }}>Discovery!</span>
+
+            </Typography> */}
+
+            <Typography variant='h2' sx={{ fontSize: { xs: '2.3rem', lg: '2rem' } }} mt={1} fontWeight={600} textAlign={'start'}>
+              Transforming Your Everyday Shopping Into A Rewards When Purchasing Your Favourite Brands And Products From Any Store Anywhere.
+            </Typography>
+            <Button variant='contained' onClick={() => handleNavigate('/signup')} sx={{mt:5}}>Get Started</Button>
+          </Grid>
+              </Grid>                  {/* <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"}/> */}
+            </div>  
+
+
+
+
+          </Slider></Grid>
+
+        {/* <Grid container>
           <Grid item xs={12} md={5.5}  p={{ xs: 2, lg: 10} }
                         data-aos="fade-right"
                 data-aos-anchor-placement="top-bottom"
@@ -135,64 +248,64 @@ const Home = () => {
               </motion.div>
             </Grid>
 
-        </Grid>
+        </Grid> */}
       </section>
 
 
-    {/* Section 2 */}
-           <section >
+      {/* Section 2 */}
+      <section >
 
-             <Grid
-              item
-              component={motion.div}
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.8 }}
-              sx={{ display: 'flex', justifyContent: 'start', p: [2, null, 10]}}
-            >
-              <motion.div variants={leftVariants}>
-                <Typography variant='h2' fontWeight={700}>Explore </Typography>
-              <Divider sx={{ width: '100%', height: '5px', backgroundColor: '#f2b51c', marginTop: '10px' }} />
+        <Grid
+          item
+          component={motion.div}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.8 }}
+          sx={{ display: 'flex', justifyContent: 'start', p: [2, null, 10] }}
+        >
+          <motion.div variants={leftVariants}>
+            <Typography variant='h2' fontWeight={700}>Explore </Typography>
+            <Divider sx={{ width: '100%', height: '5px', backgroundColor: '#f2b51c', marginTop: '10px' }} />
 
-               </motion.div>
-            </Grid>
-            
-             <Grid item p={2}>
-               <Slider {...settings}>
-                 
-                <div style>
-                   <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"}/>
-                </div>  <div>
-                   <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"}/>
-                </div> 
+          </motion.div>
+        </Grid>
 
-                <div style>
-                   <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"}/>
-                </div>  <div>
-                   <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"}/>
-                </div><div style>
-                   <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"}/>
-                </div>  <div>
-                   <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"}/>
-                </div><div style>
-                   <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"}/>
-                </div>  <div>
-                   <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"}/>
-                </div><div style>
-                   <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"}/>
-                </div>  <div>
-                   <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"}/>
-                </div>
-                
-                
-              </Slider></Grid>
+        <Grid item p={5} mt={-10}>
+          <Slider {...settings}>
 
-          </section>
+            <div style>
+              <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"} />
+            </div>  <div>
+              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"} />
+            </div>
+
+            <div style>
+              <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"} />
+            </div>  <div>
+              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"} />
+            </div><div style>
+              <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"} />
+            </div>  <div>
+              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"} />
+            </div><div style>
+              <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"} />
+            </div>  <div>
+              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"} />
+            </div><div style>
+              <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"} />
+            </div>  <div>
+              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"} />
+            </div>
+
+
+          </Slider></Grid>
+
+      </section>
 
 
 
     </>
-   
+
   )
 }
 

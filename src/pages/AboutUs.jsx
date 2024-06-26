@@ -105,7 +105,7 @@ const AboutUs = () => {
 
 
             {/* Section 2 */}
-            <section>
+            {/* <section>
 
                 <Grid container>
 
@@ -163,10 +163,10 @@ const AboutUs = () => {
 
                         </motion.div>
                     </Grid>
-            </section>
+            </section> */}
 
 
-            <section style={{ marginTop: '60px' }}>
+            <section >
 
                 <Grid
                     item
@@ -187,7 +187,7 @@ const AboutUs = () => {
                     <Divider sx={{ width: '40%', height: '5px', backgroundColor: '#f2b51c', marginTop: '-30px' }} />
                 </div>
 
-                <Box sx={{ p: 2, textAlign: 'justify' }}>
+                <Box sx={{ p: 10, textAlign: 'justify' ,mt:-10}}>
                     <Typography variant='h6'>mobiOs has transcended geographical boundaries, and our solutions have left a mark in countries such as Japan, Bangladesh, Myanmar, Maldives, and Malaysia. Our enterprise solutions have been adopted by a wide array of industries, including healthcare, finance, education, and more. We take immense pride in the positive impact we've made in these regions, transforming the way businesses operate and enhancing their competitiveness on a global scale.</Typography>
 
                 </Box>
@@ -217,7 +217,7 @@ const AboutUs = () => {
                     <Divider sx={{ width: '60%', height: '5px', backgroundColor: '#f2b51c', marginTop: '-30px' }} />
                 </div>
 
-                <Box sx={{ p: 2, textAlign: 'justify' }}>
+                <Box sx={{ p: 10, textAlign: 'justify',mt:-10 }}>
                     <Typography variant='h6'>At mobiOs, innovation is the cornerstone of our identity. We remain dedicated to staying at the forefront of technology trends and industry best practices. By consistently adapting to the latest advancements in the software development landscape, we equip our clients with solutions that are both future-proof and competitive.
 
                         As a testament to our commitment to quality, mobiOs is recognized for its exceptional standards of service and dedication to excellence in every project we undertake.
