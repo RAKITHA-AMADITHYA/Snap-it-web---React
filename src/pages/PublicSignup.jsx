@@ -173,7 +173,7 @@ const PublicSignup = () => {
                                 justifyContent={'center'}
                                 flexDirection={'column'}
                                 alignItems={'center'}>
-                                <img src={Merchant} width={'90%'} style={{
+                                <img src={Merchant} width={'100%'} style={{
                                     '&:hover': {
                                         transform: 'scale(1.05)',
                                     }

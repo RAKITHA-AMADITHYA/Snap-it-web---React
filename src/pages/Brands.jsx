@@ -140,9 +140,9 @@ const Brands = () => {
             </section>
 
 
-            <section ref={section2Ref} style={{ marginTop: '20px' }}>
+            <section ref={section2Ref} >
 
-                <Grid container p={1}>
+                <Grid container p={5} mt={-5}>
                     <Grid
                         item
                         component={motion.div}
@@ -169,7 +169,7 @@ const Brands = () => {
                         }}                        md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo img={Analize} imgMt={'30px'} widthImg={'100px'} title={"Real-time Analytics"} description={"Snap it incorporates real-time analytics to provide brands with valuable insights into consumer behavior and preferences. This data-driven approach empowers businesses to make informed decisions, refine their marketing strategies, and tailor their offerings to better resonate with their target audience. Real-time analytics enable brands to adapt quickly to market trends and consumer expectations."} />
+                            <ServiceCardTwo img={Analize} imgMt={'20px'} marginTop={'-1px'} widthImg={'100px'} title={"Real-time Analytics"} description={"Snap it incorporates real-time analytics to provide brands with valuable insights into consumer behavior and preferences. This data-driven approach empowers businesses to make informed decisions, refine their marketing strategies, and tailor their offerings to better resonate with their target audience. Real-time analytics enable brands to adapt quickly to market trends and consumer expectations."} />
                         </motion.div>
                     </Grid>
 

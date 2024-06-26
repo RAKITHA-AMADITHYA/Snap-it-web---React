@@ -1,10 +1,9 @@
-
 import React from "react";
 import { Outlet } from "react-router-dom";
 import MainHeader from "./Header";
 import Footer from "./Footer";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import {Box} from "@mui/material";
+import { Box } from "@mui/material";
 import Fab from "@mui/material/Fab";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Fade from "@mui/material/Fade";
@@ -20,8 +19,6 @@ function ScrollTop({ children }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
- 
-
   return (
     <Fade in={trigger}>
       <Box
@@ -36,18 +33,26 @@ function ScrollTop({ children }) {
 }
 
 const Layout = () => {
-  const handleBestWeb=()=>{
+  const handleBestWeb = () => {
     window.location.href = "https://www.vote.bestweb.lk/site/rukmadura_lk/";
-  }
+  };
+
   return (
     <div style={{ backgroundColor: "#ffff" }}>
-      <MainHeader />
-      <Box minHeight={"60svh"}>
+      {/* Wrap MainHeader in a div with fixed positioning */}
+      <div style={{ position: 'sticky', top: 0, zIndex: 10 }}>
+        <MainHeader />
+      </div>
+
+      {/* Adjust the Box to start below the MainHeader */}
+      <Box sx={{ marginTop: '20px' }} minHeight={"60vh"}>
         <Outlet />
       </Box>
+
       <Footer />
+
       <ScrollTop>
-        <Fab size="medium"  aria-label="scroll back to top"  >
+        <Fab size="medium" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
@@ -56,4 +61,3 @@ const Layout = () => {
 };
 
 export default Layout;
-
