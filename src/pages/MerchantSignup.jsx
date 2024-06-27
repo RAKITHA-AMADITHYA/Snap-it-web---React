@@ -1,116 +1,17 @@
 import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
-import Merchant from '../assets/img/merchant33.png';
-import { showAlertMessage } from '../app/alertMessageController';
 import { useForm } from 'react-hook-form';
+import { showAlertMessage } from '../app/alertMessageController';
+import Merchant from '../assets/img/merchant33.png';
 import { signUpMerchant } from '../services/userServices';
 
 const MerchantSignup = () => {
-    // const [nicFileName, setNicFileName] = React.useState('');
-    // const [brFileName, setBrFileName] = React.useState('');
-
-    // const [fullName, setFullName] = useState("");
-    // const [address, setAddress] = useState("");
-    // const [mobileNumber, setMobileNumber] = useState("");
-    // const [nic, setNic] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [country, setCountry] = useState("");
-    // const [companyName, setCompanyName] = useState("");
-    // const [fileBr, setFileBr] = useState("");
-
-    // const handleClick = () => {
-    //     window.location.href = 'https://brand.snapitonline.com/';
-    //   };
-    // const leftVariants = {
-    //     offscreen: {
-    //         opacity: 0
-    //     },
-    //     onscreen: {
-    //         x: 0,
-    //         opacity: 1,
-    //         transition: {
-    //             type: "spring",
-    //             bounce: 0.4,
-    //             duration: 0.8
-    //         }
-    //     }
-    // };
-
-    // const handleNicFileUpload = (event) => {
-    //     const file = event.target.files[0];
-    //     setNicFileName(file.name);
-    // };
-
-    // const handleBrFileUpload = (event) => {
-    //     const file = event.target.files[0];
-    //     setBrFileName(file.name);
-    // };
-
-
-    // const MerchantSingUp = async()=>{
-    //     const data = {
-    //         full_name: fullName,
-    //         address: address,
-    //         mobile_number: mobileNumber,
-    //         nic: nic,
-    //         file_path_nic: nicFile,
-    //         email: email,
-    //         country: country,
-    //         company_name: companyName,
-    //         company_reg_no: RegisterNumber,
-    //         file_path_br: file,
-    //         user_type: "merchant",
-    //       };
-
-    //       try 
-    //       {
-    //         const response = await signUpMerchant(data);
-    //         if(response && responseCode === 1000){
-    //             setFullName("");
-    //             setAddress("");
-    //             setMobileNumber("");
-    //             setNic("");
-    //             setEmail("");
-    //             setCountry("");
-    //             setCompanyName("");
-    //             setCompanyRegNo("");
-    //             setFileBr("");
-    //             setNicFile("");
-    //             setFile("");
-    //             setUploadedFileName("");
-    //             showAlertMessage({
-    //                 message:"Merchant Registered",
-    //                 type:"Success"
-    //             })
-    //         }
-    //         else{
-    //             showAlertMessage({
-    //                 message:response?.data?.message ?? "Merchant Already Exists",
-    //                 type:"error"
-    //             });
-    //         }          
-    //       } 
-    //       catch
-    //       {
-    //          showAlertMessage({
-    //             message:"Registration Failed",
-    //             type:"error",
-    //         });
-            
-    //       } 
-    // }
-
-
+   
     const [nicFileName, setNicFileName] = React.useState("");
     const [brFileName, setBrFileName] = React.useState("");
-  
-    //  const [companyRegNo, setCompanyRegNo] = useState("");
     const [file, setFile] = useState(null);
     const [nicFile, setNicFile] = useState(null);
-  
-  //   const [abc, setAbc] = useState();
-  //   const [def, setDef] = useState();
   
     const [fullName, setFullName] = useState("");
     const [address, setAddress] = useState("");
@@ -476,94 +377,3 @@ const MerchantSignup = () => {
 }
 
 export default MerchantSignup;
-
-
-
-  {/* <form onSubmit={MerchantSingUp}>
-                        <Grid container spacing={2} mt={1}>
-                            <Grid item xs={12} md={6}>
-                                <TextField onChange={(e)=>{setFullName(e.target.value)}} fullWidth label="Full Name" variant="outlined" />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <TextField fullWidth label="Address" variant="outlined" />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <TextField fullWidth label="Mobile Number" variant="outlined" />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <TextField fullWidth label="NIC" variant="outlined" />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <TextField
-                                    fullWidth
-                                    label="NIC Upload"
-                                    variant="outlined"
-                                    InputProps={{
-                                        endAdornment: (
-                                            <React.Fragment>
-                                                <input
-                                                    type="file"
-                                                    style={{ display: 'none' }}
-                                                    onChange={handleNicFileUpload}
-                                                    id="nic-upload"
-                                                />
-                                                <label htmlFor="nic-upload">
-                                                    <Button component="span" variant="outlined">
-                                                        Upload
-                                                    </Button>
-                                                </label>
-                                            </React.Fragment>
-                                        ),
-                                    }}
-                                    value={nicFileName}
-                                />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <TextField fullWidth label="Email" variant="outlined" />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <TextField
-                                    select
-                                    fullWidth
-                                    label="Country"
-                                    variant="outlined"
-                                >
-                                   
-                                </TextField>
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <TextField fullWidth label="Company Name" variant="outlined" />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Upload BR"
-                                    variant="outlined"
-                                    InputProps={{
-                                        endAdornment: (
-                                            <React.Fragment>
-                                                <input
-                                                    type="file"
-                                                    style={{ display: 'none' }}
-                                                    onChange={handleBrFileUpload}
-                                                    id="br-upload"
-                                                />
-                                                <label htmlFor="br-upload">
-                                                    <Button component="span" variant="outlined">
-                                                        Upload
-                                                    </Button>
-                                                </label>
-                                            </React.Fragment>
-                                        ),
-                                    }}
-                                    value={brFileName}
-                                />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <TextField fullWidth label="Company Register Number" variant="outlined" />
-                            </Grid>
-                        </Grid>
-                        <Box mt={3}>
-                            <Button type='submit' variant='contained' fullWidth>Signup</Button>
-                        </Box>
-                        </form> */}
