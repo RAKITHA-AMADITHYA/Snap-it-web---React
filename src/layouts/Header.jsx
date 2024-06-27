@@ -18,7 +18,7 @@ function Header() {
   const isLgScreen = useMediaQuery(theme.breakpoints.up('lg'));
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
-
+  const [company, setCompany] = useState("");
 
   const handleNavigate = (path) => {
     navigate(path);
@@ -75,8 +75,7 @@ function Header() {
     >
       {!isLgScreen ? (
         <>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 1 }}>
-            <img src={Logo} width={'70px'} alt="" />
+<Box sx={{ display: 'flex', justifyContent: 'space-between', p: 1 }} onClick={() => handleNavigate('/')}>            <img src={Logo}  width={'70px'} alt="" />
             <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMenuClick}>
               <MenuIcon />
             </IconButton>
@@ -117,7 +116,9 @@ function Header() {
         >
           <Grid container p={1} onMouseLeave={handleClose}>
             {/* Logo */}
-            <Grid item xs={11} md={1} display={'flex'} justifyContent={'center'} alignItems={'end'} >
+            <Grid item xs={11} md={1} display={'flex'} justifyContent={'center'} alignItems={'end'} sx={{ cursor:"pointer", display: 'flex', justifyContent: 'space-between', p: 1 }}
+  onClick={() => handleNavigate('/')} >
+
               <img src={Logo} width={'65%'} alt="Logo" />
             </Grid>
 
