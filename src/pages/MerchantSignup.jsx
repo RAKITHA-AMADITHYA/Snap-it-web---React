@@ -1,7 +1,8 @@
-import { Box, Button, Grid, TextField, Typography } from '@mui/material';
+import { Box, Button, Grid, MenuItem, TextField, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import React from 'react';
 import Merchant from '../assets/img/merchant33.png';
+import { COUNTRIES } from '../utils/constants';
 
 const MerchantSignup = () => {
     const [nicFileName, setNicFileName] = React.useState('');
@@ -100,13 +101,17 @@ const MerchantSignup = () => {
                                 <TextField fullWidth label="Email" variant="outlined" />
                             </Grid>
                             <Grid item xs={12} md={6}>
-                                <TextField
+                            <TextField
                                     select
                                     fullWidth
                                     label="Country"
                                     variant="outlined"
                                 >
-                                    {/* Options for countries */}
+                                    {COUNTRIES.map((country, index) => (
+                                        <MenuItem key={index} value={country}>
+                                            {country.name}
+                                        </MenuItem>
+                                    ))}
                                 </TextField>
                             </Grid>
                             <Grid item xs={12} md={6}>
