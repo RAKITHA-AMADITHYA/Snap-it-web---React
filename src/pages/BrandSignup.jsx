@@ -1,7 +1,8 @@
-import { Grid, Typography, TextField, Button, Box } from '@mui/material';
+import { Grid, Typography, TextField, Button, Box, MenuItem } from '@mui/material';
 import { motion } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 import Brand from '../assets/img/brands.png';
+import { COUNTRIES } from '../utils/constants';
 
 const BrandSignup = () => {
     const [nicFileName, setNicFileName] = React.useState('');
@@ -9,7 +10,7 @@ const BrandSignup = () => {
 
     const handleClick = () => {
         window.location.href = 'https://brand.snapitonline.com/';
-      };
+    };
     const leftVariants = {
         offscreen: {
             opacity: 0
@@ -47,7 +48,7 @@ const BrandSignup = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: {xs:"none",sm:'block'}, justifyContent: 'start', alignItems: 'center',  p:{ xs: 1, lg: 10} }}
+                        sx={{ display: { xs: "none", sm: 'block' }, justifyContent: 'start', alignItems: 'center', p: { xs: 1, lg: 10 } }}
                     >
                         <motion.div variants={leftVariants}>
                             <img src={Brand} width={'100%'} alt="" />
@@ -106,7 +107,11 @@ const BrandSignup = () => {
                                     label="Country"
                                     variant="outlined"
                                 >
-                                    {/* Options for countries */}
+                                    {COUNTRIES.map((country, index) => (
+                                        <MenuItem key={index} value={country}>
+                                            {country.name}
+                                        </MenuItem>
+                                    ))}
                                 </TextField>
                             </Grid>
                             <Grid item xs={12} md={6}>

@@ -1,5 +1,5 @@
 
-import { Box, Button, Divider, Grid, Typography } from '@mui/material';
+import { Button, Divider, Grid, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
@@ -10,15 +10,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import Landingpage from '../assets/img/landing3.png';
 import LogoImg from '../assets/img/logo2.png';
-
 import product2 from '../assets/img/product2.png';
 import product3 from '../assets/img/product3.png';
 import ServiceCard from '../components/ContentCard/ServiceCard';
-
-
-
-
-
 
 
 const Home = () => {
@@ -128,13 +122,13 @@ const Home = () => {
     <>
 
       {/* Section 1 */}
-      <section>
+      <section >
 
-        <Grid item >
+        <Grid item  >
           <Slider {...settingsHedder}>
 
-            <div style={{display:'flex',justifyContent:'start',alignItems:'start',flexDirection:'column',height:'40vh'}}>
-              <Grid container display={'flex'} justifyContent={'start'}>
+            <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
+              <Grid container display={'flex'} justifyContent={'start'} height={'100%'}>
                 <Grid
                   item
                   xs={12} md={6.5}
@@ -145,7 +139,7 @@ const Home = () => {
                     p: [2, null, 2], // Responsive array syntax: [xs, sm, md, lg, xl]
                   }}            >
                   
-                    <img src={LogoImg} width={'45%'} height={'75%'} alt="" />
+                    <img src={LogoImg} width={'50%'} height={'90%'} alt="" />
 
                   
                 </Grid>

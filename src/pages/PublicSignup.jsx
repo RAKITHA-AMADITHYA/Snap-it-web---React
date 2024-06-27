@@ -167,7 +167,7 @@ const PublicSignup = () => {
                                 transform: 'scale(1.05)',
                                 cursor:'pointer'
                             },
-                            height:'285px'
+                            // height:'285px'
                         }}>
                             <Box display={'flex'}
                                 justifyContent={'center'}
