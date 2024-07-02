@@ -1,4 +1,3 @@
-
 import { Button, Divider, Grid, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -12,6 +11,9 @@ import Landingpage from '../assets/img/landing3.png';
 import LogoImg from '../assets/img/logo2.png';
 import product2 from '../assets/img/product2.png';
 import product3 from '../assets/img/product3.png';
+import product4 from '../assets/img/product4.png';
+import product5 from '../assets/img/product5.png';
+import product6 from '../assets/img/product6.png';
 import ServiceCard from '../components/ContentCard/ServiceCard';
 
 
@@ -136,12 +138,10 @@ const Home = () => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems:'center',
-                    p: [2, null, 2], // Responsive array syntax: [xs, sm, md, lg, xl]
+                    p: [2, null, 2], 
                   }}            >
                   
                     <img src={LogoImg} width={'50%'} height={'90%'} alt="" />
-
-                  
                 </Grid>
 
 
@@ -155,12 +155,9 @@ const Home = () => {
 
             </Typography>
 
-            {/* <Typography variant='h5' sx={{ fontSize: { xs: '15px', lg: '18px' } }} mt={1} fontWeight={400} textAlign={'justify'}>
-              Transforming Your Everyday Shopping Into A Rewards When Purchasing Your Favourite Brands And Products From Any Store Anywhere.
-            </Typography> */}
             <Button variant='contained' onClick={() => handleNavigate('/signup')} sx={{mt:5}}>Get Started</Button>
           </Grid>
-              </Grid>                  {/* <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"}/> */}
+              </Grid>                 
             </div>  
             
             <div style>
@@ -179,70 +176,22 @@ const Home = () => {
 
                   
                 </Grid>
-
-
                 <Grid item xs={12} md={5.5}  p={{ xs: 2, lg: 10} }
                        
           >
-            {/* <Typography variant='h2' sx={{ fontSize: { xs: '2.3rem', lg: '4rem' } }} fontWeight={800}>
-              Experience The
-              Thrill of<span> </span>
-              <span style={{ color: '#f2b51c' }}>Discovery!</span>
 
-            </Typography> */}
 
             <Typography variant='h2' sx={{ fontSize: { xs: '2.3rem', lg: '2rem' } }} mt={1} fontWeight={600} textAlign={'start'}>
               Transforming Your Everyday Shopping Into A Rewards When Purchasing Your Favourite Brands And Products From Any Store Anywhere.
             </Typography>
             <Button variant='contained' onClick={() => handleNavigate('/signup')} sx={{mt:5}}>Get Started</Button>
           </Grid>
-              </Grid>                  {/* <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"}/> */}
+              </Grid>                 
             </div>  
-
-
-
 
           </Slider></Grid>
 
-        {/* <Grid container>
-          <Grid item xs={12} md={5.5}  p={{ xs: 2, lg: 10} }
-                        data-aos="fade-right"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-duration="2500"
-          >
-            <Typography variant='h2' sx={{ fontSize: { xs: '2.3rem', lg: '3.1rem' } }} fontWeight={800}>
-              Experience The
-              Thrill of<span> </span>
-              <span style={{ color: '#f2b51c' }}>Discovery!</span>
-
-            </Typography>
-
-            <Typography variant='h5' sx={{ fontSize: { xs: '15px', lg: '18px' } }} mt={1} fontWeight={400} textAlign={'justify'}>
-              Transforming Your Everyday Shopping Into A Rewards When Purchasing Your Favourite Brands And Products From Any Store Anywhere.
-            </Typography>
-            <Button variant='contained' onClick={() => handleNavigate('/signup')} sx={{mt:5}}>Get Started</Button>
-          </Grid>
-         
-
-         <Grid
-              item
-              xs={12} md={6.5}
-              component={motion.div}
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.8 }}
-              sx={{ 
-                display: 'flex', 
-                justifyContent: 'start', 
-                p: [2, null,2], // Responsive array syntax: [xs, sm, md, lg, xl]
-              }}            >
-              <motion.div variants={leftVariants}>
-              <img src={Landingpage} width={'100%'} alt="" />
-
-              </motion.div>
-            </Grid>
-
-        </Grid> */}
+     
       </section>
 
 
@@ -268,27 +217,22 @@ const Home = () => {
           <Slider {...settings}>
 
             <div style>
-              <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"} />
-            </div>  <div>
-              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"} />
+              <ServiceCard product={product2} title={"Body Loation"} price={"850"} point={"4.00"} packet={"Bottel 45"} />
+            </div>
+              <div>
+              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={" T Shirt 120"} />
+            </div>
+            
+            <div>
+              <ServiceCard product={product4} title={"Air Jordan 4"} price={"50000"} point={"4.00"} packet={"56"} />
             </div>
 
-            <div style>
-              <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"} />
-            </div>  <div>
-              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"} />
-            </div><div style>
-              <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"} />
-            </div>  <div>
-              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"} />
-            </div><div style>
-              <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"} />
-            </div>  <div>
-              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"} />
-            </div><div style>
-              <ServiceCard product={product2} title={"Oreo chocolate Biscuit"} price={"850"} point={"4.00"} packet={"450"} />
-            </div>  <div>
-              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={"450"} />
+            <div>
+              <ServiceCard product={product5} title={"Kellogs Cornflex"} price={"550"} point={"4.00"} packet={"Packets56"} />
+            </div>
+
+            <div>
+              <ServiceCard product={product6} title={"I Phone 15 pro max"} price={"320000"} point={"5.00"} packet={"220"} />
             </div>
 
 

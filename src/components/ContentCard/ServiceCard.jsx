@@ -10,11 +10,11 @@ const ServiceCard = ({title,product,packet,price,point}) => {
             borderRadius:2,
             minHeight:'380px'
           }}>
-            <Box sx={{display:'flex', justifyContent:'center'}}>
+            <Box sx={{display:'flex', justifyContent:'center',alignItems:'center',height:'280px'}}>
             <img src={product}alt="product1" /></Box>
           <Box sx={{p:1,}}>
             <Typography fontWeight={700} variant='subtitle1'>{title}</Typography>
-                        <Typography fontWeight={600} variant='subtitle1'>Packets {packet}</Typography>
+                        <Typography fontWeight={600} variant='subtitle1'> {packet}</Typography>
 
             <Box sx={{display:'flex', justifyContent:'space-between'}} >
            
