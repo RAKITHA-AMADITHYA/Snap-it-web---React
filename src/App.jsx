@@ -6,6 +6,7 @@ import ThemeProvider from "./theme";
 import { Provider } from 'react-redux';
 import SuccessMessage from './components/SuccessMessage/successmessage';
 import store from './app/store';
+import PublicLogin from './pages/PublicLogin';
 
 const Home = lazy(() => import("./pages/Home"));
 const Layout = lazy(() => import("./layouts/Layout"));
@@ -55,6 +56,7 @@ function App() {
         <Route path="/contact-us" element={<SuspenseWrapper><Contact /></SuspenseWrapper>} />
         <Route path="/customer-signup" element={<SuspenseWrapper><CustomersSignup /></SuspenseWrapper>} />
         <Route path="/signup" element={<SuspenseWrapper><PublicSignup /></SuspenseWrapper>} />
+        <Route path="/login" element={<SuspenseWrapper><PublicLogin /></SuspenseWrapper>} />
         <Route path="/customer" element={<SuspenseWrapper><Customer /></SuspenseWrapper>} />
         <Route path="/brand-signup" element={<SuspenseWrapper><BrandSignup /></SuspenseWrapper>} />
         <Route path="/merchant-signup" element={<SuspenseWrapper><MerchantSignup /></SuspenseWrapper>} />
