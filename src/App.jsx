@@ -3,6 +3,10 @@ import React, { lazy, Suspense } from "react";
 import Loader from 'react-loaders';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import ThemeProvider from "./theme";
+import { Provider } from 'react-redux';
+import SuccessMessage from './components/SuccessMessage/successmessage';
+import store from './app/store';
+import PublicLogin from './pages/PublicLogin';
 
 const Home = lazy(() => import("./pages/Home"));
 const Layout = lazy(() => import("./layouts/Layout"));
@@ -38,8 +42,9 @@ function SuspenseWrapper({ children }) {
 
 function App() {
   return (
-   
-    <ThemeProvider>
+  <Provider store={store}>
+  <SuccessMessage/>
+  <ThemeProvider>
       <Router>
         <Routes>
         <Route path="/*" element={<Error404 />} />
@@ -51,16 +56,17 @@ function App() {
         <Route path="/contact-us" element={<SuspenseWrapper><Contact /></SuspenseWrapper>} />
         <Route path="/customer-signup" element={<SuspenseWrapper><CustomersSignup /></SuspenseWrapper>} />
         <Route path="/signup" element={<SuspenseWrapper><PublicSignup /></SuspenseWrapper>} />
+        <Route path="/login" element={<SuspenseWrapper><PublicLogin /></SuspenseWrapper>} />
         <Route path="/customer" element={<SuspenseWrapper><Customer /></SuspenseWrapper>} />
         <Route path="/brand-signup" element={<SuspenseWrapper><BrandSignup /></SuspenseWrapper>} />
         <Route path="/merchant-signup" element={<SuspenseWrapper><MerchantSignup /></SuspenseWrapper>} />
         <Route path="/merchant-steps" element={<SuspenseWrapper><MerchantSteps /></SuspenseWrapper>} />
-
-        
         </Route>
         </Routes>
       </Router>
     </ThemeProvider>
+   </Provider>
+   
   );
 }
 
