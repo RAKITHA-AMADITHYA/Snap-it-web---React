@@ -1,15 +1,12 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import { Badge, Box, Button, Drawer, Grid, IconButton, Link, List, ListItem, ListItemText, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Make sure this import is correct
+import { useNavigate } from 'react-router-dom'; 
 import Logo from '../assets/img/logo.png';
 import qrBtn from '../assets/img/qrBtn.png';
 import qrcode from '../assets/img/qr.png';
 import playstore from '../assets/img/playstore.png';
 import appstore from '../assets/img/appstore.png';
-
-
-
 
 
 function Header() {
@@ -75,7 +72,7 @@ function Header() {
     >
       {!isLgScreen ? (
         <>
-<Box sx={{ display: 'flex', justifyContent: 'space-between', p: 1 }} onClick={() => handleNavigate('/')}>            <img src={Logo}  width={'70px'} alt="" />
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 1 }} onClick={() => handleNavigate('/')}>            <img src={Logo} width={'70px'} alt="" />
             <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMenuClick}>
               <MenuIcon />
             </IconButton>
@@ -116,8 +113,8 @@ function Header() {
         >
           <Grid container p={1} onMouseLeave={handleClose}>
             {/* Logo */}
-            <Grid item xs={11} md={1} display={'flex'} justifyContent={'center'} alignItems={'end'} sx={{ cursor:"pointer", display: 'flex', justifyContent: 'space-between', p: 1 }}
-  onClick={() => handleNavigate('/')} >
+            <Grid item xs={11} md={1} display={'flex'} justifyContent={'center'} alignItems={'end'} sx={{ cursor: "pointer", display: 'flex', justifyContent: 'space-between', p: 1 }}
+              onClick={() => handleNavigate('/')} >
 
               <img src={Logo} width={'65%'} alt="Logo" />
             </Grid>
@@ -270,12 +267,6 @@ function Header() {
                     Contact us
                   </Typography>
                 </Grid>
-
-
-
-
-
-
               </Grid>
             </Grid>
 
@@ -294,7 +285,7 @@ function Header() {
 
                 <Box sx={{
                   position: 'absolute',
-                  zIndex:1,
+                  zIndex: 1,
                   bottom: 'auto',
                   left: '150%',
                   transform: 'translateX(-50%)',
@@ -313,53 +304,13 @@ function Header() {
                     <Grid item xs={7} p={1}>
                       <Typography variant='subtitle1' fontWeight={600}>Download Snap it Now</Typography>
                       <Typography variant='p' >Scan the QR to download</Typography>
-
-                    
-                      {/* <Button
-                        variant="contained"
-                        // onClick={handleClick}
-                        fullWidth
-                        sx={{
-                          mt: 2,
-                          backgroundImage: `url(${playstore})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          height: '40%', // Set the height as per your image dimensions
-                          padding: 0, // Remove any default padding
-                          borderRadius: '8px', // Optional: adjust border radius
-                          '&:hover': {
-                            backgroundImage: `url(${playstore})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                          }
-                        }}
-                      ></Button> */}
                       <Box mt={1}>
-                        <img src={playstore}width={'70%'} alt="" />
+                        <img src={playstore} width={'70%'} alt="" />
                       </Box>
                       <Box mt={1}>
                         <img src={appstore} width={'70%'} alt="" />
                       </Box>
-{/* <Button
-                        variant="contained"
-                        // onClick={handleClick}
-                        fullWidth
-                        sx={{
-                          mt: 2,
-                          backgroundImage: `url(${appstore})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          height: '40%', // Set the height as per your image dimensions
-                          padding: 0, // Remove any default padding
-                          borderRadius: '8px', // Optional: adjust border radius
-                          '&:hover': {
-                            backgroundImage: `url(${appstore})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                          }
-                        }}
-                      ></Button> */}
-
+                  
                     </Grid>
                   </Grid>
 
@@ -370,7 +321,7 @@ function Header() {
             </Grid>
 
             <Grid item md={1} display={{ xs: 'none', md: 'flex', }} sx={{ p: 1 }} justifyContent={'center'} alignItems={'center'}>
-              <Button variant='outlined' fullWidth sx={{ height: '35px' }} onClick={handleLoginClick}>Log In</Button>
+              <Button variant='outlined' fullWidth sx={{ height: '35px' }} onClick={() => handleNavigate('/login')}>Log In</Button>
 
             </Grid>
             <Grid item md={1} display={{ xs: 'none', md: 'flex', }} sx={{ p: 1 }} justifyContent={'center'} alignItems={'center'}>

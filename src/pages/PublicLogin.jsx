@@ -12,7 +12,7 @@ import Customer from '../assets/img/customerCard2.jpg';
 import Merchant from '../assets/img/merchantCard.png';
 
 
-const PublicSignup = () => {
+const PublicLogin = () => {
     const section2Ref = useRef(null);
     const navigate=useNavigate();
 
@@ -44,8 +44,13 @@ const PublicSignup = () => {
         }
     };
 
-
+    const handleBrandLoginClick = () => {
+        window.location.href = 'https://brand.snapitonline.com/';
+      };
   
+      const handleMerchantLoginClick = () => {
+        window.location.href = 'https://merchant.snapitonline.com/';
+      };
 
 
 
@@ -70,7 +75,7 @@ const PublicSignup = () => {
                 >
                     <motion.div variants={cardVariants}>
                         <Typography variant='h2' fontWeight={800}>
-                            Sign up <span> </span>
+                            Login <span> </span>
                             <span style={{ color: '#f2b51c' }}>Now!</span></Typography>
                             <Typography variant='h4' fontWeight={400}>Choose your account type</Typography>
                     </motion.div>
@@ -125,12 +130,13 @@ const PublicSignup = () => {
                         flexDirection={'column'}
                     >
                         <Card
-                        onClick={() => handleNavigate('/brand-signup')}
+                        onClick={() => handleBrandLoginClick()}
                         sx={{
                             bgcolor: '#190e0e',
                             transition: 'transform 0.3s ease-in-out',
                             '&:hover': {
                                 transform: 'scale(1.05)',
+                                cursor:'pointer1'
                             }
                         }}>
                             <Box display={'flex'}
@@ -158,7 +164,7 @@ const PublicSignup = () => {
                         flexDirection={'column'}
                     >
                         <Card 
-                        onClick={() => handleNavigate('/merchant-signup')}
+                        onClick={() => handleMerchantLoginClick()}
                         sx={{
                             bgcolor: '#190e0e',
                             transition: 'transform 0.3s ease-in-out',
@@ -196,4 +202,4 @@ const PublicSignup = () => {
     )
 }
 
-export default PublicSignup
+export default PublicLogin
