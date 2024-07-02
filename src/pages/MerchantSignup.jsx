@@ -1,11 +1,11 @@
-import { Box, Button, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, Grid, TextField, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import Merchant from '../assets/img/merchant33.png';
 import { showAlertMessage } from '../app/alertMessageController';
 import { useForm } from 'react-hook-form';
 import { signUpMerchant } from '../services/userServices';
-
+import CheckIcon from '@mui/icons-material/Check';
 const MerchantSignup = () => {
     // const [nicFileName, setNicFileName] = React.useState('');
     // const [brFileName, setBrFileName] = React.useState('');
@@ -222,7 +222,12 @@ const MerchantSignup = () => {
         console.log("Merchant Registered Successfully", response);
   
         if (response?.status === 200) {
-        
+
+         showAlertMessage({
+          message:"Registered Successfully",
+          type:"success"
+         });
+
           setFullName("");
           setAddress("");
           setMobileNumber("");
@@ -236,13 +241,13 @@ const MerchantSignup = () => {
           setFile("");
           setUploadedFileName("");
         }
-
-        if(response && response.responseCode === 1000){
-            showAlertMessage({
-                message:"Merchant Registered",
-                type:"success"
-            })
+        else if(response?.status === 302){
+          showAlertMessage({
+            message:"NIC already exists",
+            type:"error"
+           });
         }
+      
       } catch(error) {
        console.log("error",error);
       }
