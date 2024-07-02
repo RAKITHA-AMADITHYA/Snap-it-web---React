@@ -137,6 +137,12 @@ const BrandSignup = () => {
       console.log("Brand Registered Successfully", response);
 
       if (response?.status === 200) {
+
+        showAlertMessage({
+          message: "Registered Successfully",
+          type: "success",
+        });
+
         setFullName("");
         setAddress("");
         setMobileNumber("");
@@ -149,6 +155,12 @@ const BrandSignup = () => {
         setNicFile("");
         setFile("");
         setUploadedFileName("");
+      }
+      else if(response?.status === 302){
+        showAlertMessage({
+          message:"NIC already exists",
+          type:"error"
+         });
       }
     }
      catch(error) 
