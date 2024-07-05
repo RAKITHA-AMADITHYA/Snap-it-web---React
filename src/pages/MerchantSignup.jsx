@@ -930,7 +930,7 @@ const MerchantSignup = () => {
                   />
                 </Grid> */}
 
-                <Grid item xs={12} md={6}>
+                {/* <Grid item xs={12} md={6}>
                   
                   <Box fontWeight={500}> Upload NIC</Box>
 
@@ -1003,7 +1003,91 @@ const MerchantSignup = () => {
                       </Button>
                     </Grid>
                   </Grid>
-                </Grid>
+                </Grid> */}
+
+<Grid item xs={12} md={6}>
+                  <TextField
+                    fullWidth
+                    label="NIC Upload"
+                   // required={"NIC Required"}
+                    variant="outlined"
+                    InputProps={{
+                      endAdornment: (
+                        <React.Fragment>
+                          {/* <input
+                            type="file"
+                            // accept="image/jpeg,image/png,application/pdf"
+                            style={{ display: "none" }}
+                            onChange={handleNicFileUpload} //
+                            id="nic-upload"
+                          /> */}
+                           <label htmlFor="fileInput" id="nicFileNameLabel">
+                        {/* {nicFileName
+                          ? nicFileName.length > 15
+                            ? nicFileName.slice(0, 15) + "..."
+                            : nicFileName
+                          : ""} */}
+                      </label>
+
+                      <Grid item>
+                      {clickValidate ? (
+                        nicError ? (
+                          <div
+                            id="error-message-nic"
+                            style={{
+                              color: nicError === "Success!" ? "green" : "red",
+                            }}
+                          >
+                            {nicError === "Success!" ? (
+                              <DoneIcon />
+                            ) : (
+                              <ErrorIcon />
+                            )}
+                          </div>
+                        ) : (
+                          <CircularProgress sx={{ color: "#F2B51C" }} />
+                        )
+                      ) : null}
+                    </Grid>
+
+                    <Grid item>
+                      <Button
+                        component="label"
+                        sx={{
+                          borderRadius: "10px",
+                          boxShadow: "none",
+                          backgroundColor: "#F2B51C",
+                          color: "#FDFDFD",
+                          ":hover": {
+                            bgcolor: "#F2B51C",
+                            color: "#FDFDFD",
+                            boxShadow: "none",
+                          },
+                        }}
+                      >
+                        Choose
+                        <input
+                          id="nicfileInput"
+                          type="file"
+                          accept="image/jpeg,image/png,application/pdf"
+                          style={{ display: "none" }}
+                          onChange={handleNICFileChange}
+                        />
+                        <VisuallyHiddenInput type="file" />
+                      </Button>
+                    </Grid>
+                          {/* <label htmlFor="nic-upload">
+                            <Button component="span" variant="outlined">
+                              Upload
+                            </Button>
+                          </label> */}
+                        </React.Fragment>
+                      ),
+                    }}
+                    value={nicFileName}
+                    // onChange={}
+                  />
+                </Grid> 
 
                 <Grid item xs={12} md={6}>
                   <TextField
@@ -1143,7 +1227,7 @@ const MerchantSignup = () => {
                     </Box>
                 </Grid> */}
 
-                <Grid item xs={12} md={6}>
+                {/* <Grid item xs={12} md={6}>
                   <Box fontWeight={500}> Upload BR</Box>
 
                   <Grid
@@ -1214,7 +1298,92 @@ const MerchantSignup = () => {
                       </Button>
                     </Grid>
                   </Grid>
-                </Grid>
+                </Grid> */}
+
+                
+<Grid item xs={12} md={6}>
+                  <TextField
+                    fullWidth
+                    label="Upload BR"
+                   // required={"NIC Required"}
+                    variant="outlined"
+                    InputProps={{
+                      endAdornment: (
+                        <React.Fragment>
+                          {/* <input
+                            type="file"
+                            // accept="image/jpeg,image/png,application/pdf"
+                            style={{ display: "none" }}
+                            onChange={handleNicFileUpload} //
+                            id="nic-upload"
+                          /> */}
+                           <label htmlFor="fileInput" id="fileNameLabel">
+                        {/* {nicFileName
+                          ? nicFileName.length > 15
+                            ? nicFileName.slice(0, 15) + "..."
+                            : nicFileName
+                          : ""} */}
+                      </label>
+
+                      <Grid item>
+                      {clickValidate ? (
+                        nicError ? (
+                          <div
+                            id="error-message-company"
+                            style={{
+                              color: error === "Success!" ? "green" : "red",
+                            }}
+                          >
+                            {error === "Success!" ? (
+                              <DoneIcon />
+                            ) : (
+                              <ErrorIcon />
+                            )}
+                          </div>
+                        ) : (
+                          <CircularProgress sx={{ color: "#F2B51C" }} />
+                        )
+                      ) : null}
+                    </Grid>
+
+                    <Grid item>
+                      <Button
+                        component="label"
+                        sx={{
+                          borderRadius: "10px",
+                          boxShadow: "none",
+                          backgroundColor: "#F2B51C",
+                          color: "#FDFDFD",
+                          ":hover": {
+                            bgcolor: "#F2B51C",
+                            color: "#FDFDFD",
+                            boxShadow: "none",
+                          },
+                        }}
+                      >
+                        Choose
+                        <input
+                          id="fileInput"
+                          type="file"
+                          accept="image/jpeg,image/png,application/pdf"
+                          style={{ display: "none" }}
+                          onChange={handleFileChange}
+                        />
+                        <VisuallyHiddenInput type="file" />
+                      </Button>
+                    </Grid>
+                          {/* <label htmlFor="nic-upload">
+                            <Button component="span" variant="outlined">
+                              Upload
+                            </Button>
+                          </label> */}
+                        </React.Fragment>
+                      ),
+                    }}
+                    value={nicFileName}
+                    // onChange={}
+                  />
+                </Grid> 
 
                 {/* <Grid item xs={12} md={6}>
                   <TextField
