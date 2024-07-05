@@ -857,7 +857,7 @@ const BrandSignup = () => {
                     </Box>
                 </Grid> */}
 
-                <Grid item xs={12} mt={{ lg: 1 }}>
+                <Grid item xs={12} md={6}>
                   <TextField
                     onChange={(e) => {
                       setRegisterNumber(e.target.value);
