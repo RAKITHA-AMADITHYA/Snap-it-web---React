@@ -116,7 +116,7 @@ function Header() {
             <Grid item xs={11} md={1} display={'flex'} justifyContent={'center'} alignItems={'end'} sx={{ cursor: "pointer", display: 'flex', justifyContent: 'space-between', p: 1 }}
               onClick={() => handleNavigate('/')} >
 
-              <img src={Logo} width={'65%'} alt="Logo" />
+              <img src={Logo} width={'78rem'} alt="Logo" />
             </Grid>
 
             <Grid item xs={1} sm={1} md={1} display={{ xs: 'flex', sm: 'flex', md: 'none', lg: 'none', xl: 'none' }} justifyContent={'center'} alignItems={'center'}>
@@ -277,7 +277,7 @@ function Header() {
               <div style={{ position: 'relative' }}>
                 <img
                   src={qrBtn}
-                  width="140px"
+                  width="150rem"
                   alt=""
                   onMouseEnter={() => setDrawerOpen(true)}
                   onMouseLeave={handleDrawerClose}

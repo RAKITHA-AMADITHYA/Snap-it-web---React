@@ -80,6 +80,7 @@ const CustomersSignup = () => {
 
                                 sx={{
                                     mt: 5,
+                                    position:'relative',
                                     backgroundImage: `url(${PlayStore})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
