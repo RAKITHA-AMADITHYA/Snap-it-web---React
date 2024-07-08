@@ -1,10 +1,33 @@
-import { Grid, Typography, TextField, Button, Box } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  TextField,
+  Button,
+  Box,
+  CircularProgress,
+} from "@mui/material";
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import Brand from "../assets/img/brands.png";
 import { signUpBrand } from "../services/userServices";
 import { showAlertMessage } from "../app/alertMessageController";
 import { useForm } from "react-hook-form";
+import { ErrorIcon } from "../theme/overrides/CustomIcons";
+import styled from "styled-components";
+import Tesseract from "tesseract.js";
+
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
+  height: 1,
+  overflow: "hidden",
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  whiteSpace: "nowrap",
+  width: 1,
+  backgroundColor: "yellow",
+});
 
 const BrandSignup = () => {
   const [nicFileName, setNicFileName] = React.useState("");
@@ -14,8 +37,8 @@ const BrandSignup = () => {
   const [file, setFile] = useState(null);
   const [nicFile, setNicFile] = useState(null);
 
-//   const [abc, setAbc] = useState();
-//   const [def, setDef] = useState();
+  //   const [abc, setAbc] = useState();
+  //   const [def, setDef] = useState();
 
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
@@ -34,19 +57,24 @@ const BrandSignup = () => {
   const [emailError, setEmailError] = useState(false);
   const [countryError, setCountryError] = useState(false);
   const [companyNameError, setCompanyNameError] = useState(false);
+  const [RegisterNumberError, setRegisterNumberError] = useState(false);
   const [fileBrError, setFileBrError] = useState(false);
+  const [nicError, setnicError] = useState(null);
+  const [error, setError] = useState(null);
 
   const [clickValidate, setClickValidate] = useState(false);
+  const [clickSubmit, setClickSubmit] = useState(false);
   const [isValidationSuccess, setIsValidationSuccess] = useState(false);
+  const [isNICValidationSuccess, setIsNICValidationSuccess] = useState(false);
   const [uploadedNICFileName, setUploadedNICFileName] = useState("");
   //const [error, setError] = useState(null);
-
+  const [uploadedFileName, setUploadedFileName] = useState("");
   const handleNICFileChange = async (event) => {
     setClickValidate(false);
     setIsNICValidationSuccess(false);
     // const selectedFile = event.target.files[0];
     const file = event.target.files[0];
-    console.log("file-", event,file);
+    console.log("file-", event, file);
     setNicFile(file);
     // Update the label text to the selected file name
     console.log("Selected file namee :", file.name);
@@ -59,6 +87,116 @@ const BrandSignup = () => {
   const handleClick = () => {
     window.location.href = "https://brand.snapitonline.com/";
   };
+
+  const handleCompanyRegNoChange = (event) => {
+    setClickValidate(false);
+    setIsValidationSuccess(false);
+    setRegisterNumber(event.target.value);
+
+    if (event.target.value === "") {
+      setFileBrError(true);
+    } else {
+      setFileBrError(false);
+    }
+  };
+
+  const handleOCR = async () => {
+    setError(null);
+    if (file && RegisterNumber && file.type.includes("image") === true) {
+      console.log("Image_file", file);
+      const {
+        data: { text },
+      } = await Tesseract.recognize(file);
+
+      // Check if the OCR result includes the Company Reg. No.
+      if (!text.includes(RegisterNumber)) {
+        setError("Invalid BR file.");
+        setIsValidationSuccess(false); // Set validation status to false
+      }
+
+      if (text.includes(RegisterNumber)) {
+        setError("Success!");
+        setIsValidationSuccess(true); // Set validation status to true
+      }
+    } else if (file && RegisterNumber && file.type.includes("pdf") === true) {
+      console.log("PDF file", file);
+
+      const text = await PdfToText(file);
+
+      console.log("PDF text", text);
+
+      // Check if the OCR result includes the Company Reg. No.
+      if (!text.includes(RegisterNumber)) {
+        setError("Invalid BR file.");
+        setIsValidationSuccess(false); // Set validation status to false
+      } else {
+        setError("Success!");
+        setIsValidationSuccess(true); // Set validation status to true
+      }
+    } else {
+      setError("Please upload a file.");
+      setIsValidationSuccess(false); // Set validation status to false
+    }
+  };
+
+  const handleValidation = async () => {
+    setClickValidate(true);
+    setIsValidationSuccess(false);
+    setIsNICValidationSuccess(false);
+
+    await handleOCR();
+    await handleNicOCR();
+    //  setClickValidate(false);
+  };
+
+  const handleNicOCR = async () => {
+    setnicError(null);
+    if (nicFile && nic && nicFile.type.includes("image") === true) {
+      const {
+        data: { text },
+      } = await Tesseract.recognize(nicFile);
+
+      // Check if the OCR result includes the Company Reg. No.
+      if (!text.includes(nic)) {
+        setnicError("Invalid NIC.");
+        setIsNICValidationSuccess(false); // Set validation status to false
+      }
+
+      if (text.includes(nic)) {
+        setnicError("Success!");
+        setIsNICValidationSuccess(true); // Set validation status to true
+      }
+    } else if (nicFile && nic && nicFile.type.includes("pdf") === true) {
+      const text = await PdfToText(nicFile);
+
+      console.log("PDF text", text);
+
+      // Check if the OCR result includes the Company Reg. No.
+      if (!text.includes(nic)) {
+        setnicError("Invalid NIC.");
+        setIsNICValidationSuccess(false); // Set validation status to false
+      } else {
+        setnicError("Success!");
+        setIsNICValidationSuccess(true); // Set validation status to true
+      }
+    } else {
+      setnicError("Please upload a file.");
+      setIsNICValidationSuccess(false); // Set validation status to false
+    }
+  };
+
+  const handleFileChange = async (event) => {
+    setClickValidate(false);
+    setIsValidationSuccess(false);
+    const selectedFile = event.target.files[0];
+    console.log("file-", event);
+    setFile(selectedFile);
+    // Update the label text to the selected file name
+    setUploadedFileName(selectedFile.name);
+    setError(null);
+    // console.log("Uploaded file name:", selectedFile.name , Boolean(selectedFile.name));
+  };
+
   const leftVariants = {
     offscreen: {
       opacity: 0,
@@ -80,18 +218,70 @@ const BrandSignup = () => {
     setNicFileName(file.name);
     console.log("Selected file name :", file);
 
-    setNicFile(file)
+    setNicFile(file);
   };
 
   const handleBrFileUpload = (event) => {
     // setDef(event.target.files[0]);
     const file = event.target.files[0];
     setBrFileName(file.name);
-    setFileBr(file)
+    setFileBr(file);
   };
 
   const handleBrandSignUp = async () => {
-   
+    if (fullName === "") {
+      setFullNameError("Required");
+    }
+
+    if (address === "") {
+      setAddressError("Required");
+    }
+
+    if (mobileNumber === "") {
+      setMobileNumberError("Required");
+    }
+
+    if (nic === "") {
+      setNicInputError("Required");
+    }
+
+    // nic only contain letters and numbers
+
+    if (nic !== "") {
+      if (!/^[a-zA-Z0-9]*$/.test(nic)) {
+        setNicInputError("Invalid NIC");
+      }
+    }
+
+    if (email === "") {
+      setEmailError("Required");
+    }
+
+    if (country === "") {
+      setCountryError("Required");
+    }
+
+    if (companyName === "") {
+      setCompanyNameError("Required");
+    }
+
+    if (RegisterNumber === "") {
+      setFileBrError("Required");
+    }
+
+    if (
+      fullName === "" ||
+      address === "" ||
+      mobileNumber === "" ||
+      nic === "" ||
+      email === "" ||
+      country === "" ||
+      companyName === "" ||
+      RegisterNumber === ""
+    ) {
+      return;
+    }
+
     const data = {
       full_name: fullName,
       address: address,
@@ -109,13 +299,12 @@ const BrandSignup = () => {
 
     let formData = new FormData();
 
-    Object.keys(data)
-    .map((key) =>{
-        formData.append(key, data[key])
-    })
+    Object.keys(data).map((key) => {
+      formData.append(key, data[key]);
+    });
 
-    formData.delete('file_path_nic')
-    formData.delete('file_path_br')
+    formData.delete("file_path_nic");
+    formData.delete("file_path_br");
 
     // formData.append('name', 'name')
     // formData.append("full_name", fullName);
@@ -130,14 +319,13 @@ const BrandSignup = () => {
     formData.append("file_path_br", fileBr);
     // formData.append("user_type", "super_user");
 
-    console.log(formData)
+    console.log(formData);
 
     try {
       const response = await signUpBrand(formData);
       console.log("Brand Registered Successfully", response);
 
       if (response?.status === 200) {
-
         showAlertMessage({
           message: "Registered Successfully",
           type: "success",
@@ -155,17 +343,19 @@ const BrandSignup = () => {
         setNicFile("");
         setFile("");
         setUploadedFileName("");
-      }
-      else if(response?.status === 302){
+        setUploadedNICFileName("");
+        setClickSubmit(false);
+        setClickValidate(false);
+        setError(null);
+        setnicError(null);
+      } else if (response?.status === 302) {
         showAlertMessage({
-          message:"NIC already exists",
-          type:"error"
-         });
+          message: "NIC already exists",
+          type: "error",
+        });
       }
-    }
-     catch(error) 
-    {
-      console.log("error",error);
+    } catch (error) {
+      console.log("error", error);
     }
   };
 
@@ -173,12 +363,12 @@ const BrandSignup = () => {
     control,
     handleSubmit,
     watch,
-    formState: { isValid, error },
+    formState: { isValid },
   } = useForm({});
 
-//   const handleUpload = (e) => {
-//     setAbc(e.target.files[0]);
-//   };
+  //   const handleUpload = (e) => {
+  //     setAbc(e.target.files[0]);
+  //   };
 
   return (
     <>
@@ -223,17 +413,34 @@ const BrandSignup = () => {
                       }
                     }}
                     fullWidth
-                    required={"First Name Required"}
+                    name="full_name"
+                    //required={"First Name Required"}
                     label="Full Name"
                     value={fullName}
                     variant="outlined"
                   />
+                  <Box fontWeight={500}>
+                    <div
+                      style={{
+                        color: "red",
+                        display: "inline",
+                        fontSize: "13px",
+                      }}
+                    >
+                      {fullNameError === false ? "" : "Required"}
+                    </div>
+                  </Box>
                 </Grid>
 
                 <Grid item xs={12} md={6}>
                   <TextField
                     onChange={(e) => {
                       setAddress(e.target.value);
+                      if (e.target.value === "") {
+                        setAddressError(true);
+                      } else {
+                        setAddressError(false);
+                      }
                     }}
                     fullWidth
                     required={"Address required"}
@@ -241,12 +448,28 @@ const BrandSignup = () => {
                     variant="outlined"
                     value={address}
                   />
+                  <Box fontWeight={500}>
+                    <div
+                      style={{
+                        color: "red",
+                        display: "inline",
+                        fontSize: "13px",
+                      }}
+                    >
+                      {addressError === false ? "" : "Required"}
+                    </div>
+                  </Box>
                 </Grid>
 
                 <Grid item xs={12} md={6}>
                   <TextField
                     onChange={(e) => {
                       setMobileNumber(e.target.value);
+                      if (e.target.value === "") {
+                        setMobileNumberError(true);
+                      } else {
+                        setMobileNumberError(false);
+                      }
                     }}
                     fullWidth
                     label="Mobile Number"
@@ -254,6 +477,17 @@ const BrandSignup = () => {
                     variant="outlined"
                     value={mobileNumber}
                   />
+                  <Box fontWeight={500}>
+                    <div
+                      style={{
+                        color: "red",
+                        display: "inline",
+                        fontSize: "13px",
+                      }}
+                    >
+                      {mobileNumberError === false ? "" : "Required"}
+                    </div>
+                  </Box>
                 </Grid>
 
                 <Grid item xs={12} md={6}>
@@ -266,9 +500,20 @@ const BrandSignup = () => {
                     variant="outlined"
                     value={nic}
                   />
+                  <Box fontWeight={500}>
+                    <div
+                      style={{
+                        color: "red",
+                        display: "inline",
+                        fontSize: "13px",
+                      }}
+                    >
+                      {nicInputError === false ? "" : "Required"}
+                    </div>
+                  </Box>
                 </Grid>
 
-                <Grid item xs={12} md={6}>
+                {/* <Grid item xs={12} md={6}>
                   <TextField
                     fullWidth
                     label="NIC Upload"
@@ -295,25 +540,206 @@ const BrandSignup = () => {
                     value={nicFileName}
                     // onChange={}
                   />
-                </Grid>
+                </Grid> */}
+
+<Grid item xs={12} md={6}>
+                  <TextField
+                    fullWidth
+                    label="NIC Upload"
+                   // required={"NIC Required"}
+                    variant="outlined"
+                    InputProps={{
+                      endAdornment: (
+                        <React.Fragment>
+                          {/* <input
+                            type="file"
+                            // accept="image/jpeg,image/png,application/pdf"
+                            style={{ display: "none" }}
+                            onChange={handleNicFileUpload} //
+                            id="nic-upload"
+                          /> */}
+                           <label htmlFor="fileInput" id="nicFileNameLabel">
+                        {/* {nicFileName
+                          ? nicFileName.length > 15
+                            ? nicFileName.slice(0, 15) + "..."
+                            : nicFileName
+                          : ""} */}
+                      </label>
+
+                      <Grid item>
+                      {clickValidate ? (
+                        nicError ? (
+                          <div
+                            id="error-message-nic"
+                            style={{
+                              color: nicError === "Success!" ? "green" : "red",
+                            }}
+                          >
+                            {nicError === "Success!" ? (
+                              <DoneIcon />
+                            ) : (
+                              <ErrorIcon />
+                            )}
+                          </div>
+                        ) : (
+                          <CircularProgress sx={{ color: "#F2B51C" }} />
+                        )
+                      ) : null}
+                    </Grid>
+
+                    <Grid item>
+                      <Button
+                        component="label"
+                        sx={{
+                          borderRadius: "10px",
+                          boxShadow: "none",
+                          backgroundColor: "#F2B51C",
+                          color: "#FDFDFD",
+                          ":hover": {
+                            bgcolor: "#F2B51C",
+                            color: "#FDFDFD",
+                            boxShadow: "none",
+                          },
+                        }}
+                      >
+                        Choose
+                        <input
+                          id="nicfileInput"
+                          type="file"
+                          accept="image/jpeg,image/png,application/pdf"
+                          style={{ display: "none" }}
+                          onChange={handleNICFileChange}
+                        />
+                        <VisuallyHiddenInput type="file" />
+                      </Button>
+                    </Grid>
+                          {/* <label htmlFor="nic-upload">
+                            <Button component="span" variant="outlined">
+                              Upload
+                            </Button>
+                          </label> */}
+                        </React.Fragment>
+                      ),
+                    }}
+                    value={nicFileName}
+                    // onChange={}
+                  />
+                </Grid> 
+
+                {/* <Grid item xs={12} md={6}>
+                  
+                  <Box fontWeight={500}> Upload NIC</Box>
+
+                  <Grid
+                    container
+                    sx={{
+                      display: "flex",
+                      bgcolor: "#FDFDFD",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      borderRadius: "12px",
+                      height: "40px",
+                    }}
+                  >
+                    <Grid item ml={2} fontWeight={500}>
+                      <label htmlFor="fileInput" id="nicFileNameLabel">
+                        {nicFileName
+                          ? nicFileName.length > 15
+                            ? nicFileName.slice(0, 15) + "..."
+                            : nicFileName
+                          : "Choose File"}
+                      </label>
+                    </Grid>
+
+                    <Grid item>
+                      {clickValidate ? (
+                        nicError ? (
+                          <div
+                            id="error-message-nic"
+                            style={{
+                              color: nicError === "Success!" ? "green" : "red",
+                            }}
+                          >
+                            {nicError === "Success!" ? (
+                              <DoneIcon />
+                            ) : (
+                              <ErrorIcon />
+                            )}
+                          </div>
+                        ) : (
+                          <CircularProgress sx={{ color: "#F2B51C" }} />
+                        )
+                      ) : null}
+                    </Grid>
+
+                    <Grid item>
+                      <Button
+                        component="label"
+                        sx={{
+                          borderRadius: "10px",
+                          boxShadow: "none",
+                          backgroundColor: "#F2B51C",
+                          color: "#FDFDFD",
+                          ":hover": {
+                            bgcolor: "#F2B51C",
+                            color: "#FDFDFD",
+                            boxShadow: "none",
+                          },
+                        }}
+                      >
+                        Choose
+                        <input
+                          id="nicfileInput"
+                          type="file"
+                          accept="image/jpeg,image/png,application/pdf"
+                          style={{ display: "none" }}
+                          onChange={handleNICFileChange}
+                        />
+                        <VisuallyHiddenInput type="file" />
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </Grid> */}
 
                 <Grid item xs={12} md={6}>
                   <TextField
                     onChange={(e) => {
                       setEmail(e.target.value);
+                      if (e.target.value === "") {
+                        setEmailError(true);
+                      } else {
+                        setEmailError(false);
+                      }
                     }}
                     fullWidth
-                    required={"Email Required"}
+                    // required={"Email Required"}
                     label="Email"
                     variant="outlined"
                     value={email}
                   />
+                  <Box fontWeight={500}>
+                    <div
+                      style={{
+                        color: "red",
+                        display: "inline",
+                        fontSize: "13px",
+                      }}
+                    >
+                      {emailError === false ? "" : "Required"}
+                    </div>
+                  </Box>
                 </Grid>
 
                 <Grid item xs={12} md={6}>
                   <TextField
                     onChange={(e) => {
                       setCountry(e.target.value);
+
+                      if (e.target.value === "") {
+                        setCountryError(true);
+                      } else {
+                        setCountryError(false);
+                      }
                     }}
                     fullWidth
                     label="Country"
@@ -321,6 +747,17 @@ const BrandSignup = () => {
                     variant="outlined"
                     value={country}
                   />
+                  <Box fontWeight={500}>
+                    <div
+                      style={{
+                        color: "red",
+                        display: "inline",
+                        fontSize: "13px",
+                      }}
+                    >
+                      {countryError === false ? "" : "Required"}
+                    </div>{" "}
+                  </Box>
                 </Grid>
 
                 {/* <Grid item xs={12} md={6}>
@@ -338,6 +775,11 @@ const BrandSignup = () => {
                   <TextField
                     onChange={(e) => {
                       setCompanyName(e.target.value);
+                      if (e.target.value === "") {
+                        setCompanyNameError(true);
+                      } else {
+                        setCompanyNameError(false);
+                      }
                     }}
                     fullWidth
                     label="Company Name"
@@ -345,9 +787,104 @@ const BrandSignup = () => {
                     variant="outlined"
                     value={companyName}
                   />
+                  <Box fontWeight={500}>
+                    <div
+                      style={{
+                        color: "red",
+                        display: "inline",
+                        fontSize: "13px",
+                      }}
+                    >
+                      {companyNameError === false ? "" : "Required"}
+                    </div>
+                  </Box>
                 </Grid>
 
                 <Grid item xs={12} md={6}>
+                  <TextField
+                    fullWidth
+                    label="Upload BR"
+                   // required={"NIC Required"}
+                    variant="outlined"
+                    InputProps={{
+                      endAdornment: (
+                        <React.Fragment>
+                          {/* <input
+                            type="file"
+                            // accept="image/jpeg,image/png,application/pdf"
+                            style={{ display: "none" }}
+                            onChange={handleNicFileUpload} //
+                            id="nic-upload"
+                          /> */}
+                           <label htmlFor="fileInput" id="fileNameLabel">
+                        {/* {nicFileName
+                          ? nicFileName.length > 15
+                            ? nicFileName.slice(0, 15) + "..."
+                            : nicFileName
+                          : ""} */}
+                      </label>
+
+                      <Grid item>
+                      {clickValidate ? (
+                        nicError ? (
+                          <div
+                            id="error-message-company"
+                            style={{
+                              color: error === "Success!" ? "green" : "red",
+                            }}
+                          >
+                            {error === "Success!" ? (
+                              <DoneIcon />
+                            ) : (
+                              <ErrorIcon />
+                            )}
+                          </div>
+                        ) : (
+                          <CircularProgress sx={{ color: "#F2B51C" }} />
+                        )
+                      ) : null}
+                    </Grid>
+
+                    <Grid item>
+                      <Button
+                        component="label"
+                        sx={{
+                          borderRadius: "10px",
+                          boxShadow: "none",
+                          backgroundColor: "#F2B51C",
+                          color: "#FDFDFD",
+                          ":hover": {
+                            bgcolor: "#F2B51C",
+                            color: "#FDFDFD",
+                            boxShadow: "none",
+                          },
+                        }}
+                      >
+                        Choose
+                        <input
+                          id="fileInput"
+                          type="file"
+                          accept="image/jpeg,image/png,application/pdf"
+                          style={{ display: "none" }}
+                          onChange={handleFileChange}
+                        />
+                        <VisuallyHiddenInput type="file" />
+                      </Button>
+                    </Grid>
+                          {/* <label htmlFor="nic-upload">
+                            <Button component="span" variant="outlined">
+                              Upload
+                            </Button>
+                          </label> */}
+                        </React.Fragment>
+                      ),
+                    }}
+                    value={nicFileName}
+                    // onChange={}
+                  />
+                </Grid> 
+
+                {/* <Grid item xs={12} md={6}>
                   <TextField
                     fullWidth
                     label="Upload BR"
@@ -362,23 +899,164 @@ const BrandSignup = () => {
                             onChange={handleBrFileUpload}
                             id="br-upload"
                           />
-                          <label htmlFor="br-upload">
+                          <label htmlFor="br-upload" id="fileNameLabel">
                             <Button component="span" variant="outlined">
                               Upload
                             </Button>
+                             {uploadedFileName
+        ? uploadedFileName.length > 15
+          ? uploadedFileName.slice(0, 15) + "..."
+          : uploadedFileName
+        : "Choose File"}
                           </label>
+                          <Grid item>
+    {clickValidate ? (
+      error ? (
+        <div
+          id="error-message-company"
+          style={{
+            color: error === "Success!" ? "green" : "red",
+          }}
+        >
+          {error === "Success!" ? (
+            <DoneIcon />
+          ) : (
+            <ErrorIcon />
+          )}
+        </div>
+      ) : (
+        <CircularProgress sx={{ color: "#F2B51C" }} />
+      )
+    ) : null}
+  </Grid>
+  <Grid item>
+    <Button
+      component="label"
+      variant="contained"
+      sx={{
+        borderRadius: "10px",
+        boxShadow: "none",
+        backgroundColor: "#F2B51C",
+        color: "#FDFDFD",
+        ":hover": {
+          bgcolor: "#F2B51C",
+          color: "#FDFDFD",
+          boxShadow: "none",
+        },
+      }}
+    >
+      Choose
+      <input
+        id="fileInput"
+        type="file"
+        accept="image/jpeg,image/png,application/pdf"
+        style={{ display: "none" }}
+        onChange={handleFileChange}
+      />
+      <VisuallyHiddenInput type="file" />
+    </Button>
+  </Grid>
                         </React.Fragment>
                       ),
                     }}
                     value={brFileName}
                     // onChange={handle}
                   />
-                </Grid>
-
+                   <Box fontWeight={500}>
+                      <div
+                        style={{
+                          color: "red",
+                          display: "inline",
+                          fontSize: "13px",
+                        }}
+                      >
+                        {fileBrError === false ? "" : "Required"}
+                      </div>
+                    </Box>
+                </Grid> */}
+{/* 
                 <Grid item xs={12} md={6}>
+                  <Box fontWeight={500}> Upload BR</Box>
+
+                  <Grid
+                    container
+                    sx={{
+                      display: "flex",
+                      bgcolor: "#FDFDFD",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      borderRadius: "12px",
+                      height: "40px",
+                    }}
+                  >
+                    <Grid item ml={2} fontWeight={500}>
+                      <label htmlFor="fileInput" id="fileNameLabel">
+                        {uploadedFileName
+                          ? uploadedFileName.length > 15
+                            ? uploadedFileName.slice(0, 15) + "..."
+                            : uploadedFileName
+                          : "Choose File"}
+                      </label>
+                    </Grid>
+                    <Grid item>
+                      {clickValidate ? (
+                        error ? (
+                          <div
+                            id="error-message-company"
+                            style={{
+                              color: error === "Success!" ? "green" : "red",
+                            }}
+                          >
+                            {error === "Success!" ? (
+                              <DoneIcon />
+                            ) : (
+                              <ErrorIcon />
+                            )}
+                          </div>
+                        ) : (
+                          <CircularProgress sx={{ color: "#F2B51C" }} />
+                        )
+                      ) : null}
+                    </Grid>
+                    <Grid item>
+                      <Button
+                        component="label"
+                        variant="contained"
+                        sx={{
+                          borderRadius: "10px",
+                          boxShadow: "none",
+                          backgroundColor: "#F2B51C",
+                          color: "#FDFDFD",
+                          ":hover": {
+                            bgcolor: "#F2B51C",
+                            color: "#FDFDFD",
+                            boxShadow: "none",
+                          },
+                        }}
+                      >
+                        Choose
+                        <input
+                          id="fileInput"
+                          type="file"
+                          accept="image/jpeg,image/png,application/pdf"
+                          style={{ display: "none" }}
+                          onChange={handleFileChange}
+                        />
+                        <VisuallyHiddenInput type="file" />
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </Grid> */}
+
+                {/* <Grid item xs={12} md={6}>
                   <TextField
-                    onChange={(e) => {
+                     onChange={(e) => {
                       setRegisterNumber(e.target.value);
+                      if (e.target.value === "") {
+                        setRegisterNumberError(true);
+                      } else {
+                        setRegisterNumberError(false);
+                      }
                     }}
                     fullWidth
                     required={"Register Number Required"}
@@ -386,12 +1064,131 @@ const BrandSignup = () => {
                     variant="outlined"
                     value={RegisterNumber}
                   />
+                  <Box fontWeight={500}>
+                      <div
+                        style={{
+                          color: "red",
+                          display: "inline",
+                          fontSize: "13px",
+                        }}
+                      >
+                        {fileBrError === false ? "" : "Required"}
+                      </div>
+                    </Box>
+                </Grid> */}
+
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    onChange={(e) => {
+                      setRegisterNumber(e.target.value);
+                      if (e.target.value === "") {
+                        setRegisterNumberError(true);
+                      } else {
+                        setRegisterNumberError(false);
+                      }
+                    }}
+                    fullWidth
+                    required={"Register Number Required"}
+                    label="Company Register Number"
+                    variant="outlined"
+                    value={RegisterNumber}
+                  />
+                  {/* <Box
+                      component="input"
+                      value={RegisterNumber}
+                      onChange={handleCompanyRegNoChange}
+                      sx={{
+                        p: "2px 4px",
+                        display: "flex",
+                        alignItems: "center",
+                        width: "100%",
+                        bgcolor: "white",
+                        borderRadius: "12px",
+                        border: "none",
+                        height: "70%",
+                      }}
+                    /> */}
+                  <Box fontWeight={500}>
+                    <div
+                      style={{
+                        color: "red",
+                        display: "inline",
+                        fontSize: "13px",
+                      }}
+                    >
+                      {fileBrError === false ? "" : "Required"}
+                    </div>
+                  </Box>
                 </Grid>
               </Grid>
+
               <Box mt={3}>
-                <Button type="submit" variant="contained" fullWidth>
+                {/* <Button type="submit" variant="contained" fullWidth>
                   Signup
-                </Button>
+                </Button> */}
+                <Grid item xs={12} mt={{ xs: 3, lg: 9 }}>
+                  {(!isValidationSuccess || !isNICValidationSuccess) &&
+                  nic !== "" &&
+                  RegisterNumber !== "" &&
+                  file !== null &&
+                  nicFile !== null ? (
+                    <Button
+                      variant="contained"
+                      onClick={() => handleValidation()}
+                      sx={{
+                        borderRadius: "10px",
+                        width: { xs: "100%" },
+                        bgcolor: "#F2B51C",
+                        color: "#FDFDFD",
+                        boxShadow: "none",
+                        ":hover": {
+                          bgcolor: "#F2B51C",
+                          color: "#FDFDFD",
+                          boxShadow: "none",
+                        },
+                      }}
+                    >
+                      {!clickValidate
+                        ? "VALIDATE"
+                        : error && nicError
+                        ? "RETRY"
+                        : "VALIDATING..."}
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="contained"
+                      onClick={() => {
+                        if (!clickSubmit) {
+                          handleFormSubmit();
+                        }
+                      }}
+                      disabled={!isValidationSuccess || !isNICValidationSuccess}
+                      sx={{
+                        borderRadius: "10px",
+                        width: { xs: "100%" },
+                        backgroundColor: "#F2B51C",
+                        color: "#FDFDFD",
+                        boxShadow: "none",
+                        ":hover": {
+                          bgcolor: "#F2B51C",
+                          color: "#FDFDFD",
+                          boxShadow: "none",
+                        },
+                      }}
+                    >
+                      {clickSubmit ? "SUBMITTING..." : "SUBMIT"}
+                    </Button>
+                  )}
+
+                  {/* {showModal && (
+                      <PopupAlert
+                        show={showModal}
+                        setShow={setShowModal}
+                        message={message}
+                        animation={animation}
+                      />
+                    )} */}
+                </Grid>
               </Box>
             </form>
 
