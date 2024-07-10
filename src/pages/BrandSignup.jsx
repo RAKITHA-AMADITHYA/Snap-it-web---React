@@ -9,6 +9,7 @@ import {
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import Brand from "../assets/img/brands.png";
+import DoneIcon from "@mui/icons-material/Done";
 import { signUpBrand } from "../services/userServices";
 import { showAlertMessage } from "../app/alertMessageController";
 import { useForm } from "react-hook-form";
@@ -305,21 +306,10 @@ const BrandSignup = () => {
 
     formData.delete("file_path_nic");
     formData.delete("file_path_br");
-
-    // formData.append('name', 'name')
-    // formData.append("full_name", fullName);
-    // formData.append("address", data?.address);
-    // formData.append("mobile_number", data?.mobile_number);
-    // formData.append("nic", data?.nic);
     formData.append("file_path_nic", nicFile);
-    // formData.append("email", data?.email);
-    // formData.append("country", data?.country?.label);
-    // formData.append("company_name", data?.company_name);
-    // formData.append("company_reg_no", data?.company_reg_no);
-    formData.append("file_path_br", fileBr);
-    // formData.append("user_type", "super_user");
-
+    formData.append("file_path_br", file);
     console.log(formData);
+    console.log(nicFile, fileBr);
 
     try {
       const response = await signUpBrand(formData);
@@ -542,28 +532,18 @@ const BrandSignup = () => {
                   />
                 </Grid> */}
 
-<Grid item xs={12} md={6}>
+           <Grid item xs={12} md={6}>
                   <TextField
                     fullWidth
                     label="NIC Upload"
-                   // required={"NIC Required"}
+                    required={"NIC Required"}
                     variant="outlined"
                     InputProps={{
                       endAdornment: (
                         <React.Fragment>
-                          {/* <input
-                            type="file"
-                            // accept="image/jpeg,image/png,application/pdf"
-                            style={{ display: "none" }}
-                            onChange={handleNicFileUpload} //
-                            id="nic-upload"
-                          /> */}
+                         
                            <label htmlFor="fileInput" id="nicFileNameLabel">
-                        {/* {nicFileName
-                          ? nicFileName.length > 15
-                            ? nicFileName.slice(0, 15) + "..."
-                            : nicFileName
-                          : ""} */}
+                        
                       </label>
 
                       <Grid item>
@@ -613,11 +593,7 @@ const BrandSignup = () => {
                         <VisuallyHiddenInput type="file" />
                       </Button>
                     </Grid>
-                          {/* <label htmlFor="nic-upload">
-                            <Button component="span" variant="outlined">
-                              Upload
-                            </Button>
-                          </label> */}
+                         
                         </React.Fragment>
                       ),
                     }}
@@ -625,81 +601,6 @@ const BrandSignup = () => {
                     // onChange={}
                   />
                 </Grid> 
-
-                {/* <Grid item xs={12} md={6}>
-                  
-                  <Box fontWeight={500}> Upload NIC</Box>
-
-                  <Grid
-                    container
-                    sx={{
-                      display: "flex",
-                      bgcolor: "#FDFDFD",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      borderRadius: "12px",
-                      height: "40px",
-                    }}
-                  >
-                    <Grid item ml={2} fontWeight={500}>
-                      <label htmlFor="fileInput" id="nicFileNameLabel">
-                        {nicFileName
-                          ? nicFileName.length > 15
-                            ? nicFileName.slice(0, 15) + "..."
-                            : nicFileName
-                          : "Choose File"}
-                      </label>
-                    </Grid>
-
-                    <Grid item>
-                      {clickValidate ? (
-                        nicError ? (
-                          <div
-                            id="error-message-nic"
-                            style={{
-                              color: nicError === "Success!" ? "green" : "red",
-                            }}
-                          >
-                            {nicError === "Success!" ? (
-                              <DoneIcon />
-                            ) : (
-                              <ErrorIcon />
-                            )}
-                          </div>
-                        ) : (
-                          <CircularProgress sx={{ color: "#F2B51C" }} />
-                        )
-                      ) : null}
-                    </Grid>
-
-                    <Grid item>
-                      <Button
-                        component="label"
-                        sx={{
-                          borderRadius: "10px",
-                          boxShadow: "none",
-                          backgroundColor: "#F2B51C",
-                          color: "#FDFDFD",
-                          ":hover": {
-                            bgcolor: "#F2B51C",
-                            color: "#FDFDFD",
-                            boxShadow: "none",
-                          },
-                        }}
-                      >
-                        Choose
-                        <input
-                          id="nicfileInput"
-                          type="file"
-                          accept="image/jpeg,image/png,application/pdf"
-                          style={{ display: "none" }}
-                          onChange={handleNICFileChange}
-                        />
-                        <VisuallyHiddenInput type="file" />
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </Grid> */}
 
                 <Grid item xs={12} md={6}>
                   <TextField
@@ -760,20 +661,12 @@ const BrandSignup = () => {
                   </Box>
                 </Grid>
 
-                {/* <Grid item xs={12} md={6}>
-                                <TextField
-                                    select
-                                    fullWidth
-                                    label="Country"
-                                    variant="outlined"
-                                >
-                                    
-                                </TextField>
-                            </Grid> */}
+              
 
                 <Grid item xs={12} md={6}>
                   <TextField
                     onChange={(e) => {
+                    
                       setCompanyName(e.target.value);
                       if (e.target.value === "") {
                         setCompanyNameError(true);
@@ -800,28 +693,177 @@ const BrandSignup = () => {
                   </Box>
                 </Grid>
 
-                <Grid item xs={12} md={6}>
+                
+
+                {/* <Grid item xs={12} md={6}>
+                    <Box fontWeight={500}> Upload BR</Box>
+
+                    <Grid
+                      container
+                      sx={{
+                        display: "flex",
+                        bgcolor: "#FDFDFD",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        borderRadius: "12px",
+                        height: "40px",
+                      }}
+                    >
+                      <Grid item ml={2} fontWeight={500}>
+                        <label htmlFor="fileInput" id="fileNameLabel">
+                          {uploadedFileName
+                            ? uploadedFileName.length > 15
+                              ? uploadedFileName.slice(0, 15) + "..."
+                              : uploadedFileName
+                            : "Choose File"}
+                        </label>
+                      </Grid>
+                      
+                      <Grid item>
+                        {clickValidate ? (
+                          error ? (
+                            <div
+                              id="error-message-company"
+                              style={{
+                                color: error === "Success!" ? "green" : "red",
+                              }}
+                            >
+                              {error === "Success!" ? (
+                                <DoneIcon />
+                              ) : (
+                                <ErrorIcon />
+                              )}
+                            </div>
+                          ) : (
+                            <CircularProgress sx={{ color: "#F2B51C" }} />
+                          )
+                        ) : null}
+                      </Grid>
+                      <Grid item>
+                        <Button
+                          component="label"
+                          variant="contained"
+                          sx={{
+                            borderRadius: "10px",
+                            boxShadow: "none",
+                            backgroundColor: "#F2B51C",
+                            color: "#FDFDFD",
+                            ":hover": {
+                              bgcolor: "#F2B51C",
+                              color: "#FDFDFD",
+                              boxShadow: "none",
+                            },
+                          }}
+                        >
+                          Choose
+                          <input
+                            id="fileInput"
+                            type="file"
+                            accept="image/jpeg,image/png,application/pdf"
+                            style={{ display: "none" }}
+                            onChange={handleFileChange}
+                          />
+                          <VisuallyHiddenInput type="file" />
+                        </Button>
+                      </Grid>
+                    </Grid>
+                </Grid> */}
+
+
+      
+<Grid item xs={12} md={6}>
+          <TextField
+            variant="outlined"
+            fullWidth
+            label="BR-Upload"
+            required="BR-Required"
+            InputProps={{
+              endAdornment: (
+                <React.Fragment>
+                   <Grid item>
+          {clickValidate ? (
+            error ? (
+              <div
+                id="error-message-company"
+                style={{
+                  color: error === 'Success!' ? 'green' : 'red',
+                }}
+              >
+                {error === 'Success!' ? <DoneIcon /> : <ErrorIcon />}
+              </div>
+            ) : (
+              <CircularProgress sx={{ color: '#F2B51C' }} />
+            )
+          ) : null}
+        </Grid>
+<Grid item>
+<Button
+                  component="label"
+                  variant="contained"
+                  sx={{
+                    borderRadius: '10px',
+                    boxShadow: 'none',
+                    backgroundColor: '#F2B51C',
+                    color: '#FDFDFD',
+                    ':hover': {
+                      bgcolor: '#F2B51C',
+                      color: '#FDFDFD',
+                      boxShadow: 'none',
+                    },
+                  }}
+                >
+                  Choose
+                  <input
+                    id="fileInput"
+                    type="file"
+                    accept="image/jpeg,image/png,application/pdf"
+                    style={{ display: 'none' }}
+                    onChange={handleFileChange}
+                  />
+                </Button>
+</Grid>
+            
+                </React.Fragment>
+               
+              ),
+            }}
+            value={
+              uploadedFileName
+                ? uploadedFileName.length > 15
+                  ? uploadedFileName.slice(0, 15) + '...'
+                  : uploadedFileName
+                : 'Choose File'
+            }
+          />
+      
+
+       
+    </Grid>
+
+                
+
+                {/* <Grid item xs={12} md={6}>
                   <TextField
                     fullWidth
                     label="Upload BR"
-                   // required={"NIC Required"}
+                    required={"NIC Required"}
                     variant="outlined"
                     InputProps={{
                       endAdornment: (
                         <React.Fragment>
-                          {/* <input
+                          <input
                             type="file"
-                            // accept="image/jpeg,image/png,application/pdf"
+                             accept="image/jpeg,image/png,application/pdf"
                             style={{ display: "none" }}
                             onChange={handleNicFileUpload} //
                             id="nic-upload"
-                          /> */}
+                          />
                            <label htmlFor="fileInput" id="fileNameLabel">
-                        {/* {nicFileName
+                        {nicFileName
                           ? nicFileName.length > 15
                             ? nicFileName.slice(0, 15) + "..."
                             : nicFileName
-                          : ""} */}
+                          : ""}
                       </label>
 
                       <Grid item>
@@ -871,212 +913,20 @@ const BrandSignup = () => {
                         <VisuallyHiddenInput type="file" />
                       </Button>
                     </Grid>
-                          {/* <label htmlFor="nic-upload">
+                          <label htmlFor="nic-upload">
                             <Button component="span" variant="outlined">
                               Upload
                             </Button>
-                          </label> */}
+                          </label>
                         </React.Fragment>
                       ),
                     }}
                     value={nicFileName}
-                    // onChange={}
+                   
                   />
-                </Grid> 
+                </Grid>  */}
 
-                {/* <Grid item xs={12} md={6}>
-                  <TextField
-                    fullWidth
-                    label="Upload BR"
-                    variant="outlined"
-                    required={"Br Required"}
-                    InputProps={{
-                      endAdornment: (
-                        <React.Fragment>
-                          <input
-                            type="file"
-                            style={{ display: "none" }}
-                            onChange={handleBrFileUpload}
-                            id="br-upload"
-                          />
-                          <label htmlFor="br-upload" id="fileNameLabel">
-                            <Button component="span" variant="outlined">
-                              Upload
-                            </Button>
-                             {uploadedFileName
-        ? uploadedFileName.length > 15
-          ? uploadedFileName.slice(0, 15) + "..."
-          : uploadedFileName
-        : "Choose File"}
-                          </label>
-                          <Grid item>
-    {clickValidate ? (
-      error ? (
-        <div
-          id="error-message-company"
-          style={{
-            color: error === "Success!" ? "green" : "red",
-          }}
-        >
-          {error === "Success!" ? (
-            <DoneIcon />
-          ) : (
-            <ErrorIcon />
-          )}
-        </div>
-      ) : (
-        <CircularProgress sx={{ color: "#F2B51C" }} />
-      )
-    ) : null}
-  </Grid>
-  <Grid item>
-    <Button
-      component="label"
-      variant="contained"
-      sx={{
-        borderRadius: "10px",
-        boxShadow: "none",
-        backgroundColor: "#F2B51C",
-        color: "#FDFDFD",
-        ":hover": {
-          bgcolor: "#F2B51C",
-          color: "#FDFDFD",
-          boxShadow: "none",
-        },
-      }}
-    >
-      Choose
-      <input
-        id="fileInput"
-        type="file"
-        accept="image/jpeg,image/png,application/pdf"
-        style={{ display: "none" }}
-        onChange={handleFileChange}
-      />
-      <VisuallyHiddenInput type="file" />
-    </Button>
-  </Grid>
-                        </React.Fragment>
-                      ),
-                    }}
-                    value={brFileName}
-                    // onChange={handle}
-                  />
-                   <Box fontWeight={500}>
-                      <div
-                        style={{
-                          color: "red",
-                          display: "inline",
-                          fontSize: "13px",
-                        }}
-                      >
-                        {fileBrError === false ? "" : "Required"}
-                      </div>
-                    </Box>
-                </Grid> */}
-{/* 
-                <Grid item xs={12} md={6}>
-                  <Box fontWeight={500}> Upload BR</Box>
-
-                  <Grid
-                    container
-                    sx={{
-                      display: "flex",
-                      bgcolor: "#FDFDFD",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      borderRadius: "12px",
-                      height: "40px",
-                    }}
-                  >
-                    <Grid item ml={2} fontWeight={500}>
-                      <label htmlFor="fileInput" id="fileNameLabel">
-                        {uploadedFileName
-                          ? uploadedFileName.length > 15
-                            ? uploadedFileName.slice(0, 15) + "..."
-                            : uploadedFileName
-                          : "Choose File"}
-                      </label>
-                    </Grid>
-                    <Grid item>
-                      {clickValidate ? (
-                        error ? (
-                          <div
-                            id="error-message-company"
-                            style={{
-                              color: error === "Success!" ? "green" : "red",
-                            }}
-                          >
-                            {error === "Success!" ? (
-                              <DoneIcon />
-                            ) : (
-                              <ErrorIcon />
-                            )}
-                          </div>
-                        ) : (
-                          <CircularProgress sx={{ color: "#F2B51C" }} />
-                        )
-                      ) : null}
-                    </Grid>
-                    <Grid item>
-                      <Button
-                        component="label"
-                        variant="contained"
-                        sx={{
-                          borderRadius: "10px",
-                          boxShadow: "none",
-                          backgroundColor: "#F2B51C",
-                          color: "#FDFDFD",
-                          ":hover": {
-                            bgcolor: "#F2B51C",
-                            color: "#FDFDFD",
-                            boxShadow: "none",
-                          },
-                        }}
-                      >
-                        Choose
-                        <input
-                          id="fileInput"
-                          type="file"
-                          accept="image/jpeg,image/png,application/pdf"
-                          style={{ display: "none" }}
-                          onChange={handleFileChange}
-                        />
-                        <VisuallyHiddenInput type="file" />
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </Grid> */}
-
-                {/* <Grid item xs={12} md={6}>
-                  <TextField
-                     onChange={(e) => {
-                      setRegisterNumber(e.target.value);
-                      if (e.target.value === "") {
-                        setRegisterNumberError(true);
-                      } else {
-                        setRegisterNumberError(false);
-                      }
-                    }}
-                    fullWidth
-                    required={"Register Number Required"}
-                    label="Company Register Number"
-                    variant="outlined"
-                    value={RegisterNumber}
-                  />
-                  <Box fontWeight={500}>
-                      <div
-                        style={{
-                          color: "red",
-                          display: "inline",
-                          fontSize: "13px",
-                        }}
-                      >
-                        {fileBrError === false ? "" : "Required"}
-                      </div>
-                    </Box>
-                </Grid> */}
-
+     
                 <Grid item xs={12} md={6}>
                   <TextField
                     onChange={(e) => {
@@ -1123,9 +973,7 @@ const BrandSignup = () => {
               </Grid>
 
               <Box mt={3}>
-                {/* <Button type="submit" variant="contained" fullWidth>
-                  Signup
-                </Button> */}
+              
                 <Grid item xs={12} mt={{ xs: 3, lg: 9 }}>
                   {(!isValidationSuccess || !isNICValidationSuccess) &&
                   nic !== "" &&
@@ -1159,7 +1007,7 @@ const BrandSignup = () => {
                       variant="contained"
                       onClick={() => {
                         if (!clickSubmit) {
-                          handleFormSubmit();
+                          handleBrandSignUp();
                         }
                       }}
                       disabled={!isValidationSuccess || !isNICValidationSuccess}
@@ -1189,12 +1037,11 @@ const BrandSignup = () => {
                       />
                     )} */}
                 </Grid>
+                
               </Box>
             </form>
 
-            {/* <Box mt={3}>
-                            <Button variant='contained' onClick={handleClick} fullWidth>Signup</Button>
-                        </Box> */}
+         
           </Grid>
         </Grid>
       </section>
