@@ -847,9 +847,9 @@ const MerchantSignup = () => {
         setEmail("");
         setCountry("");
         setCompanyName("");
-        setCompanyRegNo("");
+        setRegisterNumber("");
         setFileBr("");
-        setNicFile("");
+        setNicFileName("");
         setFile("");
         setUploadedFileName("");
         setUploadedNICFileName("");
@@ -1353,7 +1353,7 @@ const MerchantSignup = () => {
                 ? uploadedFileName.length > 15
                   ? uploadedFileName.slice(0, 15) + '...'
                   : uploadedFileName
-                : 'Choose File'
+                : ''
             }
           />
       
