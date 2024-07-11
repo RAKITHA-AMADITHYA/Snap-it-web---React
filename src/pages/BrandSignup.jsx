@@ -328,9 +328,9 @@ const BrandSignup = () => {
         setEmail("");
         setCountry("");
         setCompanyName("");
-        setCompanyRegNo("");
+        setRegisterNumber("");
         setFileBr("");
-        setNicFile("");
+        setNicFileName("");
         setFile("");
         setUploadedFileName("");
         setUploadedNICFileName("");
@@ -832,7 +832,7 @@ const BrandSignup = () => {
                 ? uploadedFileName.length > 15
                   ? uploadedFileName.slice(0, 15) + '...'
                   : uploadedFileName
-                : 'Choose File'
+                : ''
             }
           />
       
@@ -840,8 +840,7 @@ const BrandSignup = () => {
        
     </Grid>
 
-                
-
+          
                 {/* <Grid item xs={12} md={6}>
                   <TextField
                     fullWidth

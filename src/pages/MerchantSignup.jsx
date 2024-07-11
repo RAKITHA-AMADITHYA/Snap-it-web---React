@@ -813,7 +813,7 @@ const MerchantSignup = () => {
       company_name: companyName,
       company_reg_no: RegisterNumber,
       file_path_br: brFileName,
-      user_type: "super_user",
+      user_type: "merchant",
     };
     console.log(data);
 
