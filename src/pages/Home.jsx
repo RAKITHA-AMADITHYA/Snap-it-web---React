@@ -246,12 +246,13 @@ const Home = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 flexDirection: 'column',
-                p: [1, 2, 0]
+                p: [2, 2, 0]
               }}>
                 <Typography variant='subtitle1' fontWeight={500}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco     </Typography>
                 <Typography variant='subtitle1' fontWeight={500} mt={2}  >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </Typography>
               </Box>
-              <Button variant='contained' sx={{ mt: 2 }} >Get Start</Button>
+              <Box p={1}>
+              <Button variant='contained'  >Get Start</Button></Box>
             </motion.div>
           </Grid>
 
@@ -259,8 +260,8 @@ const Home = () => {
         </Grid>
       </section>
 
-      <Box sx={{ display: 'flex', justifyContent: 'end', p: 1, ml: { xs: 0, md: 8 } }} >
-        <Typography variant='h3' fontWeight={700}>FOR BRANDS</Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'center', p: 1, ml: { xs: 0, md: 110  } }} >
+        <Typography variant='h3' fontWeight={800}>FOR BRANDS</Typography>
       </Box>
 
       <section >
@@ -273,7 +274,7 @@ const Home = () => {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
-            sx={{ display: 'flex', justifyContent: 'start', p: [1, 2, 10] }}
+            sx={{ display: 'flex', justifyContent: 'start', p: [2, 2, 10] }}
           >
             <motion.div variants={leftVariants}>
               <Box sx={{
@@ -295,13 +296,13 @@ const Home = () => {
             viewport={{ once: true, amount: 0.8 }}
             sx={{ display: 'flex', justifyContent: 'end', }}
           >
-            <motion.div variants={leftVariants}>   <img src={Man} width={'80%'} alt="" /></motion.div>
+            <motion.div variants={leftVariants}>   <img src={Man} width={'100%'} alt="" /></motion.div>
           </Grid>
 
         </Grid>
       </section>
 
-      <Box sx={{ display: 'flex', justifyContent: 'start', p: 1, ml: { xs: 0, md: 8 } }} >
+      <Box sx={{ display: 'flex', justifyContent: 'start', p: 8, ml: { xs: 0, md: 8 } ,mt:-2}} >
         <Typography variant='h3' fontWeight={700}>FOR MERCHANTS</Typography>
       </Box>
 
@@ -331,7 +332,7 @@ const Home = () => {
                 maxWidth: { lg: '500px' },
                 minWidth: { lg: '500px' },
                 margin: '0 auto',
-                mt: 10,
+                mt: 5,
                 display: 'flex',
                 justifyContent: 'center',
                 flexDirection: 'column'
@@ -339,7 +340,7 @@ const Home = () => {
                 <Typography variant='subtitle1' fontWeight={500}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco     </Typography>
                 <Typography variant='subtitle1' fontWeight={500} mt={2}  >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </Typography>
               </Box>
-              <Button variant='contained' sx={{ mt: 2 }} >Learn More</Button>
+              <Button variant='contained' sx={{ mt: 2,m:1 }} >Learn More</Button>
             </motion.div>
           </Grid>
 

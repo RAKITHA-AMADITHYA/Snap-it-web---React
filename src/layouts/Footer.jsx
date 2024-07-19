@@ -1,17 +1,35 @@
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MailIcon from '@mui/icons-material/Mail';
-import { Box, Divider, Grid, Typography } from '@mui/material';
+import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import appstore from '../assets/img/appstore.png';
 import logo from '../assets/img/footer3.png';
 import playstore from '../assets/img/playstore.png';
 import copyrights from '../assets/img/copyrights.png';
 import footer1 from '../assets/img/footer1.png';
+import FbImage from '../assets/img/fb.png'
+import TikTokImage from '../assets/img/tiktok.png'
+import InstaImage from '../assets/img/insta1.png'
+import PlayStore from '../assets/img/playstore.png';
+import Appstore from '../assets/img/appstore.png';
+import { useNavigate } from 'react-router-dom';
+
 
 
 
 
 const Footer = () => {
+
+  const navigate = useNavigate();
+
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
+
+  const handleClick = () => {
+    window.location.href = 'https://play.google.com/store/apps/details?id=com.snapitonline.snap_it';
+  };
+
   return (
     <>
 
@@ -21,7 +39,7 @@ const Footer = () => {
           <img src={logo} width={'80px'} alt="" />
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Typography variant='body2' mt={3} fontWeight={600} textAlign={'justify'}>
+          <Typography variant='body2' mt={3} fontWeight={300} textAlign={'justify'}>
             Snap it effortlessly brings your favorite brands to your fingertips
             ,rewarding your loyalty. The platform also assists merchants in gaining a
             deeper understanding of their customers and incentivizing loyalty. </Typography>
@@ -45,18 +63,18 @@ const Footer = () => {
 
           {/* Mail */}
           <div style={{ display: 'flex', gap: '45px', color: '#fff', marginTop: '10px', justifyContent: 'center', alignItems: 'end' }}>
-            <MailIcon  sx={{ 
-        fontSize: { lg: '30px' }, 
-        color: '#FFF',
-       
-      }}  />
+            <MailIcon sx={{
+              fontSize: { lg: '30px' },
+              color: '#FFF',
+
+            }} />
             <Typography variant='h6' textAlign={'justify'}>info@snapit.lk</Typography>
           </div>
           {/* Location */}
           <div style={{ display: 'flex', gap: '20px', color: '#fff', marginTop: '10px', justifyContent: 'center', alignItems: 'start' }}>
             <LocationOnIcon sx={{ fontSize: { lg: '30px', color: '#FFFF' } }} />
             <Typography variant='p ' textAlign={'end'}>
-              Snapit PVT Ltd.<br/>
+              Snapit PVT Ltd.<br />
               No.12  Ridgeway Place, <br />
               Colombo 04,<br />
               Sri Lanka.
@@ -83,54 +101,123 @@ const Footer = () => {
         }}>
 
           <Grid container p={5} justifyContent={'space-between'}>
-            <Grid item xs={3} color={'#fff'} >
+            <Grid item xs={4} color={'#fff'} >
               <img src={logo} width={'20%'} alt="" />
-              <Typography variant='subtitle2' mt={3} fontWeight={600} textAlign={'justify'}>
+              <Typography variant='subtitle2' mt={3} fontWeight={400} textAlign={'justify'}>
                 Snap it effortlessly brings your favorite brands to your fingertips,rewarding your loyalty. The platform also assists merchants in gaining a deeper understanding of their customers and incentivizing loyalty.          </Typography>
 
               <Box display={'flex'} gap={2} mt={2}>
-                <img src={playstore} width={'60%'} height={'50%'} alt="" />
-                <img src={appstore} width={'60%'} height={'50%'} alt="" />
+                {/* <FbImage/> */}
+                <img src={FbImage} width={'6%'} height={'50%'} alt="" />
+                <img src={TikTokImage} width={'7%'} height={'50%'} alt="" />
+                <img src={InstaImage} width={'7%'} height={'50%'} alt="" />
+
               </Box>
             </Grid>
+            <Grid item xs={4} color={'#fff'} display={'flex'} justifyContent={'center'} flexDirection={'column'} alignItems={'center'} textAlign={'start'}>
+              <Typography variant='subtitle1' fontWeight={700}>USEFUL LINKS</Typography>
+              <Typography variant='p'sx={{cursor:'pointer'}}  mt={1} onClick={() => handleNavigate('/')}>HOME</Typography>
+              <Typography variant='p'  sx={{cursor:'pointer'}}  onClick={() => handleNavigate('/signup')} >HOW IT WORKS</Typography>
+              <Typography variant='p' sx={{cursor:'pointer'}}   onClick={() => handleNavigate('/customer')}>CUSTOMER</Typography>
+              <Typography variant='p'  sx={{cursor:'pointer'}}  onClick={() => handleNavigate('/brands')}>BRANDS</Typography>
+              <Typography variant='p' sx={{cursor:'pointer'}}  onClick={() => handleNavigate('/merchants')} >MERCHANTS</Typography>
+              <Typography variant='p' sx={{cursor:'pointer'}}  onClick={() => handleNavigate('/about-us')} >ABOUT US</Typography>
+              <Typography variant='p' sx={{cursor:'pointer'}}   onClick={() => handleNavigate('/contact-us')}>CONTACT US</Typography>
 
 
-            <Grid item xs={3} color={'#fff'} mt={8}>
 
 
+
+
+
+            </Grid>
+
+            <Grid item xs={3} color={'#fff'} mt={4}>
+
+              <Box display={'flex'} justifyContent={'end'}>
+                <Typography variant='h6' fontWeight={800}>CONTACTS</Typography>
+              </Box>
 
               {/* Phone */}
-              <div style={{ display: 'flex',  color: '#fff', marginTop: '10px', justifyContent: 'end', alignItems: 'end',  flexDirection:'column' }}>
-                {/* <LocalPhoneIcon sx={{ fontSize: { lg: '30px', color: '#FFFF' }, ml: '-100px' }} /> */}
-                <Typography variant='h5' fontWeight={800} textAlign={'end'}>Contact</Typography>
-                <Typography variant='h6' textAlign={'end'}>
-                  (+94) 77 7331496<br />
+              <Grid container spacing={2} direction="column" mt={1}>
+
+                {/* Location */}
+                <Grid item container alignItems="center" justifyContent="end" textAlign={'end'}>
+                  <LocationOnIcon sx={{ fontSize: { lg: '22px' }, color: '#FFF', mr: 1, mt: -2 }} />
+                  <div style={{ color: '#fff' }}>
+                    {/* <Typography variant='h5' fontWeight={800} textAlign='end'>Address</Typography> */}
+                    <Typography variant='P' textAlign='end'>
+                      Snapit PVT Ltd.<br />
+                      No.12 Ridgeway Place,<br />
+                      Colombo 04,<br />
+                      Sri Lanka.
+                    </Typography>
+                  </div>
+                </Grid>
+                {/* Contact */}
+                <Grid item container alignItems="center" justifyContent="end">
+                  <LocalPhoneIcon sx={{ fontSize: { lg: '22px' }, color: '#FFF', mr: 1 }} />
+                  <div style={{ color: '#fff' }}>
+                    {/* <Typography variant='h5' fontWeight={800} textAlign='end'>Contact</Typography> */}
+                    <Typography variant='P' textAlign='end'>
+                      (+94) 77 7331496<br />
+                    </Typography>
+                  </div>
+                </Grid>
+
+                {/* Mail */}
+                <Grid item container alignItems="center" justifyContent="end">
+                  <MailIcon sx={{ fontSize: { lg: '22px' }, color: '#FFF', mr: 2.6 }} />
+                  <div style={{ color: '#fff' }}>
+                    {/* <Typography variant='h5' fontWeight={800} textAlign='end'>Email</Typography> */}
+                    <Typography variant='P' textAlign='end'>info@snapit.lk</Typography>
+                  </div>
+                </Grid>
 
 
-                </Typography>
-              </div>
+              </Grid>
+              <Box sx={{ display: 'flex', gap: '2px', mt: 5 }}>
+                <Button
+                  variant="contained"
+                  onClick={handleClick}
+                  sx={{
+                    backgroundImage: `url(${PlayStore})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    width: '14vw',
+                    height: '8vh',
+                    padding: 0,
+                    borderRadius: '8px',
+                    '&:hover': {
+                      backgroundImage: `url(${PlayStore})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                    }
+                  }}
+                >
+                </Button>
 
-              {/* Mail */}
-              <div style={{ display: 'flex', color: '#fff', marginTop: '10px', justifyContent: 'end', alignItems: 'end',  flexDirection:'column' }}>
-                {/* <MailIcon sx={{ fontSize: { lg: '30px' }, color: '#FFF' ,ml:-20}} /> */}
-                <Typography variant='h5' fontWeight={800} textAlign={'end'}>Email</Typography>
+                <Button
+                  variant="contained"
+                  sx={{
+                    ml: 2,
+                    backgroundImage: `url(${Appstore})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    width: '14vw',
+                    height: '8vh',
+                    padding: 0,
+                    borderRadius: '8px',
+                    '&:hover': {
+                      backgroundImage: `url(${Appstore})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                    }
+                  }}
+                >
+                </Button>
+              </Box>
 
-                <Typography variant='h6' textAlign={'end'}>info@snapit.lk</Typography>
-              </div>
-              {/* Location */}
-              <div style={{ display: 'flex',  color: '#fff', marginTop: '10px', justifyContent: 'end', alignItems: 'end',  flexDirection:'column' }}>
-                {/* <LocationOnIcon sx={{ fontSize: { lg: '30px', color: '#FFFF' } }} /> */}
-                <Typography variant='h5' fontWeight={800} textAlign={'end'}>Address</Typography>
-
-                <Typography variant='p ' textAlign={'end'}>
-                  Snapit PVT Ltd.<br/>
-                  No.12  Ridgeway Place, <br />
-                  Colombo 04,<br />
-                  Sri Lanka.
-
-
-                </Typography>
-              </div>
             </Grid>
 
 

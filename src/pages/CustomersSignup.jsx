@@ -73,14 +73,14 @@ const CustomersSignup = () => {
                             Now you can scan the QR code form your mobile and checkout our mobile App or download from below
                         </Typography>
 
-                        <div style={{gap:'2px'}}>
+                        <div style={{ gap: '2px' }}>
                             <Button
                                 variant="contained"
                                 onClick={handleClick}
 
                                 sx={{
                                     mt: 5,
-                                    position:'relative',
+                                    position: 'relative',
                                     backgroundImage: `url(${PlayStore})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
@@ -94,15 +94,17 @@ const CustomersSignup = () => {
                                         backgroundPosition: 'center',
                                     }
                                 }}
-                            ></Button>
+                            >
+                                
+                            </Button>
 
-<Button
+                            <Button
                                 variant="contained"
                                 // onClick={handleClick}
 
                                 sx={{
                                     mt: 5,
-                                    ml:2,
+                                    ml: 2,
                                     backgroundImage: `url(${Appstore})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',

@@ -7,7 +7,7 @@ import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import brands from '../assets/img/brands.png';
+import brands from '../assets/img/brand2.png';
 import Reward from '../assets/img/reward.png';
 import Analize from '../assets/img/analize.png';
 import chart from '../assets/img/chart.png';
@@ -15,11 +15,7 @@ import reward2 from '../assets/img/reward2.png';
 
 import ServiceCardTwo from '../components/Card/ServiceCardTwo';
 import { useNavigate } from 'react-router-dom';
-
-
-
-
-
+import ServiceCardThree from '../components/Card/ServiceCardThree';
 
 
 const Brands = () => {
@@ -31,9 +27,9 @@ const Brands = () => {
       };
     useEffect(() => {
         AOS.init({
-            duration: 1000, // Duration of the animation in milliseconds
-            once: false, // Whether animation should happen only once - while scrolling down
-            mirror: true, // Whether elements should animate out while scrolling past them
+            duration: 1000, 
+            once: false, 
+            mirror: true, 
         });
     }, []);
     const cardVariants = {
@@ -80,7 +76,7 @@ const Brands = () => {
             <section>
 
                 <Grid container>
-                    <Grid item xs={12} md={6}  p={{ xs: 2, lg: 10 }}
+                    <Grid item xs={12} md={6} p={{ xs: 2, lg: 15 }} mt={-12 }
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
@@ -91,7 +87,7 @@ const Brands = () => {
 
                         </Typography>
 
-                        <Typography variant='subtitle1' mt={1} textAlign={'justify'} sx={{ fontSize: { xs: '14px', lg: '18px' } }} >
+                        <Typography variant='subtitle1' mt={1} textAlign={'justify'} sx={{ fontSize: { xs: '14px', lg: '16px' } }} >
                             In an era dominated by digital interactions, Snap it emerges as a groundbreaking universal platform designed to bridge the gap between brands and consumers, presenting a unique opportunity for global or small-scale businesses to connect with millions of end consumers on a daily basis. Snap it's mission is to create a novel avenue for brand visibility and competitiveness by fostering empathic connections through the distribution of millions of small rewards.
 
                         </Typography>
@@ -106,7 +102,7 @@ const Brands = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', mt: { xs: -16, sm: 0, md: 5, lg: -5 }, justifyContent:{xs:'end',lg:'center'}, p: { xs: 5, lg: 10 } }}
+                        sx={{ display: 'flex', mt: { xs: -16, sm: 0, md: -3 }, justifyContent:{xs:'end',lg:'end  '}, p: { xs: 5, lg: 0 } }}
                     >
                         <motion.div variants={leftVariants}>
                             <img src={brands} width={'100%'} alt="" />
@@ -127,7 +123,7 @@ const Brands = () => {
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
-                    sx={{ display: 'flex', justifyContent: 'center', p: { xs: 2, lg: 2 } }}
+                    sx={{ display: 'flex', justifyContent: 'center', p: { xs: 2, lg: 10 } }}
                 >
                     <motion.div variants={leftVariants}>
                         <Typography sx={{ fontSize: { xs: '20px', lg: '30px' } }} variant='h3' textAlign={'center'} fontWeight={700}>The core features of SnapIt focus on revolutionizing the traditional approach to consumer engagement </Typography>
@@ -142,7 +138,7 @@ const Brands = () => {
 
             <section ref={section2Ref} >
 
-                <Grid container p={5} mt={-5}>
+                <Grid container p={12} mt={-5}>
                     <Grid
                         item
                         component={motion.div}
@@ -154,7 +150,7 @@ const Brands = () => {
                         }}                        md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo img={Reward} widthImg={'150px'} marginTop={'-25px'} title={"Mass Rewarding"} description={"The core features of Snap it focuses on revolutionizing the traditional approach to consumer engagement"} />
+                            <ServiceCardThree img={Reward} widthImg={'150px'} marginTop={'-25px'} title={"Mass Rewarding"} description={"The core features of Snap it focuses on revolutionizing the traditional approach to consumer engagement"} />
                         </motion.div>
                     </Grid>
 
@@ -169,7 +165,7 @@ const Brands = () => {
                         }}                        md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo img={Analize} imgMt={'20px'} marginTop={'-1px'} widthImg={'100px'} title={"Real-time Analytics"} description={"Snap it incorporates real-time analytics to provide brands with valuable insights into consumer behavior and preferences. This data-driven approach empowers businesses to make informed decisions, refine their marketing strategies, and tailor their offerings to better resonate with their target audience. Real-time analytics enable brands to adapt quickly to market trends and consumer expectations."} />
+                            <ServiceCardThree img={Analize} imgMt={'20px'} marginTop={'-1px'} widthImg={'100px'} title={"Real-time Analytics"} description={"Snap it incorporates real-time analytics to provide brands with valuable insights into consumer behavior and preferences. This data-driven approach empowers businesses to make informed decisions, refine their marketing strategies, and tailor their offerings to better resonate with their target audience. Real-time analytics enable brands to adapt quickly to market trends and consumer expectations."} />
                         </motion.div>
                     </Grid>
 
@@ -184,7 +180,7 @@ const Brands = () => {
                         }}                        md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo img={chart} imgMt={'30px'} widthImg={'100px'} title={"Streamlined Process"} description={"The platform streamlines the process of rewarding consumers, ensuring efficiency and ease of use. Brands can seamlessly distribute rewards, fostering a positive and memorable experience for the consumers. Snap it’'s user-friendly interface ensures that both brands and consumers can engage effortlessly, enhancing the overall user experience."} />
+                            <ServiceCardThree img={chart} imgMt={'30px'} widthImg={'100px'} title={"Streamlined Process"} description={"The platform streamlines the process of rewarding consumers, ensuring efficiency and ease of use. Brands can seamlessly distribute rewards, fostering a positive and memorable experience for the consumers. Snap it’'s user-friendly interface ensures that both brands and consumers can engage effortlessly, enhancing the overall user experience."} />
                         </motion.div>
                     </Grid>
 
@@ -199,7 +195,7 @@ const Brands = () => {
                         }}                        md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo img={reward2} imgMt={'30px'} widthImg={'100px'} title={"One-to-One Rewards"} description={"Snap it emphasizes personalized engagement through its one-to-one rewards system. This individualized approach ensures that consumers feel valued and recognized by the brands they interact with. By tailoring rewards to specific consumer preferences and behaviors, brands can cultivate a sense of loyalty and encourage repeat purchases."} />
+                            <ServiceCardThree img={reward2} imgMt={'30px'} widthImg={'100px'} title={"One-to-One Rewards"} description={"Snap it emphasizes personalized engagement through its one-to-one rewards system. This individualized approach ensures that consumers feel valued and recognized by the brands they interact with. By tailoring rewards to specific consumer preferences and behaviors, brands can cultivate a sense of loyalty and encourage repeat purchases."} />
                         </motion.div>
                     </Grid>
 

@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import Analize from '../assets/img/analize.png';
 import chart from '../assets/img/chart.png';
-import Merchant from '../assets/img/merchant33.png';
+import Merchant from '../assets/img/mercahant3.png';
 
 import { useNavigate } from 'react-router-dom';
 import Reward from '../assets/img/reward.png';
@@ -98,7 +98,7 @@ const Merchants = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', mt: { xs: -8, sm: 0, md: 5, lg: -5 }, justifyContent: 'center', p: { xs: 11, lg: 10 } }}
+                        sx={{ display: 'flex', mt: { xs: -8, sm: 0, md: 5, lg: 2 }, justifyContent: 'end', p: { xs: 5, lg: 0 } }}
                     >
                         <motion.div variants={leftVariants}>
                             <img src={Merchant} width={'100%'} alt="" />
@@ -206,7 +206,7 @@ const Merchants = () => {
 
             <section ref={section2Ref}>
 
-                <Grid container p={5}>
+                <Grid container p={2}>
                     <Grid
                         item
                         component={motion.div}

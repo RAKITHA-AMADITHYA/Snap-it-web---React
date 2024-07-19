@@ -1,5 +1,5 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import MainHeader from "./Header";
 import Footer from "./Footer";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
@@ -9,6 +9,13 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Fade from "@mui/material/Fade";
 
 function ScrollTop({ children }) {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+
   const trigger = useScrollTrigger({
     target: window,
     disableHysteresis: true,
@@ -18,6 +25,7 @@ function ScrollTop({ children }) {
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
 
   return (
     <Fade in={trigger}>

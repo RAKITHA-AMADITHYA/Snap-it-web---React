@@ -1,14 +1,14 @@
 import { Box, Card, Typography } from '@mui/material';
 import React from 'react';
 
-function ServiceCardTwo({ img, title, description, marginTop, widthImg, imgMt, fontsize ,fontsizeTitle }) {
+function ServiceCardThree({ img, title, description, marginTop, widthImg, imgMt, fontsize ,fontsizeTitle }) {
   return (
     <Card
       sx={{
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
         bgcolor: '#f2f1ef',
-        minHeight: '380px',
-        maxHeight: '380px',
+        minHeight: '480px',
+        maxHeight: '480px',
 
         transition: 'transform 0.3s ease, background-color 0.3s ease, color 0.3s ease',
         '&:hover': {
@@ -36,4 +36,4 @@ function ServiceCardTwo({ img, title, description, marginTop, widthImg, imgMt, f
   );
 }
 
-export default ServiceCardTwo;
+export default ServiceCardThree;

@@ -7,7 +7,7 @@ import React, { useEffect, useRef } from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import WishList from '../assets/img/wish.png';
-import CustomerImg from '../assets/img/customer.png';
+import CustomerImg from '../assets/img/customer3.png';
 import Wallet from '../assets/img/wallet.png';
 import ShoppingList from '../assets/img/list.png';
 import reward2 from '../assets/img/reward2.png';
@@ -74,8 +74,8 @@ const Customer = () => {
             <section>
 
                 <Grid container>
-                    <Grid item xs={12} md={6} p={{ xs: 2, lg: 10 }}
-                        data-aos="fade-right"
+                <Grid item xs={12} md={6} p={{ xs: 2, lg: 15 }} sx={{ mt: { lg: -10 } }}
+                data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
                     >
@@ -100,7 +100,7 @@ const Customer = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', mt: { xs: -8, sm: 0, md: 5, lg: -5 }, justifyContent: 'center', p: { xs: 5, lg: 10 } }}
+                        sx={{ display: 'flex', mt: { xs: -8, sm: 0, md: 5, lg: -5 }, justifyContent: 'end', p: { xs: 5, lg: 0 } }}
                     >
                         <motion.div variants={leftVariants}>
                             <img src={CustomerImg} width={{ xs: '100%' }} alt="" />
@@ -137,7 +137,7 @@ const Customer = () => {
 
             <section ref={section2Ref} >
 
-                <Grid container p={6} mt={-5} >
+                <Grid container p={2} mt={-5} >
 
                     {/* wallet card */}
                     <Grid
