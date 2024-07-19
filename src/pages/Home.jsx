@@ -1,4 +1,4 @@
-import { Button, Divider, Grid, Typography } from '@mui/material';
+import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
@@ -7,13 +7,18 @@ import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import Landingpage from '../assets/img/landing3.png';
-import LogoImg from '../assets/img/logo2.png';
-import product2 from '../assets/img/product2.png';
-import product3 from '../assets/img/product3.png';
+import Landingpage from '../assets/img/homeImg.png';
+import Mobile from '../assets/img/mobile.png';
+import Man from '../assets/img/man.png';
 import product4 from '../assets/img/product4.png';
-import product5 from '../assets/img/product5.png';
-import product6 from '../assets/img/product6.png';
+import product5 from '../assets/img/product7.png';
+import product6 from '../assets/img/product8.png';
+import product7 from '../assets/img/product9.png';
+import product8 from '../assets/img/product11.png';
+import Merchant from '../assets/img/merchantImg.png';
+
+
+
 import ServiceCard from '../components/ContentCard/ServiceCard';
 
 
@@ -49,6 +54,8 @@ const Home = () => {
         breakpoint: 480, // Extra small devices (portrait phones, less than 480px)
         settings: {
           slidesToShow: 1, // Show 2 slides on extra small devices
+          autoplaySpeed: 2000,
+
         },
       },
     ],
@@ -126,72 +133,34 @@ const Home = () => {
       {/* Section 1 */}
       <section >
 
-        <Grid item  >
-          <Slider {...settingsHedder}>
+        <Grid container>
 
-            <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
-              <Grid container display={'flex'} justifyContent={'start'} height={'100%'}>
-                <Grid
-                  item
-                  xs={12} md={6.5}
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems:'center',
-                    p: [2, null, 2], 
-                  }}            >
-                  
-                    <img src={LogoImg} width={'50%'} height={'90%'} alt="" />
-                </Grid>
-
-
-                <Grid item xs={12} md={5.5}  p={{ xs: 2, lg: 10}   }
-                      
+          <Grid
+            item xs={12} md={6}
+            component={motion.div}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            sx={{ display: 'flex', justifyContent: 'start', p: [1, 2, 10] }}
           >
-            <Typography variant='h2' sx={{ fontSize: { xs: '2.3rem', lg: '3.5rem' } }} fontWeight={700}>
-              Experience The
-              Thrill of<span> </span>
-              <span style={{ color: '#f2b51c' }}>Discovery!</span>
-
-            </Typography>
-
-            <Button variant='contained' onClick={() => handleNavigate('/signup')} sx={{mt:5}}>Get Started</Button>
+            <motion.div variants={leftVariants}>
+              <Box sx={{
+                maxWidth: { lg: '500px' },
+                minWidth: { lg: '500px' },
+                margin: '0 auto',
+              }}>
+                <Typography variant='h1' fontWeight={800} sx={{ ml: { xs: 0, md: 8 }, mt: { xs: 0, md: -5 } }}>Experience The  Thrill of <span style={{ color: '#FFB800' }}>Discovery!</span> </Typography>
+                <Typography variant='subtitle1' fontWeight={500} ml={8} sx={{ ml: { xs: 0, md: 8 } }} >transforming your everyday shopping into a rewards when purchasing your favourite brands and products from any store anywhere.</Typography>
+                <Button variant='contained' sx={{ mt: 2, ml: { xs: 0, md: 8 }, }}  >Get Start</Button>
+              </Box>
+            </motion.div>
           </Grid>
-              </Grid>                 
-            </div>  
-            
-            <div style>
-              <Grid container display={'flex'} justifyContent={'start'}>
-                <Grid
-                  item
-                  xs={12} md={6.5}
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'start',
-                    alignItems:'start',
-                    p: [2, null, 2], // Responsive array syntax: [xs, sm, md, lg, xl]
-                  }}            >
-                  
-                  <img src={Landingpage} width={'100%'} alt="" />
-
-                  
-                </Grid>
-                <Grid item xs={12} md={5.5}  p={{ xs: 2, lg: 10} }
-                       
-          >
-
-
-            <Typography variant='h2' sx={{ fontSize: { xs: '2.3rem', lg: '2rem' } }} mt={1} fontWeight={600} textAlign={'start'}>
-              Transforming Your Everyday Shopping Into A Rewards When Purchasing Your Favourite Brands And Products From Any Store Anywhere.
-            </Typography>
-            <Button variant='contained' onClick={() => handleNavigate('/signup')} sx={{mt:5}}>Get Started</Button>
+          {/* </Box> */}
+          <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'end' }}>
+            <img src={Landingpage} width={'100%'} alt="" />
           </Grid>
-              </Grid>                 
-            </div>  
 
-          </Slider></Grid>
-
-     
+        </Grid>
       </section>
 
 
@@ -213,18 +182,18 @@ const Home = () => {
           </motion.div>
         </Grid>
 
-        <Grid item p={5} mt={-10}>
+        <Grid item p={5} sx={{mt: [0, null, -10]}} >
           <Slider {...settings}>
 
-            <div style>
+            {/* <div >
               <ServiceCard product={product2} title={"Body Loation"} price={"850"} point={"4.00"} packet={"Bottel 45"} />
-            </div>
-              <div>
-              <ServiceCard product={product3} title={"Carnage Old School"} price={"3600"} point={"4.00"} packet={" T Shirt 120"} />
-            </div>
-            
+            </div> */}
             <div>
-              <ServiceCard product={product4} title={"Air Jordan 4"} price={"50000"} point={"4.00"} packet={"56"} />
+              <ServiceCard product={product8} title={"DJI Gimbal lorem lipsu lorem"} price={"36000"} point={"4.00"} packet={" T Shirt 120"} />
+            </div>
+
+            <div>
+              <ServiceCard product={product4} title={"Air Jordan 4"} price={"50,000"} point={"4.00"} packet={"56"} />
             </div>
 
             <div>
@@ -232,7 +201,10 @@ const Home = () => {
             </div>
 
             <div>
-              <ServiceCard product={product6} title={"I Phone 15 pro max"} price={"320000"} point={"5.00"} packet={"220"} />
+              <ServiceCard product={product6} title={"I Phone 15 pro max"} price={"320,000"} point={"5.00"} packet={"220"} />
+            </div>
+            <div>
+              <ServiceCard product={product7} title={"DJI Gimbal lorem lipsu lorem"} price={"20,000"} point={"5.00"} packet={"220"} />
             </div>
 
 
@@ -240,8 +212,140 @@ const Home = () => {
 
       </section>
 
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Typography variant='h3' fontWeight={700}>HOW IT WORKS</Typography>
+      </Box>
+
+      <section >
+
+        <Grid container>
+          <Grid
+            item xs={12} md={6}
+            component={motion.div}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            sx={{ display: 'flex', justifyContent: 'center', }}
+          >
+            <motion.div variants={leftVariants}>   <img src={Mobile} width={'100%'} alt="" /></motion.div>
+          </Grid>
+          <Grid
+            item xs={12} md={6}
+            component={motion.div}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            sx={{ display: 'flex', justifyContent: 'start' }}
+          >
+            <motion.div variants={leftVariants}>
+              <Box sx={{
+                maxWidth: { lg: '500px' },
+                minWidth: { lg: '500px' },
+                margin: '0 auto',
+                mt: 10,
+                display: 'flex',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                p: [1, 2, 0]
+              }}>
+                <Typography variant='subtitle1' fontWeight={500}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco     </Typography>
+                <Typography variant='subtitle1' fontWeight={500} mt={2}  >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </Typography>
+              </Box>
+              <Button variant='contained' sx={{ mt: 2 }} >Get Start</Button>
+            </motion.div>
+          </Grid>
 
 
+        </Grid>
+      </section>
+
+      <Box sx={{ display: 'flex', justifyContent: 'end', p: 1, ml: { xs: 0, md: 8 } }} >
+        <Typography variant='h3' fontWeight={700}>FOR BRANDS</Typography>
+      </Box>
+
+      <section >
+
+        <Grid container>
+
+          <Grid
+            item xs={12} md={6}
+            component={motion.div}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            sx={{ display: 'flex', justifyContent: 'start', p: [1, 2, 10] }}
+          >
+            <motion.div variants={leftVariants}>
+              <Box sx={{
+                maxWidth: { lg: '600px' },
+                minWidth: { lg: '600px' },
+                margin: '0 auto',
+              }}>
+                <Typography variant='subtitle1' fontWeight={500} sx={{ ml: { xs: 0, md: 8 }, mt: { xs: 0, md: -5 } }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia </Typography>
+                <Typography variant='subtitle1' fontWeight={500} mt={2} sx={{ ml: { xs: 0, md: 8 } }} >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia </Typography>
+                <Button variant='contained' sx={{ mt: 2, ml: { xs: 0, md: 8 }, }}  >Learn More</Button>
+              </Box>
+            </motion.div>
+          </Grid>
+          <Grid
+            item xs={12} md={6}
+            component={motion.div}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            sx={{ display: 'flex', justifyContent: 'end', }}
+          >
+            <motion.div variants={leftVariants}>   <img src={Man} width={'80%'} alt="" /></motion.div>
+          </Grid>
+
+        </Grid>
+      </section>
+
+      <Box sx={{ display: 'flex', justifyContent: 'start', p: 1, ml: { xs: 0, md: 8 } }} >
+        <Typography variant='h3' fontWeight={700}>FOR MERCHANTS</Typography>
+      </Box>
+
+      <section >
+
+        <Grid container>
+          <Grid
+            item xs={12} md={6}
+            component={motion.div}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            sx={{ display: 'flex', justifyContent: 'center', }}
+          >
+            <motion.div variants={leftVariants}>   <img src={Merchant} width={'100%'} alt="" /></motion.div>
+          </Grid>
+          <Grid
+            item xs={12} md={6}
+            component={motion.div}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            sx={{ display: 'flex', justifyContent: 'start', p: [1, 2, 0] }}
+          >
+            <motion.div variants={leftVariants}>
+              <Box sx={{
+                maxWidth: { lg: '500px' },
+                minWidth: { lg: '500px' },
+                margin: '0 auto',
+                mt: 10,
+                display: 'flex',
+                justifyContent: 'center',
+                flexDirection: 'column'
+              }}>
+                <Typography variant='subtitle1' fontWeight={500}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco     </Typography>
+                <Typography variant='subtitle1' fontWeight={500} mt={2}  >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </Typography>
+              </Box>
+              <Button variant='contained' sx={{ mt: 2 }} >Learn More</Button>
+            </motion.div>
+          </Grid>
+
+
+        </Grid>
+      </section>
     </>
 
   )
