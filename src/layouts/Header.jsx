@@ -10,6 +10,8 @@ import {
   List,
   ListItem,
   ListItemText,
+  Menu,
+  MenuItem,
   Typography,
   useMediaQuery,
   useTheme,
@@ -29,7 +31,7 @@ function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const [anchorEl, setAnchorEl] = useState(null);
-  const [company, setCompany] = useState("");
+  const [companyAnchorEl, setCompanyAnchorEl] = useState(null);
 
   const handleNavigate = (path) => {
     navigate(path);
@@ -37,6 +39,10 @@ function Header() {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleCompanyClick = (event) => {
+    setCompanyAnchorEl(event.currentTarget);
   };
 
   const toggleDrawer = (open) => (event) => {
@@ -56,13 +62,7 @@ function Header() {
 
   const handleClose = () => {
     setAnchorEl(null);
-    setCompany(null);
-  };
-
-  const handleNavHover = () => {
-    if (company) {
-      handleClose();
-    }
+    setCompanyAnchorEl(null);
   };
 
   const handleLoginClick = () => {
@@ -72,9 +72,14 @@ function Header() {
   const menuItems = [
     { text: 'Home', path: '/' },
     { text: 'How It Works', path: '/signup' },
-    { text: 'Customer', path: '/customer' },
-    { text: 'Brands', path: '/brands' },
-    { text: 'Merchants', path: '/merchants' },
+    {
+      text: 'Snapit For',
+      subItems: [
+        { text: 'Customer', path: '/customer' },
+        { text: 'Brands', path: '/brands' },
+        { text: 'Merchants', path: '/merchants' },
+      ],
+    },
     { text: 'About us', path: '/about-us' },
     { text: 'Contact us', path: '/contact-us' },
   ];
@@ -105,40 +110,92 @@ function Header() {
               <img src={Logo} width={'200px'} alt="" />
             </Box>
             <List sx={{ mt: 2 }}>
-              {menuItems.map((item) => (
-                <ListItem
-                  button
-                  key={item.text}
-                  component={Link}
-                  to={item.path}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavigate(item.path);
-                    handleDrawerClose();
-                  }}
-                >
-                  <ListItemText
-                    primary={item.text}
-                    sx={{
-                      fontWeight: 800,
-                      position: 'relative',
-                      '&::after': {
-                        content: '""',
-                        position: 'absolute',
-                        left: 0,
-                        bottom: '-4px', // Increase this value to add more gap
-                        width: location.pathname === item.path ? '100%' : '0',
-                        height: '3px', // Thickness of the underline
-                        backgroundColor: theme.palette.primary.main, // Color from the theme
-                        transition: 'width 0.3s',
-                      },
-                      '&:hover::after': {
-                        width: '100%',
-                      },
+              {menuItems.map((item) =>
+                item.subItems ? (
+                  <ListItem
+                    button
+                    key={item.text}
+                    onClick={handleCompanyClick}
+                  >
+                    <ListItemText
+                      primary={item.text}
+                      sx={{
+                        fontWeight: 800,
+                        position: 'relative',
+                        '&::after': {
+                          content: '""',
+                          position: 'absolute',
+                          left: 0,
+                          bottom: '-4px',
+                          width: '0',
+                          height: '3px',
+                          backgroundColor: theme.palette.primary.main,
+                          transition: 'width 0.3s',
+                        },
+                        '&:hover::after': {
+                          width: '100%',
+                        },
+                      }}
+                    />
+                    <Menu
+                      anchorEl={companyAnchorEl}
+                      open={Boolean(companyAnchorEl)}
+                      onClose={handleClose}
+                      PaperProps={{
+                        style: {
+                          maxHeight: 48 * 4.5,
+                          width: '20ch',
+                        },
+                      }}
+                    >
+                      {item.subItems.map((subItem) => (
+                        <MenuItem
+                          key={subItem.text}
+                          onClick={() => {
+                            handleNavigate(subItem.path);
+                            handleClose();
+                          }}
+                        >
+                          {subItem.text}
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </ListItem>
+                ) : (
+                  <ListItem
+                    button
+                    key={item.text}
+                    component={Link}
+                    to={item.path}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigate(item.path);
+                      handleDrawerClose();
                     }}
-                  />
-                </ListItem>
-              ))}
+                  >
+                    <ListItemText
+                      primary={item.text}
+                      sx={{
+                        fontWeight: 800,
+                        position: 'relative',
+                        '&::after': {
+                          content: '""',
+                          position: 'absolute',
+                          left: 0,
+                          bottom: '-4px',
+                          width: location.pathname === item.path ? '100%' : '0',
+                          height: '3px',
+                          backgroundColor: theme.palette.primary.main,
+                          transition: 'width 0.3s',
+                        },
+                        '&:hover::after': {
+                          width: '100%',
+                        },
+                      }}
+                    />
+                  </ListItem>
+                )
+              )}
             </List>
 
             <Box sx={{ display: 'flex', justifyContent: 'center', p: 1 }}>
@@ -155,8 +212,7 @@ function Header() {
         </>
       ) : (
         <Box sx={{ backgroundColor: '#ffffff' }}>
-          <Grid container p={1} onMouseLeave={handleClose}>
-            {/* Logo */}
+          <Grid container p={1}>
             <Grid
               item
               xs={11}
@@ -184,7 +240,6 @@ function Header() {
               </Badge>
             </Grid>
 
-            {/* Nav Links */}
             <Grid
               item
               md={8}
@@ -201,41 +256,100 @@ function Header() {
                 alignItems={'end'}
                 textAlign={'center'}
               >
-                {menuItems.map((item) => (
-                  <Grid
-                    item
-                    key={item.text}
-                    mt={1}
-                    onMouseEnter={handleNavHover}
-                    onClick={() => handleNavigate(item.path)}
-                  >
-                    <Typography
-                      variant="subtitle1"
-                      fontWeight={600}
-                      sx={{
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        position: 'relative',
-                        '&::after': {
-                          content: '""',
-                          position: 'absolute',
-                          left: 0,
-                          bottom: '-4px', // Increase this value to add more gap
-                          width: location.pathname === item.path ? '100%' : '0',
-                          height: '3px', // Thickness of the underline
-                          backgroundColor: theme.palette.primary.main, // Color from the theme
-                          transition: 'width 0.3s',
-                        },
-                        '&:hover::after': {
-                          width: '100%',
-                        },
-                      }}
+                {menuItems.map((item) =>
+                  item.subItems ? (
+                    <Grid
+                      item
+                      key={item.text}
+                      mt={1}
+                      onClick={handleCompanyClick}
+                      onMouseEnter={() => setCompanyAnchorEl(null)}
                     >
-                      {item.text}
-                    </Typography>
-                  </Grid>
-                ))}
+                      <Typography
+                        variant="subtitle1"
+                        fontWeight={600}
+                        sx={{
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          position: 'relative',
+                          '&::after': {
+                            content: '""',
+                            position: 'absolute',
+                            left: 0,
+                            bottom: '-4px',
+                            width: location.pathname === item.path ? '100%' : '0',
+                            height: '3px',
+                            backgroundColor: theme.palette.primary.main,
+                            transition: 'width 0.3s',
+                          },
+                          '&:hover::after': {
+                            width: '100%',
+                          },
+                        }}
+                      >
+                        {item.text}
+                      </Typography>
+                      <Menu
+                        anchorEl={companyAnchorEl}
+                        open={Boolean(companyAnchorEl)}
+                        onClose={handleClose}
+                        PaperProps={{
+                          style: {
+                            maxHeight: 48 * 4.5,
+                            width: '20ch',
+                          },
+                        }}
+                      >
+                        {item.subItems.map((subItem) => (
+                          <MenuItem
+                            key={subItem.text}
+                            onClick={() => {
+                              handleNavigate(subItem.path);
+                              handleClose();
+                            }}
+                          >
+                            {subItem.text}
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </Grid>
+                  ) : (
+                    <Grid
+                      item
+                      key={item.text}
+                      mt={1}
+                      onMouseEnter={() => setCompanyAnchorEl(null)}
+                      onClick={() => handleNavigate(item.path)}
+                    >
+                      <Typography
+                        variant="subtitle1"
+                        fontWeight={600}
+                        sx={{
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          position: 'relative',
+                          '&::after': {
+                            content: '""',
+                            position: 'absolute',
+                            left: 0,
+                            bottom: '-4px',
+                            width: location.pathname === item.path ? '100%' : '0',
+                            height: '3px',
+                            backgroundColor: theme.palette.primary.main,
+                            transition: 'width 0.3s',
+                          },
+                          '&:hover::after': {
+                            width: '100%',
+                          },
+                        }}
+                      >
+                        {item.text}
+                      </Typography>
+                    </Grid>
+                  )
+                )}
               </Grid>
             </Grid>
 
