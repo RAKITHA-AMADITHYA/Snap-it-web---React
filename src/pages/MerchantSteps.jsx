@@ -7,6 +7,8 @@ import React, { useEffect, useRef } from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import MerchantShop from '../assets/img/step.png';
+import StepsImg from '../assets/img/s4.png';
+
 
 import { useNavigate } from 'react-router-dom';
 
@@ -55,7 +57,7 @@ const MSteps = () => {
                     data-aos-anchor-placement="top-bottom"
                     data-aos-duration="2500"
                 >
-                    <Typography variant='h6' sx={{ fontSize: { xs: '2.3rem', lg: '1.8rem' } }} fontWeight={700}>
+                    <Typography variant='h6' sx={{ fontSize: { xs: '1.3rem', lg: '1.8rem' } }} fontWeight={700}>
 
 
                         The accrued rewards are not just abstract points
@@ -91,6 +93,9 @@ const MSteps = () => {
                         <Box sx={{ display: { xs: 'none', sm: 'flex' }, justifyContent: 'center', }} >
                             <img src={msteps} alt="" />
                         </Box>
+                        <Box sx={{ display: { xs: 'flex', sm: 'none' }, justifyContent: 'center', }} >
+                            <img src={StepsImg} alt="" />
+                        </Box>
                     </motion.div>
                 </Grid>
 
@@ -112,7 +117,7 @@ const MSteps = () => {
                     sx={{ display: 'flex', justifyContent: 'center', p: 5 }}
                 >
                     <motion.div variants={leftVariants}>
-                        <Typography variant='h2' textAlign={'center'} fontWeight={700}>Getting Started with <span style={{color:'#f2b51c'}}>Snap it</span>  as a Merchant
+                        <Typography variant='h2' sx={{ fontSize: { xs: '1.2rem', lg: '1.8rem' } }} textAlign={'center'} fontWeight={700}>Getting Started with <span style={{color:'#f2b51c'}}>Snap it</span>  as a Merchant
 
                         </Typography>
 
