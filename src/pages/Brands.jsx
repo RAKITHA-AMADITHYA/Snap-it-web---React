@@ -8,10 +8,10 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import brands from '../assets/img/brand2.png';
-import Reward from '../assets/img/reward.png';
-import Analize from '../assets/img/analize.png';
-import chart from '../assets/img/chart.png';
-import reward2 from '../assets/img/reward2.png';
+import Reward from '../assets/img/b1.png';
+import Analize from '../assets/img/b2.png';
+import chart from '../assets/img/b3.png';
+import reward2 from '../assets/img/b4.png';
 
 import ServiceCardTwo from '../components/Card/ServiceCardTwo';
 import { useNavigate } from 'react-router-dom';
@@ -150,7 +150,7 @@ const Brands = () => {
                         }}                        md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardThree img={Reward} widthImg={'150px'} marginTop={'-25px'} title={"Mass Rewarding"} description={"The core features of Snap it focuses on revolutionizing the traditional approach to consumer engagement"} />
+                            <ServiceCardThree img={Reward} widthImg={'130px'} marginTop={'-15px'} title={"Mass Rewarding"} description={"The core features of Snap it focuses on revolutionizing the traditional approach to consumer engagement"} />
                         </motion.div>
                     </Grid>
 

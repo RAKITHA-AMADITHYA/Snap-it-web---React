@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from '../assets/img/logo.png';
 import qrBtn from '../assets/img/qrBtn.png';
-import qrcode from '../assets/img/qr.png';
+import qrcode from '../assets/img/qr-code.png';
 import playstore from '../assets/img/playstore.png';
 import appstore from '../assets/img/appstore.png';
 
@@ -115,7 +115,8 @@ function Header() {
                   <ListItem
                     button
                     key={item.text}
-                    onClick={handleCompanyClick}
+                    onMouseEnter={handleCompanyClick}
+                    onMouseLeave={handleClose}
                   >
                     <ListItemText
                       primary={item.text}
@@ -262,8 +263,8 @@ function Header() {
                       item
                       key={item.text}
                       mt={1}
-                      onClick={handleCompanyClick}
-                      onMouseEnter={() => setCompanyAnchorEl(null)}
+                      onMouseEnter={handleCompanyClick}
+                      onMouseLeave={handleClose}
                     >
                       <Typography
                         variant="subtitle1"
@@ -315,16 +316,11 @@ function Header() {
                       </Menu>
                     </Grid>
                   ) : (
-                    <Grid
-                      item
-                      key={item.text}
-                      mt={1}
-                      onMouseEnter={() => setCompanyAnchorEl(null)}
-                      onClick={() => handleNavigate(item.path)}
-                    >
+                    <Grid item key={item.text} mt={1}>
                       <Typography
                         variant="subtitle1"
                         fontWeight={600}
+                        onClick={() => handleNavigate(item.path)}
                         sx={{
                           cursor: 'pointer',
                           display: 'flex',
@@ -353,65 +349,72 @@ function Header() {
               </Grid>
             </Grid>
 
-            <Grid
-              item
-              md={1}
-              display={{ xs: 'none', md: 'flex' }}
-              justifyContent={'center'}
-              alignItems={'center'}
-            >
-              <div style={{ position: 'relative' }}>
-                <img
-                  src={qrBtn}
-                  width="150rem"
-                  alt=""
-                  onMouseEnter={() => setDrawerOpen(true)}
-                  onMouseLeave={handleDrawerClose}
-                />
-
+            <Grid item xs={1} md={3} display={'flex'} justifyContent={'end'} alignItems={'center'}>
+              <Box
+                sx={{
+                  position: 'relative',
+                  display: 'inline-block',
+                  '&:hover .dropdown-content': {
+                    display: 'block',
+                  },
+                }}
+              >
+                <img src={qrBtn} width={'100px'} alt="QR Code Button" />
                 <Box
+                  className="dropdown-content"
                   sx={{
+                    display: 'none',
                     position: 'absolute',
+                    right: 0,
                     zIndex: 1,
-                    bottom: 'auto',
-                    left: '150%',
-                    transform: 'translateX(-50%)',
-                    width: '350px',
-                    height: 'auto',
-                    backgroundColor: '#FFFF',
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                    display: drawerOpen ? 'block' : 'none',
-                    mt: 3,
-                    borderBottomLeftRadius: '10px',
+                    
+                    width: '300px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)',
+                    p: 2,
+                    textAlign: 'center',
                   }}
                 >
-                  <Grid container>
-                    <Grid item xs={5} display={'flex'} p={1} justifyContent={'center'}>
-                      <img src={qrcode} width={'90%'} alt="" />
-                    </Grid>
-                    <Grid item xs={7} p={1}>
-                      <Typography variant="subtitle1" fontWeight={600}>
-                        Download Snap it Now
-                      </Typography>
-                      <Typography variant="p">Scan the QR to download</Typography>
-                      <Box mt={1}>
-                        <img src={playstore} width={'70%'} alt="" />
-                      </Box>
-                      <Box mt={1}>
-                        <img src={appstore} width={'70%'} alt="" />
-                      </Box>
-                    </Grid>
-                  </Grid>
+                  <Box sx={{display:'flex',justifyContent:'center'}}>
+                  <img src={qrcode} width={'150px'} height={'150px'} alt="QR Code" /></Box>
+                  <Box display={'flex'} justifyContent={'space-around'} mt={1}>
+                    <a href="https://play.google.com/store/apps/details?id=com.snapitonline.snap_it" target="_blank" rel="noopener noreferrer">
+                      <img src={playstore} width={'100%'} alt="Play Store" />
+                    </a>
+                    <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">
+                      <img src={appstore} width={'100%'} alt="App Store" />
+                    </a>
+                  </Box>
                 </Box>
-              </div>
-            </Grid>
 
-            <Grid item md={2} display={'flex'} justifyContent={'center'} alignItems={'center'} p={1}>
-              <Button variant="outlined" sx={{ mr: 2, textTransform: 'none' }} onClick={() => handleLoginClick()}>
+              </Box>
+              {/* <Button
+                onClick={() => handleLoginClick()}
+                sx={{
+                  ml: 2,
+                  backgroundColor: 'primary.main',
+                  color: 'primary.contrastText',
+                }}
+              >
                 Login
+              </Button> */}
+<Button
+                                onClick={() => handleLoginClick()}
+
+                variant="contained"
+                color="primary"
+                sx={{ ml: 2 }}
+              >
+                Log in
               </Button>
-              <Button variant="contained" onClick={() => handleNavigate('/signup')}>
-                Sign Up
+
+              <Button
+                onClick={() => handleNavigate('/signup')}
+                variant="contained"
+                color="primary"
+                sx={{ ml: 2 }}
+              >
+                Sign up
               </Button>
             </Grid>
           </Grid>

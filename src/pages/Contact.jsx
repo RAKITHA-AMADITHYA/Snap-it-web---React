@@ -33,10 +33,10 @@ const Contact = () => {
     <section id="section1">
       {isMediumUp && (
         <Grid container>
-          <Grid item xs={12} md={6} p={5} data-aos="fade-in">
+          <Grid item xs={12} md={6} p={5}  data-aos="fade-in">
             <Typography variant="h3" gutterBottom>Contact</Typography>
 
-            <form style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '20px' }}>
+            <form style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '10px' }}>
               <TextField
                 label="Name"
                 variant="outlined"

@@ -7,18 +7,18 @@ import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import brandsCard from '../assets/img/brandsCard.png';
-import Customer from '../assets/img/customerCard2.jpg';
-import Merchant from '../assets/img/merchantCard.png';
+import brandsCard from '../assets/img/brandC.png';
+import Customer from '../assets/img/customerC.png';
+import Merchant from '../assets/img/merchantC.png';
 
 
 const PublicSignup = () => {
     const section2Ref = useRef(null);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     const handleNavigate = (path) => {
         navigate(path);
-      };
+    };
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -45,7 +45,7 @@ const PublicSignup = () => {
     };
 
 
-  
+
 
 
 
@@ -66,17 +66,17 @@ const PublicSignup = () => {
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
-                    sx={{ display: 'flex', justifyContent: 'center', p: 2,textAlign:'center' }}
+                    sx={{ display: 'flex', justifyContent: 'center', p: 2, textAlign: 'center' }}
                 >
                     <motion.div variants={cardVariants}>
                         <Typography variant='h2' fontWeight={800}>
                             Sign up <span> </span>
                             <span style={{ color: '#f2b51c' }}>Now!</span></Typography>
-                            <Typography variant='h4' fontWeight={400}>Choose your account type</Typography>
+                        <Typography variant='h4' fontWeight={400}>Choose your account type</Typography>
                     </motion.div>
                 </Grid>
 
-              
+
 
             </section>
             <section>
@@ -91,29 +91,38 @@ const PublicSignup = () => {
                         justifyContent={'center'}
                         flexDirection={'column'}
                     >
-                        <Card 
-                        onClick={() => handleNavigate('/customer-signup')}
-                        sx={{
-                            bgcolor: '#1a140e',
-                            transition: 'transform 0.3s ease-in-out',
-                            '&:hover': {
-                                transform: 'scale(1.05)',
-                                cursor:'pointer'
-                            }
-                        }}>
-                            <Box display={'flex'}
+                        <Card
+                            onClick={() => handleNavigate('/customer-signup')}
+                            sx={{
+                                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                '&:hover': {
+                                    transform: 'scale(1.05)',
+                                    cursor: 'pointer',
+                                    boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)'
+                                }
+                            }}
+                        >
+                            <Box
+                                display={'flex'}
                                 justifyContent={'center'}
                                 flexDirection={'column'}
-                                alignItems={'center'}>
-                                <img src={Customer} width={'100%'} style={{
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                    }
-                                }} alt="" />
-                                <Typography variant='h4' p={1} fontWeight={800} color={'#eda632'}>Customer</Typography>
+                                alignItems={'center'}
+                            >
+                                <img
+                                    src={Customer}
+                                    width={'100%'}
+                                    style={{
+                                        transition: 'transform 0.3s ease-in-out',
+                                        '&:hover': {
+                                            transform: 'scale(1.05)',
+                                        }
+                                    }}
+                                    alt="Customer"
+                                />
                             </Box>
-
                         </Card>
+
                     </Grid>
 
                     <Grid item xs={12} md={4} p={{ xs: 5, lg: 10 }}
@@ -125,14 +134,17 @@ const PublicSignup = () => {
                         flexDirection={'column'}
                     >
                         <Card
-                        onClick={() => handleNavigate('/brand-signup')}
-                        sx={{
-                            bgcolor: '#190e0e',
-                            transition: 'transform 0.3s ease-in-out',
-                            '&:hover': {
-                                transform: 'scale(1.05)',
-                            }
-                        }}>
+                            onClick={() => handleNavigate('/brand-signup')}
+                            sx={{
+                                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                '&:hover': {
+                                    transform: 'scale(1.05)',
+                                    cursor: 'pointer',
+                                    boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)'
+                                }
+                            }}
+                            >
                             <Box display={'flex'}
                                 justifyContent={'center'}
                                 flexDirection={'column'}
@@ -140,10 +152,9 @@ const PublicSignup = () => {
                                 <img src={brandsCard} width={'100%'} style={{
                                     '&:hover': {
                                         transform: 'scale(1.05)',
-                                        cursor:'pointer'
+                                        cursor: 'pointer'
                                     }
                                 }} alt="" />
-                                <Typography variant='h4' p={1} fontWeight={800} color={'#eda632'}>Brand</Typography>
                             </Box>
 
                         </Card>
@@ -157,17 +168,19 @@ const PublicSignup = () => {
                         justifyContent={'center'}
                         flexDirection={'column'}
                     >
-                        <Card 
-                        onClick={() => handleNavigate('/merchant-signup')}
-                        sx={{
-                            bgcolor: '#190e0e',
-                            transition: 'transform 0.3s ease-in-out',
-                            '&:hover': {
-                                transform: 'scale(1.05)',
-                                cursor:'pointer'
-                            },
-                            // height:'285px'
-                        }}>
+                        <Card
+                            onClick={() => handleNavigate('/merchant-signup')}
+                            sx={{
+                                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                '&:hover': {
+                                    transform: 'scale(1.05)',
+                                    cursor: 'pointer',
+                                    boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)'
+                                }
+                            }}
+                            
+                            >
                             <Box display={'flex'}
                                 justifyContent={'center'}
                                 flexDirection={'column'}
@@ -177,7 +190,6 @@ const PublicSignup = () => {
                                         transform: 'scale(1.05)',
                                     }
                                 }} alt="" />
-                                <Typography variant='h4' p={1} fontWeight={800} color={'#eda632'}>Merchants</Typography>
                             </Box>
 
                         </Card>

@@ -64,8 +64,8 @@ const AboutUs = () => {
             {/* Section 1 */}
             <section>
 
-                <Grid container>
-                    <Grid item xs={12} md={8} p={{ xs: 2, lg: 10 }}
+                {/* <Grid container> */}
+                    <Grid item xs={12} md={8} p={{ xs: 2, lg: 10 }} sx={{display:'flex',justifyContent:'center',flexDirection:'column',textAlign:'center'}}
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
@@ -76,94 +76,20 @@ const AboutUs = () => {
 
                         </Typography>
 
-                        <Typography variant='h6' mt={1}   textAlign={'justify'} sx={{ fontSize: { xs: '12px', lg: '18px' } }} >
+                        <Typography variant='h6' mt={1}   textAlign={'center'} sx={{ fontSize: { xs: '12px', lg: '18px' } }} >
                             Snap it is a product of mobiOs Private Limited. An innovative and pioneering software development company based in Sri Lanka, that has been at the forefront of delivering cutting-edge enterprise solutions for over a decade. Our flagship solutions, Mobile Marketing solution for telecommunications operators, MEDICA – the Clinical Record Management Solution, and Engagement platform for TextWare Sri Lanka, stands as a testament to our commitment to innovation, excellence, and unwavering dedication to addressing the ever-evolving requirements to our clients and societies.
                         </Typography>
                     </Grid>
 
 
-                    <Grid
-                        item
-                        xs={12} md={4}
-                        component={motion.div}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'center', p: { xs: 10, lg: 10 }, alignItems: 'center' }}
-                    >
-                        <motion.div variants={leftVariants}>
-                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: { xs: 5, lg: 10 } , mt: { xs: -10, sm: 0 }}}>
+                 
 
-
-                                <img src={Snapit} width={'100%'} alt="" /></Card>
-
-                        </motion.div>
-                    </Grid>
-
-                </Grid>
+                {/* </Grid> */}
             </section>
 
 
             {/* Section 2 */}
-            {/* <section>
-
-                <Grid container>
-
-                    <Grid
-                        item
-                        xs={12} md={4}
-                        component={motion.div}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: {xs:"none",sm:'flex'}, justifyContent: 'center', p: 5, alignItems: 'center' }}
-                    >
-                        <motion.div variants={leftVariants}>
-                            <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 5 }}>
-
-
-                                <img src={Mobios} width={'100%'} alt="" /></Card>
-
-                        </motion.div>
-                    </Grid>
-                    <Grid item xs={12} md={8}  p={{ xs: 2, lg: 10 }}
-                        data-aos="fade-right"
-                        data-aos-anchor-placement="top-bottom"
-                        data-aos-duration="2500"
-                    >
-                        <Typography variant='h1' fontWeight={800}>
-                            About <span> </span>
-                            <span style={{ color: '#f2b51c' }}>mobiOs</span>
-
-                        </Typography>
-
-                        <Typography variant='h6' mt={1} textAlign={'justify'}>
-                            mobiOs Private Limited was founded in 2012 with a singular mission: to leverage the latest technologies in software development to create solutions that redefine industry standards and empower businesses to thrive in the digital age. With a focus on crafting innovative, high-quality software, we have established ourselves as a leading player in the field, delivering exceptional results to clients across diverse industries.                        </Typography>
-                    </Grid>
-
-
-
-
-                </Grid>
-
-                <Grid
-                        item
-                        xs={12} md={4}
-                        component={motion.div}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: {xs:"flex",sm:'none'}, justifyContent: 'center', p: 5, alignItems: 'center' }}
-                    >
-                        <motion.div variants={leftVariants}>
-                            <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 5 }}>
-
-
-                                <img src={Mobios} width={'100%'} alt="" /></Card>
-
-                        </motion.div>
-                    </Grid>
-            </section> */}
+          
 
 
             <section >
@@ -174,7 +100,7 @@ const AboutUs = () => {
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
-                    sx={{ display: 'flex', justifyContent: 'start', p: 4 }}
+                    sx={{ display: 'flex', justifyContent: 'center', p: 4 }}
                 >
                     <motion.div variants={leftVariants}>
                         <Typography variant='h2' fontWeight={700}>Our Global Reach
@@ -183,9 +109,7 @@ const AboutUs = () => {
 
                     </motion.div>
                 </Grid>
-                <div style={{ display: 'flex', justifyContent: 'start' }}>
-                    <Divider sx={{ width: '40%', height: '5px', backgroundColor: '#f2b51c', marginTop: '-30px' }} />
-                </div>
+         
 
                 <Box sx={{ p: 10, textAlign: 'justify' ,mt:-10}}>
                     <Typography variant='h6'>mobiOs has transcended geographical boundaries, and our solutions have left a mark in countries such as Japan, Bangladesh, Myanmar, Maldives, and Malaysia. Our enterprise solutions have been adopted by a wide array of industries, including healthcare, finance, education, and more. We take immense pride in the positive impact we've made in these regions, transforming the way businesses operate and enhancing their competitiveness on a global scale.</Typography>
@@ -194,7 +118,7 @@ const AboutUs = () => {
 
             </section>
 
-            <section style={{ marginTop: '60px' }}>
+            <section style={{ marginTop: '20px' }}>
 
                 <Grid
                     item
@@ -202,7 +126,7 @@ const AboutUs = () => {
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
-                    sx={{ display: 'flex', justifyContent: 'end', p: 4 }}
+                    sx={{ display: 'flex', justifyContent: 'center', p: 4 }}
                 >
                     <motion.div variants={leftVariants}>
                         <Typography variant='h2' fontWeight={700}>Our Commitment to Innovation
@@ -213,9 +137,7 @@ const AboutUs = () => {
 
                     </motion.div>
                 </Grid>
-                <div style={{ display: 'flex', justifyContent: 'end' }}>
-                    <Divider sx={{ width: '60%', height: '5px', backgroundColor: '#f2b51c', marginTop: '-30px' }} />
-                </div>
+                
 
                 <Box sx={{ p: 10, textAlign: 'justify',mt:-10 }}>
                     <Typography variant='h6'>At mobiOs, innovation is the cornerstone of our identity. We remain dedicated to staying at the forefront of technology trends and industry best practices. By consistently adapting to the latest advancements in the software development landscape, we equip our clients with solutions that are both future-proof and competitive.

@@ -6,13 +6,15 @@ import { motion } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import Analize from '../assets/img/analize.png';
-import chart from '../assets/img/chart.png';
+// import { default as Analize, default as chart } from '../assets/img/mer2.png';
+import Analize from '../assets/img/mer2.png'
+import chart from '../assets/img/mer3.png'
+
 import Merchant from '../assets/img/mercahant3.png';
 
 import { useNavigate } from 'react-router-dom';
-import Reward from '../assets/img/reward.png';
-import reward2 from '../assets/img/reward2.png';
+import Reward from '../assets/img/mer1.png';
+import reward2 from '../assets/img/mer4.png';
 import ServiceCardTwo from '../components/Card/ServiceCardTwo';
 
 const Merchants = () => {
@@ -218,7 +220,7 @@ const Merchants = () => {
                         }} md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo fontsize={'15px'} img={Reward} widthImg={'150px'} marginTop={'-25px'} title={"Listed on Snap it as a Merchant"} description={"Join Snap it as a merchant for increased visibility and accessibility to a wider audience actively seeking your products or services."} />
+                            <ServiceCardTwo fontsize={'15px'} img={Reward} widthImg={'120px'} marginTop={'8px'} title={"Listed on Snap it as a Merchant"} description={"Join Snap it as a merchant for increased visibility and accessibility to a wider audience actively seeking your products or services."} />
                         </motion.div>
                     </Grid>
 
@@ -233,7 +235,7 @@ const Merchants = () => {
                         }} md={3}
                     >
                         <motion.div variants={cardVariants}>
-                            <ServiceCardTwo fontsize={'15px'} img={Analize} imgMt={'30px'} widthImg={'100px'} title={"Increased Footfall Through Digital Presence"} description={"Snap it expands merchant reach into the digital realm, attracting tech-savvy consumers and catalyzing increased footfall and engagement."} />
+                            <ServiceCardTwo fontsize={'15px'} img={Analize} imgMt={'30px'} widthImg={'100px'} marginTop={'24px'} title={"Increased Footfall Through Digital Presence"} description={"Snap it expands merchant reach into the digital realm, attracting tech-savvy consumers and catalyzing increased footfall and engagement."} />
                         </motion.div>
                     </Grid>
 

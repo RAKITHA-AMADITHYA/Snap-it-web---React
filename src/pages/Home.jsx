@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import Landingpage from '../assets/img/homeImg.png';
+import Landingpage from '../assets/img/landing4.png';
 import Mobile from '../assets/img/mobile.png';
 import Man from '../assets/img/man.png';
 import product4 from '../assets/img/product4.png';
@@ -133,7 +133,7 @@ const Home = () => {
       {/* Section 1 */}
       <section >
 
-        <Grid container>
+        <Grid container bgcolor={'#F3F3F3'}>
 
           <Grid
             item xs={12} md={6}
@@ -252,7 +252,11 @@ const Home = () => {
                 <Typography variant='subtitle1' fontWeight={500} mt={2}  >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </Typography>
               </Box>
               <Box p={1}>
-              <Button variant='contained'  >Get Start</Button></Box>
+              <Button variant='contained' onClick={() => navigate('/signup')}>
+      Get Started
+    </Button>
+
+              </Box>
             </motion.div>
           </Grid>
 
@@ -284,7 +288,7 @@ const Home = () => {
               }}>
                 <Typography variant='subtitle1' fontWeight={500} sx={{ ml: { xs: 0, md: 8 }, mt: { xs: 0, md: -5 } }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia </Typography>
                 <Typography variant='subtitle1' fontWeight={500} mt={2} sx={{ ml: { xs: 0, md: 8 } }} >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia </Typography>
-                <Button variant='contained' sx={{ mt: 2, ml: { xs: 0, md: 8 }, }}  >Learn More</Button>
+                <Button variant='contained' sx={{ mt: 2, ml: { xs: 0, md: 8 }, }} onClick={() => navigate('/brands')} >Learn More</Button>
               </Box>
             </motion.div>
           </Grid>
@@ -340,7 +344,7 @@ const Home = () => {
                 <Typography variant='subtitle1' fontWeight={500}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco     </Typography>
                 <Typography variant='subtitle1' fontWeight={500} mt={2}  >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </Typography>
               </Box>
-              <Button variant='contained' sx={{ mt: 2,m:1 }} >Learn More</Button>
+              <Button variant='contained' sx={{ mt: 2,m:1 }} onClick={() => navigate('/merchants')} >Learn More</Button>
             </motion.div>
           </Grid>
 

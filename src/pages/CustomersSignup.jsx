@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import QR from '../assets/img/qr.png';
+import QR from '../assets/img/qr-code.png';
 import PlayStore from '../assets/img/playstore.png';
 import Appstore from '../assets/img/appstore.png';
 
@@ -55,12 +55,12 @@ const CustomersSignup = () => {
             <section>
 
                 <Grid container>
-                    <Grid item xs={12} md={5.5} p={10}
+                    <Grid item xs={12} md={5.5} p={{xs:'8px'}}
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
                         sx={{
-                            display: { xs: 'none', sm: 'block' },
+                            display: { xs: 'block', sm: 'block' },
                         }}
                     >
                         <Typography variant='h2' fontWeight={800}>
@@ -73,7 +73,8 @@ const CustomersSignup = () => {
                             Now you can scan the QR code form your mobile and checkout our mobile App or download from below
                         </Typography>
 
-                        <div style={{ gap: '2px' }}>
+                        <Box sx={{ gap: '2px' ,                            display: { xs: 'none', md: 'block' },
+}}>
                             <Button
                                 variant="contained"
                                 onClick={handleClick}
@@ -119,7 +120,7 @@ const CustomersSignup = () => {
                                     }
                                 }}
                             ></Button>
-                        </div>
+                        </Box>
 
                     </Grid>
 
@@ -137,7 +138,8 @@ const CustomersSignup = () => {
                     >
                         <motion.div variants={leftVariants}>
                             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                                <img src={QR} width={'50%'} alt="" />
+                                <img src={QR} width={'50%'}       onClick={handleClick} 
+ alt="" />
                             </Box>
                         </motion.div>
                     </Grid>
