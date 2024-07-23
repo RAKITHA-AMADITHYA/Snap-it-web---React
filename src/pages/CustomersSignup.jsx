@@ -55,7 +55,7 @@ const CustomersSignup = () => {
             <section>
 
                 <Grid container>
-                    <Grid item xs={12} md={5.5} p={{xs:'8px'}}
+                    <Grid item xs={12} md={5.5} p={{xs:'8px',md:5}}
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
