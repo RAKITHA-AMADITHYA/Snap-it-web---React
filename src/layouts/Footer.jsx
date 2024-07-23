@@ -46,9 +46,34 @@ const Footer = () => {
         </Box>
 
         <Box display={'flex'} justifyContent={'center'} gap={2} mt={2}>
+                {/* <FbImage/> */}
+                <img src={FbImage} width={'8%'} height={'50%'} alt="" />
+                <img src={TikTokImage} width={'9%'} height={'50%'} alt="" />
+                <img src={InstaImage} width={'9%'} height={'50%'} alt="" />
+
+              </Box>
+
+              <Grid item xs={4} color={'#fff'} display={'flex'} justifyContent={'center'} flexDirection={'column'} alignItems={'center'} textAlign={'start'} mt={5}>
+              <Typography variant='subtitle1' fontWeight={700}>USEFUL LINKS</Typography>
+              <Typography variant='p'sx={{cursor:'pointer'}}  mt={1} onClick={() => handleNavigate('/')}>HOME</Typography>
+              <Typography variant='p'  sx={{cursor:'pointer'}}  onClick={() => handleNavigate('/signup')} >HOW IT WORKS</Typography>
+              <Typography variant='p' sx={{cursor:'pointer'}}   onClick={() => handleNavigate('/customer')}>CUSTOMER</Typography>
+              <Typography variant='p'  sx={{cursor:'pointer'}}  onClick={() => handleNavigate('/brands')}>BRANDS</Typography>
+              <Typography variant='p' sx={{cursor:'pointer'}}  onClick={() => handleNavigate('/merchants')} >MERCHANTS</Typography>
+              <Typography variant='p' sx={{cursor:'pointer'}}  onClick={() => handleNavigate('/about-us')} >ABOUT US</Typography>
+              <Typography variant='p' sx={{cursor:'pointer'}}   onClick={() => handleNavigate('/contact-us')}>CONTACT US</Typography>
+
+
+
+
+
+
+
+            </Grid>
+        {/* <Box display={'flex'} justifyContent={'center'} gap={2} mt={2}>
           <img src={playstore} width={'40%'} height={'50%'} alt="" />
           <img src={appstore} width={'40%'} height={'50%'} alt="" />
-        </Box>
+        </Box> */}
 
         <Grid item xs={3} color={'#fff'} mt={5} >
           {/* Phone */}
@@ -84,10 +109,16 @@ const Footer = () => {
           </div>
         </Grid>
 
+
+        <Box display={'flex'} justifyContent={'center'} gap={2} mt={2}>
+          <img src={playstore} width={'40%'} height={'50%'} alt="" />
+          <img src={appstore} width={'40%'} height={'50%'} alt="" />
+        </Box>
         <Divider sx={{ backgroundColor: '#2e2930', mt: 5 }} />
 
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: '5px' }}>
-          <img src={copyrights} width={'150px'} alt="" />
+          {/* <img src={copyrights} width={'150px'} alt="" /> */}
+          <Typography variant='p'>Copyright © 2024 design by mobios</Typography>
         </Box>
       </Box>
 

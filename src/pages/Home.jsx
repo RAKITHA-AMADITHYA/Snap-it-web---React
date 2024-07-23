@@ -151,7 +151,7 @@ const Home = () => {
               }}>
                 <Typography variant='h1' fontWeight={800} sx={{ ml: { xs: 0, md: 8 }, mt: { xs: 0, md: -5 } }}>Experience The  Thrill of <span style={{ color: '#FFB800' }}>Discovery!</span> </Typography>
                 <Typography variant='subtitle1' fontWeight={500} ml={8} sx={{ ml: { xs: 0, md: 8 } }} >transforming your everyday shopping into a rewards when purchasing your favourite brands and products from any store anywhere.</Typography>
-                <Button variant='contained' sx={{ mt: 2, ml: { xs: 0, md: 8 }, }}  >Get Start</Button>
+                <Button variant='contained' sx={{ mt: 2, ml: { xs: 0, md: 8 }, }} onClick={() => navigate('/signup')}   >Get Start</Button>
               </Box>
             </motion.div>
           </Grid>

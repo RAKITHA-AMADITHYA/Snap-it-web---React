@@ -106,8 +106,8 @@ function Header() {
               sx: { width: '60%', maxWidth: '800px', overflowX: 'hidden' },
             }}
           >
-            <Box sx={{ display: 'flex', justifyContent: 'start', mt: 2 }}>
-              <img src={Logo} width={'200px'} alt="" />
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+              <img src={Logo} width={'100px'} alt="" />
             </Box>
             <List sx={{ mt: 2 }}>
               {menuItems.map((item) =>

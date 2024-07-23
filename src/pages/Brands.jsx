@@ -102,7 +102,7 @@ const Brands = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', mt: { xs: -16, sm: 0, md: -3 }, justifyContent:{xs:'end',lg:'end  '}, p: { xs: 5, lg: 0 } }}
+                        sx={{ display: 'flex', mt: { xs: -10, sm: 0, md: -3 }, justifyContent:{xs:'end',lg:'end  '}, p: { xs: 2, lg: 0 } }}
                     >
                         <motion.div variants={leftVariants}>
                             <img src={brands} width={'100%'} alt="" />
@@ -138,7 +138,7 @@ const Brands = () => {
 
             <section ref={section2Ref} >
 
-                <Grid container p={12} mt={-5}>
+                <Grid container   sx={{ p: { xs: 2, lg: 12 } }} mt={-5}>
                     <Grid
                         item
                         component={motion.div}
