@@ -856,7 +856,7 @@ const MerchantSignup = () => {
                       variant="contained"
                       onClick={() => {
                         if (!clickSubmit) {
-                          handleBrandSignUp();
+                          MerchantSignUp();
                         }
                       }}
                       disabled={!isNICValidationSuccess}
