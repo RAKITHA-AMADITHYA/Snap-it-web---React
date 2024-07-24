@@ -5,6 +5,7 @@ import {
   Button,
   Box,
   CircularProgress,
+  FormHelperText,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
@@ -16,6 +17,7 @@ import { useForm } from "react-hook-form";
 import { ErrorIcon } from "../theme/overrides/CustomIcons";
 import styled from "styled-components";
 import Tesseract from "tesseract.js";
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -393,11 +395,11 @@ const BrandSignup = () => {
             </Typography>
             <form onSubmit={handleSubmit(handleBrandSignUp)}>
               <Box>
-                <Typography variant="P" mt={2}>
+                <Typography variant="P" mt={3}>
                   Company Details
                 </Typography>
               </Box>
-              <Grid container spacing={2} mt={1} >
+              <Grid container spacing={2} mt={-1} >
 
                 {/* Company Name */}
                 <Grid item xs={12} md={6}>
@@ -467,7 +469,7 @@ const BrandSignup = () => {
 
 
                 {/* Upload BR */}
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={6} display={'flex'} gap={1}>
                   <TextField
 
 
@@ -501,16 +503,17 @@ const BrandSignup = () => {
                               sx={{
                                 borderRadius: '10px',
                                 boxShadow: 'none',
-                                backgroundColor: '#F2B51C',
-                                color: '#FDFDFD',
+                                backgroundColor: 'transparent',
+                                color: 'gray',
                                 ':hover': {
-                                  bgcolor: '#F2B51C',
-                                  color: '#FDFDFD',
+                                  bgcolor: '#D9D9D9',
+                                  color: 'Gray',
                                   boxShadow: 'none',
                                 },
                               }}
                             >
-                              Choose
+                              <CloudUploadIcon/>
+                              {/* Choose */}
                               <input
                                 id="fileInput"
                                 type="file"
@@ -519,6 +522,7 @@ const BrandSignup = () => {
                                 onChange={handleFileChange}
                               />
                             </Button>
+
                           </Grid>
 
                         </React.Fragment>
@@ -533,6 +537,9 @@ const BrandSignup = () => {
                         : ''
                     }
                   />
+
+<Button variant="contained">Validate</Button>
+
                 </Grid>
 
 
@@ -554,21 +561,7 @@ const BrandSignup = () => {
                     variant="outlined"
                     value={RegisterNumber}
                   />
-                  {/* <Box
-                      component="input"
-                      value={RegisterNumber}
-                      onChange={handleCompanyRegNoChange}
-                      sx={{
-                        p: "2px 4px",
-                        display: "flex",
-                        alignItems: "center",
-                        width: "100%",
-                        bgcolor: "white",
-                        borderRadius: "12px",
-                        border: "none",
-                        height: "70%",
-                      }}
-                    /> */}
+                
                   <Box fontWeight={500}>
                     <div
                       style={{
@@ -695,7 +688,7 @@ const BrandSignup = () => {
                 </Grid>
 
                 {/*Nic upload  */}
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={6} display={'flex'} gap={1}>
                   <TextField
                     fullWidth
                     label="NIC Upload"
@@ -736,16 +729,17 @@ const BrandSignup = () => {
                               sx={{
                                 borderRadius: "10px",
                                 boxShadow: "none",
-                                backgroundColor: "#F2B51C",
-                                color: "#FDFDFD",
+                                backgroundColor: "transparent",
+                                color: "Gray",
                                 ":hover": {
-                                  bgcolor: "#F2B51C",
-                                  color: "#FDFDFD",
+                                  bgcolor: "#D9D9D9",
+                                  color: "#Gray",
                                   boxShadow: "none",
                                 },
                               }}
                             >
-                              Choose
+                              {/* Choose */}
+                              <CloudUploadIcon/>
                               <input
                                 id="nicfileInput"
                                 type="file"
@@ -763,6 +757,8 @@ const BrandSignup = () => {
                     value={nicFileName}
                   // onChange={}
                   />  
+                                              <Button variant="contained">Validate</Button>
+
                 </Grid>
 
 
@@ -794,40 +790,42 @@ const BrandSignup = () => {
 
 
                 <Grid item xs={12} md={6}>
-                  <TextField
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      if (e.target.value === "") {
-                        setEmailError(true);
-                      } else {
-                        setEmailError(false);
-                      }
-                    }}
-                    fullWidth
-                    // required={"Email Required"}
-                    label="Email"
-                    variant="outlined"
-                    value={email}
-                  />
-                  <Box fontWeight={500}>
-                    <div
-                      style={{
-                        color: "red",
-                        display: "inline",
-                        fontSize: "13px",
-                      }}
-                    >
-                      {emailError === false ? "" : "Required"}
-                    </div>
-                  </Box>
-                </Grid>
+      <TextField
+        onChange={(e) => {
+          setEmail(e.target.value);
+          if (e.target.value === "") {
+            setEmailError(true);
+          } else {
+            setEmailError(false);
+          }
+        }}
+        fullWidth
+        label="Email"
+        variant="outlined"
+        value={email}
+      />
+      <Box fontWeight={500}>
+        <div
+          style={{
+            color: "red",
+            display: "inline",
+            fontSize: "13px",
+          }}
+        >
+          {emailError === false ? "" : "Required"}
+        </div>
+      </Box>
+      <FormHelperText sx={{ color: '#00B631',ml:1 }}>
+        This will be your User name
+      </FormHelperText>
+    </Grid>
 
 
               </Grid>
 
               <Box mt={3}>
 
-                <Grid item xs={12} mt={{ xs: 3, lg: 9 }}>
+                <Grid item xs={12} mt={{ xs: 3, lg: 2}}>
                   {(!isValidationSuccess || !isNICValidationSuccess) &&
                     nic !== "" &&
                     RegisterNumber !== "" &&
@@ -864,7 +862,10 @@ const BrandSignup = () => {
                         }
                       }}
                       disabled={!isValidationSuccess || !isNICValidationSuccess}
+
+                      
                       sx={{
+                        
                         borderRadius: "10px",
                         width: { xs: "100%" },
                         backgroundColor: "#F2B51C",
