@@ -21,9 +21,6 @@ const CustomersSignup = () => {
         });
     }, []);
 
-
-
-
     const leftVariants = {
         offscreen: {
             // x: 300,
@@ -41,8 +38,6 @@ const CustomersSignup = () => {
         }
     };
 
-
-
     const handleClick = () => {
         window.location.href = 'https://play.google.com/store/apps/details?id=com.snapitonline.snap_it';
     };
@@ -51,7 +46,6 @@ const CustomersSignup = () => {
     return (
         <>
 
-            {/* Section 1 */}
             <section>
 
                 <Grid container>
@@ -138,7 +132,7 @@ const CustomersSignup = () => {
                     >
                         <motion.div variants={leftVariants}>
                             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                                <img src={QR} width={'50%'}       onClick={handleClick} 
+                                <img src={QR} width={'350px'}       onClick={handleClick} 
  alt="" />
                             </Box>
                         </motion.div>
@@ -155,11 +149,6 @@ const CustomersSignup = () => {
 
                 </Grid>
             </section>
-
-
-
-
-
         </>
 
     )

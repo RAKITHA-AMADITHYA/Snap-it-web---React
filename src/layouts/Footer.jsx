@@ -80,7 +80,7 @@ const Footer = () => {
           <div style={{ display: 'flex', gap: '25px', color: '#fff', marginTop: '10px', justifyContent: 'center', alignItems: 'end' }}>
             <LocalPhoneIcon sx={{ fontSize: { lg: '30px', color: '#FFFF' } }} />
             <Typography variant='h6' textAlign={'center'}>
-              (+94) 77 7331496<br />
+              (+94) 777491496<br />
 
 
             </Typography>
@@ -133,7 +133,7 @@ const Footer = () => {
 
           <Grid container p={5} justifyContent={'space-between'}>
             <Grid item xs={4} color={'#fff'} >
-              <img src={logo} width={'20%'} alt="" />
+              <img src={logo} width={'60px'} alt="" />
               <Typography variant='subtitle2' mt={3} fontWeight={400} textAlign={'justify'}>
                 Snap it effortlessly brings your favorite brands to your fingertips,rewarding your loyalty. The platform also assists merchants in gaining a deeper understanding of their customers and incentivizing loyalty.          </Typography>
 
@@ -255,8 +255,9 @@ const Footer = () => {
           </Grid>
           <Divider sx={{ backgroundColor: '#2e2930' }} />
 
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: '5px' }}>
-            <img src={copyrights} width={'200px'} alt="" />
+          <Box sx={{ display: 'flex', justifyContent: 'start', mt: '5px' }}>
+            {/* <img src={copyrights} width={'200px'} alt="" /> */}          <Typography variant='p'>Copyright © 2024 design by mobios</Typography>
+
           </Box>
         </section></Box>
     </>
