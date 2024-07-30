@@ -19,6 +19,8 @@ import DoneIcon from "@mui/icons-material/Done";
 import styled from "styled-components";
 import Tesseract from "tesseract.js";
 import Merchant from "../assets/img/merchant33.png";
+import PdfToText from "../utils/PdfToText";
+
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -283,12 +285,12 @@ const MerchantSignup = () => {
       address: address,
       mobile_number: mobileNumber,
       nic: nic,
-      file_path_nic: nicFileName,
+      file_path_nic: nicFile,
       email: email,
       country: country,
       company_name: companyName,
       company_reg_no: RegisterNumber,
-      file_path_br: brFileName,
+      file_path_br: file,
       user_type: "merchant",
     };
     console.log(data);
@@ -303,8 +305,9 @@ const MerchantSignup = () => {
     formData.delete("file_path_br");
     formData.append("file_path_nic", nicFile);
     formData.append("file_path_br", file);
-    console.log(formData);
-    console.log(nicFile, fileBr);
+    console.log("formData",formData);
+    console.log("fileNIC",nicFile,);
+    console.log("fileBR",file);
 
     try {
       const response = await signUpMerchant(formData);

@@ -18,6 +18,8 @@ import { ErrorIcon } from "../theme/overrides/CustomIcons";
 import styled from "styled-components";
 import Tesseract from "tesseract.js";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import PdfToText from "../utils/PdfToText";
+
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
