@@ -20,7 +20,6 @@ import Tesseract from "tesseract.js";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import PdfToText from "../utils/PdfToText";
 
-
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
   clipPath: "inset(50%)",

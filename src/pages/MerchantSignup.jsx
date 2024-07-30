@@ -21,7 +21,6 @@ import Tesseract from "tesseract.js";
 import Merchant from "../assets/img/merchant33.png";
 import PdfToText from "../utils/PdfToText";
 
-
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
   clipPath: "inset(50%)",
@@ -305,9 +304,9 @@ const MerchantSignup = () => {
     formData.delete("file_path_br");
     formData.append("file_path_nic", nicFile);
     formData.append("file_path_br", file);
-    console.log("formData",formData);
-    console.log("fileNIC",nicFile,);
-    console.log("fileBR",file);
+    console.log("formData", formData);
+    console.log("fileNIC", nicFile);
+    console.log("fileBR", file);
 
     try {
       const response = await signUpMerchant(formData);
