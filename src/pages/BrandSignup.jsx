@@ -549,7 +549,13 @@ const BrandSignup = () => {
                     disabled={!file || !RegisterNumber}
                     variant="contained"
                   >
-                    Validate
+                    {!clickValidate
+                      ? "Validate"
+                      : isValidationSuccess
+                      ? "Validated"
+                      : error
+                      ? "Retry"
+                      : "Validating..."}
                   </Button>
                 </Grid>
 
@@ -558,6 +564,8 @@ const BrandSignup = () => {
                   <TextField
                     onChange={(e) => {
                       setRegisterNumber(e.target.value);
+                      setIsValidationSuccess(false);
+                      setError("Invalid NIC.");
                       if (e.target.value === "") {
                         setRegisterNumberError(true);
                       } else {
@@ -773,7 +781,13 @@ const BrandSignup = () => {
                     disabled={!nicFile || !nic}
                     variant="contained"
                   >
-                    Validate
+                    {!clickNicValidate
+                      ? "Validate"
+                      : isNICValidationSuccess
+                      ? "Validated"
+                      : nicError
+                      ? "Retry"
+                      : "Validating..."}
                   </Button>
                 </Grid>
 
@@ -862,7 +876,7 @@ const BrandSignup = () => {
                     >
                       {!clickValidate && !clickNicValidate
                         ? "VALIDATE"
-                        : error
+                        : error && nicError
                         ? "RETRY"
                         : "VALIDATING..."}
                     </Button>

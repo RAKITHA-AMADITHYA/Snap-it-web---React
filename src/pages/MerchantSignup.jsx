@@ -79,23 +79,6 @@ const MerchantSignup = () => {
     setNicFileName(file.name);
   };
 
-  const handleClick = () => {
-    window.location.href = "https://brand.snapitonline.com/";
-  };
-
-  const handleCompanyRegNoChange = (event) => {
-    setClickValidate(false);
-    setClickNicValidate(false);
-    setIsValidationSuccess(false);
-    setRegisterNumber(event.target.value);
-
-    if (event.target.value === "") {
-      setFileBrError(true);
-    } else {
-      setFileBrError(false);
-    }
-  };
-
   const handleOCR = async () => {
     setClickValidate(true);
     setError(null);
@@ -537,7 +520,13 @@ const MerchantSignup = () => {
                     disabled={!file || !RegisterNumber}
                     variant="contained"
                   >
-                    Validate
+                    {!clickValidate
+                      ? "Validate"
+                      : isValidationSuccess
+                      ? "Validated"
+                      : error
+                      ? "Retry"
+                      : "Validating..."}
                   </Button>
                 </Grid>
 
@@ -546,6 +535,8 @@ const MerchantSignup = () => {
                   <TextField
                     onChange={(e) => {
                       setRegisterNumber(e.target.value);
+                      setIsValidationSuccess(false);
+                      setError("Invalid NIC.");
                       if (e.target.value === "") {
                         setRegisterNumberError(true);
                       } else {
@@ -761,7 +752,13 @@ const MerchantSignup = () => {
                     disabled={!nicFile || !nic}
                     variant="contained"
                   >
-                    Validate
+                    {!clickNicValidate
+                      ? "Validate"
+                      : isNICValidationSuccess
+                      ? "Validated"
+                      : nicError
+                      ? "Retry"
+                      : "Validating..."}
                   </Button>
                 </Grid>
 
@@ -849,7 +846,7 @@ const MerchantSignup = () => {
                     >
                       {!clickValidate && !clickNicValidate
                         ? "VALIDATE"
-                        : error
+                        : error && nicError
                         ? "RETRY"
                         : "VALIDATING..."}
                     </Button>
