@@ -50,7 +50,7 @@ const Home = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1, 
+          slidesToShow: 1,
           autoplaySpeed: 2000,
         },
       },
@@ -285,28 +285,59 @@ const Home = () => {
               sx={{ display: "flex", justifyContent: "start" }}
             >
               <motion.div variants={leftVariants}>
-                <Box
-                  sx={{
-                    maxWidth: { lg: "500px" },
-                    minWidth: { lg: "500px" },
-                    margin: "0 auto",
-                    mt: 10,
-                    display: "flex",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    p: [2, 2, 0],
-                  }}
-                >
-                  <Typography variant="subtitle1" fontWeight={500}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco{" "}
+                <Box>
+                  <Typography
+                    variant="h4"
+                    mt={2}
+                    fontWeight={700}
+                  >Earn amazing rewards and spend <br /> on your daily needs ! </Typography>
+
+                  <Typography
+                    variant="subtitle2"
+                    fontWeight={500}
+                    mt={2}
+                  >
+                    As a Snap it customer, you can earn rewards from your favorite brands simply by scanning a QR code available on the product packaging. To get started, download the Snap It application by scanning the QR code or find us on the Google Play Store or Apple App Store.
                   </Typography>
-                  <Typography variant="subtitle1" fontWeight={500} mt={2}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco{" "}
-                  </Typography>
+
+                  <Typography
+                    variant="h5"
+                    fontWeight={700}
+                  >
+                    With Snap It, you can:                 </Typography>
+                  <Box sx={{ ml: { xs: 0, md: 1 }, mt: 2 }} gap={2}>
+                    <Typography variant="subtitle2" fontWeight={500}>
+                      - Provide your views to your favorite brands to satisfy your requirements and improve their offerings.
+                    </Typography>
+                    <Typography variant="subtitle2" fontWeight={500}>
+                      - Maintain a shopping list to ensure you don't forget any items while shopping.
+                    </Typography>
+                    <Typography variant="subtitle2" fontWeight={500}>
+                      - Add brands that offer rewards to a favorites list.
+                    </Typography>
+                    <Typography variant="subtitle2" fontWeight={500}>
+                      - Create a wish list of brands and products you'd like to receive rewards from.
+                    </Typography>
+                  </Box>
+
+
+                  <Typography
+                    variant="subtitle2"
+                    fontWeight={500}
+                    sx={{ ml: { xs: 0, md: 1 }, mt: 2 }}
+                  >
+                    The rewards you collect can be used to cover your next utility bill, including mobile top-ups, water bills, or electricity bills.                 </Typography>
+
+                  {/* <Button
+    variant="contained"
+    sx={{
+      mt: 2,
+      //  ml: { xs: 0, md: 1 }
+    }}
+    onClick={() => navigate("/brands")}
+  >
+    Learn More
+  </Button> */}
                 </Box>
                 <Box p={1}>
                   <Button variant="contained" onClick={() => navigate("/signup")}>
@@ -318,16 +349,17 @@ const Home = () => {
           </Grid>
         </section>
 
-        {/*Consumer */}
+        {/*Brands */}
         <section>
           <Box
             sx={{
               display: "flex",
               justifyContent: "end",
+              mt: 2
             }}
           >
             <Typography variant="h3" fontWeight={800}>
-              Snap it for consumers
+              Snap it for brands
             </Typography>
           </Box>
 
@@ -345,61 +377,29 @@ const Home = () => {
               >
                 <motion.div variants={leftVariants}>
                   <Box
-
+                    sx={{
+                      maxWidth: { lg: "500px" },
+                      minWidth: { lg: "500px" },
+                      margin: "0 auto",
+                      mt: 10,
+                      display: "flex",
+                      justifyContent: "start",
+                      flexDirection: "column",
+                    }}
                   >
                     <Typography
                       variant="h4"
                       fontWeight={700}
-                    >Earn amazing rewards and spend <br /> on your daily needs ! </Typography>
+                      sx={{ ml: { xs: 0, md: 0 }, mt: { xs: 0, md: -5 } }}
+                    >Know your customer and reward <br /> them for their loyalty.  </Typography>
 
-                    <Typography
-                      variant="subtitle2"
-                      fontWeight={500}
-                      mt={2}
-                    // sx={{ ml: { xs: 0, md: 8 }, mt: 2 }}
-                    >
-                      As a Snap it customer, you can earn rewards from your favorite brands simply by scanning a QR code available on the product packaging. To get started, download the Snap It application by scanning the QR code or find us on the Google Play Store or Apple App Store.
+
+                    <Typography variant="subtitle2" fontWeight={500} mt={2}>
+                      Snap It is designed to bring you closer to your customers by providing valuable insights and enhancing your offerings. By joining Snap It, you gain access to a wealth of information about your customers, including their purchase patterns and preferences, allowing you to tailor your products and services more effectively. Snap it will provide you with,
                     </Typography>
 
-                    <Typography
-                      variant="h5"
-                      fontWeight={700}
-                    // sx={{ ml: { xs: 0, md: 8 }, mt: 2 }}
-                    >
-                      With Snap It, you can:                 </Typography>
-                    <Box sx={{ ml: { xs: 0, md: 1 }, mt: 2 }} gap={2}>
-                      <Typography variant="subtitle2" fontWeight={500}>
-                        - Provide your views to your favorite brands to satisfy your requirements and improve their offerings.
-                      </Typography>
-                      <Typography variant="subtitle2" fontWeight={500}>
-                        - Maintain a shopping list to ensure you don't forget any items while shopping.
-                      </Typography>
-                      <Typography variant="subtitle2" fontWeight={500}>
-                        - Add brands that offer rewards to a favorites list.
-                      </Typography>
-                      <Typography variant="subtitle2" fontWeight={500}>
-                        - Create a wish list of brands and products you'd like to receive rewards from.
-                      </Typography>
-                    </Box>
 
 
-                    <Typography
-                      variant="subtitle2"
-                      fontWeight={500}
-                      sx={{ ml: { xs: 0, md: 1 }, mt: 2 }}
-                    >
-                      The rewards you collect can be used to cover your next utility bill, including mobile top-ups, water bills, or electricity bills.                 </Typography>
-
-                    {/* <Button
-                      variant="contained"
-                      sx={{
-                        mt: 2,
-                        //  ml: { xs: 0, md: 1 }
-                      }}
-                      onClick={() => navigate("/brands")}
-                    >
-                      Learn More
-                    </Button> */}
                   </Box>
                 </motion.div>
               </Grid>
@@ -426,78 +426,10 @@ const Home = () => {
 
         {/*Brands */}
         <section>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "start",
-              mt: 5,
-            }}
-          >
-            <Typography variant="h3" fontWeight={700}>
-              Snap it for brands
-            </Typography>
-          </Box>
+
           <Grid container>
-            <Grid
-              item
-              xs={12}
-              md={6}
-              component={motion.div}
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.8 }}
-              sx={{ display: "flex", justifyContent: "start", mt: 2 }}
-            >
-              <motion.div variants={leftVariants}>
-                {" "}
-                <img src={Brands} width={"350px"} alt="" />
-              </motion.div>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              md={6}
-              component={motion.div}
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.8 }}
-              sx={{ display: "flex", justifyContent: "start" }}
-            >
-              <motion.div variants={leftVariants}>
-                <Box
-                  sx={{
-                    maxWidth: { lg: "500px" },
-                    minWidth: { lg: "500px" },
-                    margin: "0 auto",
-                    mt: 6,
-                    display: "flex",
-                    justifyContent: "start",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Typography
-                    variant="h4"
-                    fontWeight={700}
-                    sx={{ ml: { xs: 0, md: 0 }, mt: { xs: 0, md: -5 } }}
-                  >Know your customer and reward <br /> them for their loyalty.  </Typography>
 
 
-                  <Typography variant="subtitle2" fontWeight={500} mt={2}>
-                    Snap It is designed to bring you closer to your customers by providing valuable insights and enhancing your offerings. By joining Snap It, you gain access to a wealth of information about your customers, including their purchase patterns and preferences, allowing you to tailor your products and services more effectively. Snap it will provide you with,
-                  </Typography>
-
-
-
-                </Box>
-                {/* <Button
-                  variant="contained"
-                  sx={{ mt: 2 }}
-                  onClick={() => navigate("/merchants")}
-                >
-                  Learn More
-                </Button> */}
-              </motion.div>
-            </Grid>
 
 
             <Box>
@@ -506,7 +438,8 @@ const Home = () => {
                 fontWeight={700}
                 sx={{ ml: { xs: 0, md: 0 }, mt: 2 }}
               >
-                With Snap It, you can:                 </Typography>
+                With Snap It, you can:              
+            </Typography>
             </Box>
           </Grid>
 
@@ -646,27 +579,27 @@ const Home = () => {
                       sx={{ mt: 2 }}
                     // sx={{ ml: { xs: 0, md: 8 }, mt: 2 }}
                     >
-                     Snap It offers an easy, self-registering interface for merchants to join the platform. By becoming a Snap It merchant, businesses can: </Typography>
-                     <Box mt={4}>
-            <Typography variant="h6" fontWeight={600} gutterBottom>
-              1. Gain an additional method for collecting payments. 
-            </Typography>
-            
-            <Typography variant="h6" fontWeight={600} gutterBottom>
-              2. Increase their digital presence. 
-            </Typography>
+                      Snap It offers an easy, self-registering interface for merchants to join the platform. By becoming a Snap It merchant, businesses can: </Typography>
+                    <Box mt={4}>
+                      <Typography variant="h6" fontWeight={600} gutterBottom>
+                        1. Gain an additional method for collecting payments.
+                      </Typography>
 
-            <Typography variant="h6" fontWeight={600} gutterBottom>
-              3. Appear in search results when Snap It customers look for specific products on the app. 
-            </Typography>
-         
-            <Typography variant="h6" fontWeight={600} gutterBottom>
-              4. Benefit from easy reporting and financial reconciliation with just a click of a button.  
-            </Typography>
-          </Box>
+                      <Typography variant="h6" fontWeight={600} gutterBottom>
+                        2. Increase their digital presence.
+                      </Typography>
+
+                      <Typography variant="h6" fontWeight={600} gutterBottom>
+                        3. Appear in search results when Snap It customers look for specific products on the app.
+                      </Typography>
+
+                      <Typography variant="h6" fontWeight={600} gutterBottom>
+                        4. Benefit from easy reporting and financial reconciliation with just a click of a button.
+                      </Typography>
+                    </Box>
 
 
-                
+
                   </Box>
                 </motion.div>
               </Grid>
@@ -697,7 +630,7 @@ const Home = () => {
 
       </Box>
 
-     
+
     </>
   );
 };
