@@ -180,7 +180,7 @@ const Home = () => {
                   sx={{ mt: 2, ml: { xs: 0, md: 8 } }}
                   onClick={() => navigate("/signup")}
                 >
-                  Get Start
+                  Get Started
                 </Button>
               </Box>
             </motion.div>
@@ -291,15 +291,14 @@ const Home = () => {
                 }}
               >
                 <Typography variant="subtitle1" fontWeight={500}>
+                  As a Snap it customer, you can earn rewards from your favorite brands simply by scanning a QR code available on the product packaging. 
+                  To get started, download the Snap It application by scanning the QR code or find us on the Google Play Store or Apple App Store.
+                </Typography>
+                {/* <Typography variant="subtitle1" fontWeight={500} mt={2}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco{" "}
-                </Typography>
-                <Typography variant="subtitle1" fontWeight={500} mt={2}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco{" "}
-                </Typography>
+                </Typography> */}
               </Box>
               <Box p={1}>
                 <Button variant="contained" onClick={() => navigate("/signup")}>
@@ -349,15 +348,10 @@ const Home = () => {
                   fontWeight={500}
                   sx={{ ml: { xs: 0, md: 8 }, mt: { xs: 0, md: -5 } }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia{" "}
+                  Snap It is designed to bring you closer to your customers by providing valuable insights and enhancing your offerings. 
+                  By joining Snap It, you gain access to a wealth of information about your customers, including their purchase patterns and preferences, allowing you to tailor your products and services more effectively.
                 </Typography>
-                <Typography
+                {/* <Typography
                   variant="subtitle1"
                   fontWeight={500}
                   mt={2}
@@ -370,7 +364,7 @@ const Home = () => {
                   irure dolor in reprehenderit in voluptate velit esse cillum
                   dolore eu fugiat nulla pariatur. Excepteur sint occaecat
                   cupidatat non proident, sunt in culpa qui officia{" "}
-                </Typography>
+                </Typography> */}
                 <Button
                   variant="contained"
                   sx={{ mt: 2, ml: { xs: 0, md: 8 } }}
@@ -453,15 +447,15 @@ const Home = () => {
                 }}
               >
                 <Typography variant="subtitle1" fontWeight={500}>
+                  Snap It merchants cater to customers' regular wants and needs. 
+                  When customers collect sufficient Snap It rewards from their favorite brands, they can use these rewards to make purchases from Snap It merchants. 
+                  These merchants range from utility service providers and mobile operators to supermarkets, department stores, and even local corner shops.
+                </Typography>
+                {/* <Typography variant="subtitle1" fontWeight={500} mt={2}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco{" "}
-                </Typography>
-                <Typography variant="subtitle1" fontWeight={500} mt={2}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco{" "}
-                </Typography>
+                </Typography> */}
               </Box>
               <Button
                 variant="contained"
