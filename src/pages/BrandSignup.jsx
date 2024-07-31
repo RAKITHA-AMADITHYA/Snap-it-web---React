@@ -19,6 +19,7 @@ import styled from "styled-components";
 import Tesseract from "tesseract.js";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import PdfToText from "../utils/PdfToText";
+import NICval from "../utils/NicValidation";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -172,14 +173,34 @@ const BrandSignup = () => {
       } = await Tesseract.recognize(nicFile);
 
       // Check if the OCR result includes the Company Reg. No.
-      if (!text.includes(nic)) {
+      if (NICval(nic) !== "Correct") {
         setnicError("Invalid NIC.");
         setIsNICValidationSuccess(false); // Set validation status to false
       }
 
-      if (text.includes(nic)) {
-        setnicError("Success!");
-        setIsNICValidationSuccess(true); // Set validation status to true
+      // Check if the OCR result includes the Company Reg. No.
+      if (nic.length === 10) {
+        console.log("NIC text", text);
+        console.log("NIC", nic.slice(0, 9));
+        if (!text.includes(nic.slice(0, 9))) {
+          setnicError("Invalid NIC.");
+          setIsNICValidationSuccess(false); // Set validation status to false
+        }
+
+        if (text.includes(nic.slice(0, 9))) {
+          setnicError("Success!");
+          setIsNICValidationSuccess(true); // Set validation status to true
+        }
+      } else if (nic.length === 12) {
+        if (!text.includes(nic)) {
+          setnicError("Invalid NIC.");
+          setIsNICValidationSuccess(false); // Set validation status to false
+        }
+
+        if (text.includes(nic)) {
+          setnicError("Success!");
+          setIsNICValidationSuccess(true); // Set validation status to true
+        }
       }
     } else if (nicFile && nic && nicFile.type.includes("pdf") === true) {
       const text = await PdfToText(nicFile);
@@ -187,12 +208,24 @@ const BrandSignup = () => {
       console.log("PDF text", text);
 
       // Check if the OCR result includes the Company Reg. No.
-      if (!text.includes(nic)) {
-        setnicError("Invalid NIC.");
-        setIsNICValidationSuccess(false); // Set validation status to false
-      } else {
-        setnicError("Success!");
-        setIsNICValidationSuccess(true); // Set validation status to true
+      if (nic.length === 10) {
+        console.log("NIC text", text);
+        console.log("NIC", nic.slice(0, 9));
+        if (!text.includes(nic.slice(0, 9))) {
+          setnicError("Invalid NIC.");
+          setIsNICValidationSuccess(false); // Set validation status to false
+        } else {
+          setnicError("Success!");
+          setIsNICValidationSuccess(true); // Set validation status to true
+        }
+      } else if (nic.length === 12) {
+        if (!text.includes(nic)) {
+          setnicError("Invalid NIC.");
+          setIsNICValidationSuccess(false); // Set validation status to false
+        } else {
+          setnicError("Success!");
+          setIsNICValidationSuccess(true); // Set validation status to true
+        }
       }
     } else {
       setnicError("Please upload a file.");
@@ -794,7 +827,11 @@ const BrandSignup = () => {
                         setIsValidationSuccess(false);
                       }
                     }}
-                    disabled={!nicFile || !nic}
+                    disabled={
+                      !nicFile ||
+                      !nic ||
+                      !(nic.length === 10 || nic.length === 12)
+                    }
                     variant="contained"
                   >
                     {!clickNicValidate
@@ -873,6 +910,7 @@ const BrandSignup = () => {
                   nic !== "" &&
                   RegisterNumber !== "" &&
                   RegisterNumber.length === 10 &&
+                  (nic.length === 10 || nic.length === 12) &&
                   file !== null &&
                   nicFile !== null ? (
                     <Button

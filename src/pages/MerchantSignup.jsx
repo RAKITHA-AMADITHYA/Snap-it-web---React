@@ -21,6 +21,7 @@ import Tesseract from "tesseract.js";
 import Merchant from "../assets/img/merchant33.png";
 import PdfToText from "../utils/PdfToText";
 import { Toast } from "flowbite-react";
+import NICval from "../utils/NicValidation";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -144,15 +145,34 @@ const MerchantSignup = () => {
         data: { text },
       } = await Tesseract.recognize(nicFile);
 
-      // Check if the OCR result includes the Company Reg. No.
-      if (!text.includes(nic)) {
+      if (NICval(nic) !== "Correct") {
         setnicError("Invalid NIC.");
         setIsNICValidationSuccess(false); // Set validation status to false
       }
 
-      if (text.includes(nic)) {
-        setnicError("Success!");
-        setIsNICValidationSuccess(true); // Set validation status to true
+      // Check if the OCR result includes the Company Reg. No.
+      if (nic.length === 10) {
+        console.log("NIC text", text);
+        console.log("NIC", nic.slice(0, 9));
+        if (!text.includes(nic.slice(0, 9))) {
+          setnicError("Invalid NIC.");
+          setIsNICValidationSuccess(false); // Set validation status to false
+        }
+
+        if (text.includes(nic.slice(0, 9))) {
+          setnicError("Success!");
+          setIsNICValidationSuccess(true); // Set validation status to true
+        }
+      } else if (nic.length === 12) {
+        if (!text.includes(nic)) {
+          setnicError("Invalid NIC.");
+          setIsNICValidationSuccess(false); // Set validation status to false
+        }
+
+        if (text.includes(nic)) {
+          setnicError("Success!");
+          setIsNICValidationSuccess(true); // Set validation status to true
+        }
       }
     } else if (nicFile && nic && nicFile.type.includes("pdf") === true) {
       const text = await PdfToText(nicFile);
@@ -160,13 +180,31 @@ const MerchantSignup = () => {
       console.log("PDF text", text);
 
       // Check if the OCR result includes the Company Reg. No.
-      if (!text.includes(nic)) {
-        setnicError("Invalid NIC.");
+      if (nic.length === 10) {
+        console.log("NIC text", text);
+        console.log("NIC", nic.slice(0, 9));
+        if (!text.includes(nic.slice(0, 9))) {
+          setnicError("Invalid NIC.");
+          setIsNICValidationSuccess(false); // Set validation status to false
+        } else {
+          setnicError("Success!");
+          setIsNICValidationSuccess(true); // Set validation status to true
+        }
+      } else if (nic.length === 12) {
+        if (!text.includes(nic)) {
+          setnicError("Invalid NIC.");
+          setIsNICValidationSuccess(false); // Set validation status to false
+        } else {
+          setnicError("Success!");
+          setIsNICValidationSuccess(true); // Set validation status to true
+        }
+      } 
+
+      else {
+        setnicError("Please upload a file.");
         setIsNICValidationSuccess(false); // Set validation status to false
-      } else {
-        setnicError("Success!");
-        setIsNICValidationSuccess(true); // Set validation status to true
       }
+
     } else {
       setnicError("Please upload a file.");
       setIsNICValidationSuccess(false); // Set validation status to false
@@ -768,7 +806,11 @@ const MerchantSignup = () => {
                         setIsValidationSuccess(false);
                       }
                     }}
-                    disabled={!nicFile || !nic}
+                    disabled={
+                      !nicFile ||
+                      !nic ||
+                      !(nic.length === 10 || nic.length === 12)
+                    }
                     variant="contained"
                   >
                     {!clickNicValidate
@@ -846,6 +888,7 @@ const MerchantSignup = () => {
                   nic !== "" &&
                   RegisterNumber !== "" &&
                   RegisterNumber.length === 10 &&
+                  (nic.length === 10 || nic.length === 12) &&
                   file !== null &&
                   nicFile !== null ? (
                     <Button
