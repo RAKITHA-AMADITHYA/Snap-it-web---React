@@ -22,6 +22,7 @@ import Merchant from "../assets/img/merchant33.png";
 import PdfToText from "../utils/PdfToText";
 import { Toast } from "flowbite-react";
 import NICval from "../utils/NicValidation";
+import PopUpDialogBox from "../components/PopupBox/PopUpDialogBox";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -70,6 +71,8 @@ const MerchantSignup = () => {
   const [isNICValidationSuccess, setIsNICValidationSuccess] = useState(false);
   const [uploadedNICFileName, setUploadedNICFileName] = useState("");
   const [uploadedFileName, setUploadedFileName] = useState("");
+
+  const [show, setShow] = useState(false);
 
   const handleNICFileChange = async (event) => {
     // Reset validation states
@@ -379,10 +382,11 @@ const MerchantSignup = () => {
       console.log("Brand Registered Successfully", response);
 
       if (response?.status === 200) {
-        showAlertMessage({
-          message: "Registered Successfully",
-          type: "success",
-        });
+        // showAlertMessage({
+        //   message: "Registered Successfully",
+        //   type: "success",
+        // });
+        setShow(true);
 
         setFullName("");
         setAddress("");
@@ -977,6 +981,7 @@ const MerchantSignup = () => {
           </Grid>
         </Grid>
       </section>
+      <PopUpDialogBox show={show} setShow={setShow} />
     </>
   );
 };

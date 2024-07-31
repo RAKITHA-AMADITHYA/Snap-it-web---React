@@ -20,6 +20,7 @@ import Tesseract from "tesseract.js";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import PdfToText from "../utils/PdfToText";
 import NICval from "../utils/NicValidation";
+import PopUpDialogBox from "../components/PopupBox/PopUpDialogBox";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -75,6 +76,8 @@ const BrandSignup = () => {
   const [uploadedNICFileName, setUploadedNICFileName] = useState("");
   //const [error, setError] = useState(null);
   const [uploadedFileName, setUploadedFileName] = useState("");
+
+  const [show, setShow] = useState(false);
   const handleNICFileChange = async (event) => {
     // Reset validation states
     setClickValidate(false);
@@ -397,10 +400,11 @@ const BrandSignup = () => {
       console.log("Brand Registered Successfully", response);
 
       if (response?.status === 200) {
-        showAlertMessage({
-          message: "Registered Successfully",
-          type: "success",
-        });
+        // showAlertMessage({
+        //   message: "Registered Successfully",
+        //   type: "success",
+        // });
+        setShow(true);
 
         setFullName("");
         setAddress("");
@@ -992,6 +996,7 @@ const BrandSignup = () => {
           </Grid>
         </Grid>
       </section>
+      <PopUpDialogBox show={show} setShow={setShow} />
     </>
   );
 };
