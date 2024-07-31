@@ -21,6 +21,8 @@ const Customer = lazy(() => import("./pages/Customer"));
 const BrandSignup = lazy(() => import("./pages/BrandSignup"));
 const MerchantSignup = lazy(() => import("./pages/MerchantSignup"));
 const MerchantSteps = lazy(() => import("./pages/MerchantSteps"));
+const HowItWorks = lazy(() => import("./pages/HowItWorks"));
+
 
 
 
@@ -52,6 +54,8 @@ function App() {
         <Route path="/" element={<SuspenseWrapper><Home /></SuspenseWrapper>} />
         <Route path="/brands" element={<SuspenseWrapper><Brands /></SuspenseWrapper>} />
         <Route path="/merchants" element={<SuspenseWrapper><Merchants /></SuspenseWrapper>} />
+        <Route path="/how-it-works" element={<SuspenseWrapper><HowItWorks /></SuspenseWrapper>} />
+
         <Route path="/about-us" element={<SuspenseWrapper><AboutUs /></SuspenseWrapper>} />
         <Route path="/contact-us" element={<SuspenseWrapper><Contact /></SuspenseWrapper>} />
         <Route path="/customer-signup" element={<SuspenseWrapper><CustomersSignup /></SuspenseWrapper>} />

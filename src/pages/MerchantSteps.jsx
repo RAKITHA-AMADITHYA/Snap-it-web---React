@@ -117,7 +117,7 @@ const MSteps = () => {
                     sx={{ display: 'flex', justifyContent: 'center', p: 5 }}
                 >
                     <motion.div variants={leftVariants}>
-                        <Typography variant='h2' sx={{ fontSize: { xs: '1.2rem', lg: '1.8rem' } }} textAlign={'center'} fontWeight={700}>Getting Started with <span style={{color:'#f2b51c'}}>Snap it</span>  as a Merchant
+                        <Typography variant='h2' sx={{ fontSize: { xs: '1.2rem', lg: '1.8rem' } }} textAlign={'center'} fontWeight={700}>Getting Started with <span style={{ color: '#f2b51c' }}>Snap it</span>  as a Merchant
 
                         </Typography>
 
@@ -127,7 +127,7 @@ const MSteps = () => {
 
             </section>
 
-            <Grid container style={{display:'flex',justifyContent:'center'}}>
+            <Grid container style={{ display: 'flex', justifyContent: 'center' }}>
                 <Grid
                     item
                     component={motion.div}
@@ -139,7 +139,7 @@ const MSteps = () => {
                     }} md={2}
                 >
                     <motion.div variants={leftVariants}>
-                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 3, minHeight: '300px' }}>
+                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 3, minHeight: '300px',bgcolor:'#f2b51c'  }}>
                             <Typography variant='subtitle1' textAlign={'center'} fontWeight={700}> <span> </span>
                                 <span style={{ color: '#000' }}>Registration</span>
 
@@ -163,7 +163,7 @@ const MSteps = () => {
                     }} md={2}
                 >
                     <motion.div variants={leftVariants}>
-                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 3, minHeight: '300px' }}>
+                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 3, minHeight: '300px',bgcolor:'#f2b51c'  }}>
                             <Typography variant='subtitle1' textAlign={'center'} fontWeight={700}><span> </span>
                                 <span style={{ color: '#000' }}>Payment Made Simple</span>
 
@@ -189,9 +189,9 @@ const MSteps = () => {
                     }} md={2}
                 >
                     <motion.div variants={leftVariants}>
-                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 2, minHeight: '293px' }} >
+                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 2, minHeight: '293px',bgcolor:'#f2b51c'  }} >
                             <Typography variant='subtitle1' textAlign={'center'} fontWeight={700}><span> </span>
-                                <span style={{ color: '#000' }}>Earn Snap it <br/> Rewards</span>
+                                <span style={{ color: '#000' }}>Earn Snap it <br /> Rewards</span>
 
                             </Typography>
                             <Typography variant='subtitle2' textAlign={'center'} fontWeight={400} mt={2}>
@@ -203,57 +203,57 @@ const MSteps = () => {
                 </Grid>
 
                 <Grid
-                        item
-                        component={motion.div}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true, amount: 0.8 }}
-                        sx={{
-                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 2 }
-                        }} md={2}
-                    >
-                        <motion.div variants={leftVariants}>
-                            <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 2, minHeight: '293px' }}>
-                                <Typography variant='h6' textAlign={'center'} fontWeight={700}><span> </span>
-                                    <span style={{ color: '#000' }}>Cash Payback Flexibility</span>
+                    item
+                    component={motion.div}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.8 }}
+                    sx={{
+                        display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 2 }
+                    }} md={2}
+                >
+                    <motion.div variants={leftVariants}>
+                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 2, minHeight: '293px', bgcolor: '#f2b51c' }}>
+                            <Typography variant='h6' textAlign={'center'} fontWeight={700}><span> </span>
+                                <span style={{ color: '#000' }}>Cash Payback Flexibility</span>
 
-                                </Typography>
-                                <Typography variant='subtitle2' textAlign={'center'} fontWeight={400} mt={2} >
-                                    Convert your Snap it transactions to cash whenever you want. Enjoy flexibility in withdrawal timing, instant, daily, or as per your preference.
-                                </Typography>
+                            </Typography>
+                            <Typography variant='subtitle2' textAlign={'center'} fontWeight={400} mt={2} >
+                                Convert your Snap it transactions to cash whenever you want. Enjoy flexibility in withdrawal timing, instant, daily, or as per your preference.
+                            </Typography>
 
-                            </Card>
-                        </motion.div>
-                    </Grid>
+                        </Card>
+                    </motion.div>
+                </Grid>
 
 
-                    <Grid
-                            item
-                            component={motion.div}
-                            initial="offscreen"
-                            whileInView="onscreen"
-                            viewport={{ once: true, amount: 0.8 }}
-                            sx={{
-                                display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 2 }
-                            }} md={2}
-                        >
-                            <motion.div variants={leftVariants}>
-                                <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 2, minHeight: '293px'  }}>
-                                    <Typography variant='h6' textAlign={'center'} fontWeight={700}> <span> </span>
-                                        <span style={{ color: '#000' }}>Instant CFT Transfer</span>
+                <Grid
+                    item
+                    component={motion.div}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.8 }}
+                    sx={{
+                        display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 2 }
+                    }} md={2}
+                >
+                    <motion.div variants={leftVariants}>
+                        <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 2, minHeight: '293px', bgcolor: '#f2b51c' }}>
+                            <Typography variant='h6' textAlign={'center'} fontWeight={700}> <span> </span>
+                                <span style={{ color: '#000' }}>Instant CFT Transfer</span>
 
-                                    </Typography>
-                                    <Typography variant='subtitle2' textAlign={'justify'} fontWeight={400} >
-                                        Request cash payback, and we’ll initiate an instant Credit Transfer Fund (CFT) to your bank account. Quick access to funds for enhanced financial liquidity and operational efficiency.
-                                    </Typography>
+                            </Typography>
+                            <Typography variant='subtitle2' textAlign={'justify'} fontWeight={400} >
+                                Request cash payback, and we’ll initiate an instant Credit Transfer Fund (CFT) to your bank account. Quick access to funds for enhanced financial liquidity and operational efficiency.
+                            </Typography>
 
-                                </Card>
-                            </motion.div>
-                        </Grid>
+                        </Card>
+                    </motion.div>
+                </Grid>
 
             </Grid>
 
-           
+
         </>
 
     )

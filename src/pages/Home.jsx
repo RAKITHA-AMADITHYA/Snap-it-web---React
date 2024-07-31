@@ -250,14 +250,13 @@ const Home = () => {
           },
         }}
       >
-        {/*How iT wORKS  */}
+        {/*Snapit for Customer */}
         <section>
-
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Typography variant="h3" fontWeight={700}>
-              HOW IT WORKS
-            </Typography>
-          </Box>
+          <motion.div variants={leftVariants}>
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+              <Typography variant="h3" fontWeight={700}>
+                Snapit for Customer            </Typography>
+            </Box></motion.div>
           <Grid container>
             <Grid
               item
@@ -267,7 +266,7 @@ const Home = () => {
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
-              sx={{ display: "flex", justifyContent: "center" }}
+              sx={{ display: "flex", justifyContent: "center", mt: 2 }}
             >
               <motion.div variants={leftVariants}>
                 {" "}
@@ -282,7 +281,7 @@ const Home = () => {
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
-              sx={{ display: "flex", justifyContent: "start" }}
+              sx={{ display: "flex", justifyContent: "start",alignItems:'center' }}
             >
               <motion.div variants={leftVariants}>
                 <Box>
@@ -290,6 +289,7 @@ const Home = () => {
                     variant="h4"
                     mt={2}
                     fontWeight={700}
+                    
                   >Earn amazing rewards and spend <br /> on your daily needs ! </Typography>
 
                   <Typography
@@ -300,11 +300,15 @@ const Home = () => {
                     As a Snap it customer, you can earn rewards from your favorite brands simply by scanning a QR code available on the product packaging. To get started, download the Snap It application by scanning the QR code or find us on the Google Play Store or Apple App Store.
                   </Typography>
 
-                  <Typography
-                    variant="h5"
-                    fontWeight={700}
-                  >
-                    With Snap It, you can:                 </Typography>
+                  <Box>
+              <Typography
+                variant="subtitle1"
+                fontWeight={700}
+                sx={{ ml: { xs: 0, md: 0 }, mt: 2 }}
+              >
+                With Snap It, you can:
+              </Typography>
+            </Box>
                   <Box sx={{ ml: { xs: 0, md: 1 }, mt: 2 }} gap={2}>
                     <Typography variant="subtitle2" fontWeight={500}>
                       - Provide your views to your favorite brands to satisfy your requirements and improve their offerings.
@@ -339,11 +343,11 @@ const Home = () => {
     Learn More
   </Button> */}
                 </Box>
-                <Box p={1}>
+                {/* <Box p={1}>
                   <Button variant="contained" onClick={() => navigate("/signup")}>
                     Get Started
                   </Button>
-                </Box>
+                </Box> */}
               </motion.div>
             </Grid>
           </Grid>
@@ -351,20 +355,48 @@ const Home = () => {
 
         {/*Brands */}
         <section>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "end",
-              mt: 2
-            }}
-          >
-            <Typography variant="h3" fontWeight={800}>
-              Snap it for brands
-            </Typography>
-          </Box>
 
           <section>
-            <Grid container>
+            <Grid container mt={5}>
+              {/* <Grid
+                item
+                xs={12}
+                md={6}
+                component={motion.div}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
+                <motion.div variants={leftVariants}>
+                  <Typography variant="h3" fontWeight={800}>
+                    Snap it for brands
+                  </Typography>
+                  {" "}
+                  <img src={Man} width={"350px"} alt="" />
+                </motion.div>
+              </Grid> */}
+
+<Grid
+              item
+              xs={12}
+              md={6}
+              component={motion.div}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.8 }}
+              sx={{ display: "flex", justifyContent: "center", mt: 2 }}
+            >
+              {/* <motion.div variants={leftVariants}> */}
+                {/* {" "} */}
+                <Box>
+                <Typography variant="h3" fontWeight={800}>
+                    Snap it for brands
+                  </Typography>
+
+                <img src={Man} width={"350px"} alt="" /></Box>
+              {/* </motion.div> */}
+            </Grid>
               <Grid
                 item
                 xs={12}
@@ -373,24 +405,24 @@ const Home = () => {
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.8 }}
-                sx={{ display: "flex", justifyContent: "start", }}
+                sx={{ display: "flex", justifyContent: "start",  }}
               >
-                <motion.div variants={leftVariants}>
+                {/* <motion.div variants={leftVariants}> */}
                   <Box
-                    sx={{
-                      maxWidth: { lg: "500px" },
-                      minWidth: { lg: "500px" },
-                      margin: "0 auto",
-                      mt: 10,
-                      display: "flex",
-                      justifyContent: "start",
-                      flexDirection: "column",
-                    }}
+                    // sx={{
+                    //   maxWidth: { lg: "500px" },
+                    //   minWidth: { lg: "500px" },
+                    //   margin: "0 auto",
+                    //   mt: 10,
+                    //   display: "flex",
+                    //   justifyContent: "start",
+                    //   flexDirection: "column",
+                    // }}
                   >
                     <Typography
                       variant="h4"
                       fontWeight={700}
-                      sx={{ ml: { xs: 0, md: 0 }, mt: { xs: 0, md: -5 } }}
+                      sx={{ ml: { xs: 0, md: 0 }, mt: { xs: 0, md: 2 } }}
                     >Know your customer and reward <br /> them for their loyalty.  </Typography>
 
 
@@ -400,102 +432,61 @@ const Home = () => {
 
 
 
-                  </Box>
-                </motion.div>
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                md={6}
-                component={motion.div}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, amount: 0.8 }}
-                sx={{ display: "flex", justifyContent: "end" }}
-              >
-                <motion.div variants={leftVariants}>
-                  {" "}
-                  <img src={Man} width={"350px"} alt="" />
-                </motion.div>
-              </Grid>
-            </Grid>
-          </section>
-
-        </section>
 
 
-        {/*Brands */}
-        <section>
-
-          <Grid container>
-
-
-
-
-            <Box>
-              <Typography
-                variant="h5"
-                fontWeight={700}
-                sx={{ ml: { xs: 0, md: 0 }, mt: 2 }}
-              >
-                With Snap It, you can:              
+            <Box mt={2}>
+            <Typography variant="subtitle2" gutterBottom>
+              1. Comprehensive Customer Insights
             </Typography>
-            </Box>
-          </Grid>
-
-          <Box mt={4}>
-            <Typography variant="h4" gutterBottom>
-              1.Comprehensive Customer Insights
-            </Typography>
-            <Typography variant="body1">
+            {/* <Typography variant="body1">
               Obtain feedback on your customers' shopping behaviors and preferences.
             </Typography>
             <Typography variant="body1">
               Analyze purchase patterns to identify trends and understand customer needs better.
-            </Typography>
+            </Typography> */}
           </Box>
 
-          <Box mt={4}>
-            <Typography variant="h4" gutterBottom>
-              2.A User-Friendly Interface
+ <Box mt={0}>
+            <Typography variant="subtitle2" gutterBottom>
+              2. A User-Friendly Interface
             </Typography>
-            <Typography variant="body1">
+            {/* <Typography variant="body1">
               Snap It offers an intuitive and easy-to-use interface that allows you to create and manage reward programs seamlessly.
             </Typography>
             <Typography variant="body1">
               Reward your customers for their loyalty with customized offers and incentives.
-            </Typography>
+            </Typography> */}
           </Box>
 
-          <Box mt={4}>
-            <Typography variant="h4" gutterBottom>
-              3.Real-Time Feedback
+          <Box mt={0}>
+            <Typography variant="subtitle2" gutterBottom>
+              3. Real-Time Feedback
             </Typography>
-            <Typography variant="body1">
+            {/* <Typography variant="body1">
               Access real-time feedback from millions of customers through a straightforward dashboard.
             </Typography>
             <Typography variant="body1">
               Stay informed about customer opinions and quickly address any concerns or preferences.
-            </Typography>
+            </Typography> */}
           </Box>
 
-          <Box mt={4}>
-            <Typography variant="h4" gutterBottom>
-              4.Enhanced Customer Engagement
+          <Box mt={0}>
+            <Typography variant="subtitle2" gutterBottom>
+              4. Enhanced Customer Engagement
             </Typography>
-            <Typography variant="body1">
+            {/* <Typography variant="body1">
               Strengthen your relationship with customers by responding to their feedback and adjusting your offerings accordingly.
             </Typography>
             <Typography variant="body1">
               Foster a sense of connection and loyalty by understanding and meeting customer expectations.
-            </Typography>
+            </Typography> */}
           </Box>
 
-          <Box mt={4}>
-            <Typography variant="h4" gutterBottom>
+          <Box mt={0}>
+            <Typography variant="subtitle2" gutterBottom>
               5.Deep Analytics for Informed Decisions
             </Typography>
-            <Typography variant="body1">
+            {/* <Typography variant="body1">
               Utilize advanced analytics to identify patterns in customer loyalty and behavior.
             </Typography>
             <Typography variant="body1">
@@ -503,31 +494,39 @@ const Home = () => {
             </Typography>
             <Typography variant="body1">
               Gain insights into customer expectations to better anticipate their future needs.
-            </Typography>
+            </Typography> */}
           </Box>
 
-          <Box mt={4}>
-            <Typography variant="h4" gutterBottom>
+          <Box mt={0}>
+            <Typography variant="subtitle2" gutterBottom>
               6.Increased Customer Loyalty
             </Typography>
-            <Typography variant="body1">
+            {/* <Typography variant="body1">
               Reward your loyal customers, encouraging repeat business and long-term loyalty.
             </Typography>
             <Typography variant="body1">
               Recognize and appreciate your customers' loyalty, enhancing their overall experience with your brand.
-            </Typography>
+            </Typography> */}
           </Box>
 
-
-          <Typography variant="h6" fontWeight={500} mt={2}>
+          <Typography variant="subtitle2" fontWeight={500} mt={2}>
             Snap It empowers you to make informed decisions, create impactful rewards programs, and build lasting relationships with your customers.
 
           </Typography>
 
 
+                  </Box>
+                {/* </motion.div> */}
+              </Grid>
 
+
+            </Grid>
+          </section>
 
         </section>
+
+
+     
 
 
         {/*Merchants */}
@@ -574,26 +573,26 @@ const Home = () => {
                       Snap It merchants cater to customers' regular wants and needs. When customers collect sufficient Snap It rewards from their favorite brands, they can use these rewards to make purchases from Snap It merchants. These merchants range from utility service providers and mobile operators to supermarkets, department stores, and even local corner shops.                     </Typography>
 
                     <Typography
-                      variant="subtitle1"
+                      variant="subtitle2"
                       fontWeight={700}
                       sx={{ mt: 2 }}
                     // sx={{ ml: { xs: 0, md: 8 }, mt: 2 }}
                     >
                       Snap It offers an easy, self-registering interface for merchants to join the platform. By becoming a Snap It merchant, businesses can: </Typography>
                     <Box mt={4}>
-                      <Typography variant="h6" fontWeight={600} gutterBottom>
+                      <Typography variant="subtitle2" fontWeight={600} gutterBottom>
                         1. Gain an additional method for collecting payments.
                       </Typography>
 
-                      <Typography variant="h6" fontWeight={600} gutterBottom>
+                      <Typography variant="subtitle2" fontWeight={600} gutterBottom>
                         2. Increase their digital presence.
                       </Typography>
 
-                      <Typography variant="h6" fontWeight={600} gutterBottom>
+                      <Typography variant="subtitle2" fontWeight={600} gutterBottom>
                         3. Appear in search results when Snap It customers look for specific products on the app.
                       </Typography>
 
-                      <Typography variant="h6" fontWeight={600} gutterBottom>
+                      <Typography variant="subtitle2" fontWeight={600} gutterBottom>
                         4. Benefit from easy reporting and financial reconciliation with just a click of a button.
                       </Typography>
                     </Box>
