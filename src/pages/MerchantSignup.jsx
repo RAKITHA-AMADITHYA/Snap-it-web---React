@@ -20,6 +20,7 @@ import styled from "styled-components";
 import Tesseract from "tesseract.js";
 import Merchant from "../assets/img/merchant33.png";
 import PdfToText from "../utils/PdfToText";
+import { Toast } from "flowbite-react";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -82,19 +83,26 @@ const MerchantSignup = () => {
   const handleOCR = async () => {
     setClickValidate(true);
     setError(null);
+
     if (file && RegisterNumber && file.type.includes("image") === true) {
       console.log("Image_file", file);
       const {
         data: { text },
       } = await Tesseract.recognize(file);
 
+      if (RegisterNumber.slice(0, 2).toLocaleLowerCase() !== "pv") {
+        setError("Invalid BR file.");
+        setIsValidationSuccess(false); // Set validation status to false
+        console.log("Invalid BR file -PV");
+      }
+
       // Check if the OCR result includes the Company Reg. No.
-      if (!text.includes(RegisterNumber)) {
+      if (!text.includes(RegisterNumber.slice(2, 10))) {
         setError("Invalid BR file.");
         setIsValidationSuccess(false); // Set validation status to false
       }
 
-      if (text.includes(RegisterNumber)) {
+      if (text.includes(RegisterNumber.slice(2, 10))) {
         setError("Success!");
         setIsValidationSuccess(true); // Set validation status to true
       }
@@ -106,7 +114,7 @@ const MerchantSignup = () => {
       console.log("PDF text", text);
 
       // Check if the OCR result includes the Company Reg. No.
-      if (!text.includes(RegisterNumber)) {
+      if (!text.includes(RegisterNumber.slice(2, 10))) {
         setError("Invalid BR file.");
         setIsValidationSuccess(false); // Set validation status to false
       } else {
@@ -209,6 +217,14 @@ const MerchantSignup = () => {
   };
 
   const MerchantSignUp = async () => {
+    if (RegisterNumber.length !== 10) {
+      setRegisterNumberError(true);
+      showAlertMessage({
+        message: "Invalid BR Number Length",
+        type: "error",
+      });
+    }
+
     if (fullName === "") {
       setFullNameError("Required");
     }
@@ -517,7 +533,9 @@ const MerchantSignup = () => {
                         handleOCR();
                       }
                     }}
-                    disabled={!file || !RegisterNumber}
+                    disabled={
+                      !file || !RegisterNumber || RegisterNumber.length !== 10
+                    }
                     variant="contained"
                   >
                     {!clickValidate
@@ -535,6 +553,7 @@ const MerchantSignup = () => {
                   <TextField
                     onChange={(e) => {
                       setRegisterNumber(e.target.value);
+
                       setIsValidationSuccess(false);
                       setError("Invalid NIC.");
                       if (e.target.value === "") {
@@ -826,6 +845,7 @@ const MerchantSignup = () => {
                   {!isNICValidationSuccess &&
                   nic !== "" &&
                   RegisterNumber !== "" &&
+                  RegisterNumber.length === 10 &&
                   file !== null &&
                   nicFile !== null ? (
                     <Button

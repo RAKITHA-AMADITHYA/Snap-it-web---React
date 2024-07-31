@@ -110,19 +110,26 @@ const BrandSignup = () => {
   const handleOCR = async () => {
     setClickValidate(true);
     setError(null);
+
     if (file && RegisterNumber && file.type.includes("image") === true) {
       console.log("Image_file", file);
       const {
         data: { text },
       } = await Tesseract.recognize(file);
 
+      if (RegisterNumber.slice(0, 2).toLocaleLowerCase() !== "pv") {
+        setError("Invalid BR file.");
+        setIsValidationSuccess(false); // Set validation status to false
+        console.log("Invalid BR file -PV");
+      }
+
       // Check if the OCR result includes the Company Reg. No.
-      if (!text.includes(RegisterNumber)) {
+      if (!text.includes(RegisterNumber.slice(2, 10))) {
         setError("Invalid BR file.");
         setIsValidationSuccess(false); // Set validation status to false
       }
 
-      if (text.includes(RegisterNumber)) {
+      if (text.includes(RegisterNumber.slice(2, 10))) {
         setError("Success!");
         setIsValidationSuccess(true); // Set validation status to true
       }
@@ -134,7 +141,7 @@ const BrandSignup = () => {
       console.log("PDF text", text);
 
       // Check if the OCR result includes the Company Reg. No.
-      if (!text.includes(RegisterNumber)) {
+      if (!text.includes(RegisterNumber.slice(2, 10))) {
         setError("Invalid BR file.");
         setIsValidationSuccess(false); // Set validation status to false
       } else {
@@ -238,6 +245,13 @@ const BrandSignup = () => {
   };
 
   const handleBrandSignUp = async () => {
+    if (RegisterNumber.length !== 10) {
+      setRegisterNumberError(true);
+      showAlertMessage({
+        message: "Invalid BR Number Length",
+        type: "error",
+      });
+    }
     if (fullName === "") {
       setFullNameError("Required");
     }
@@ -546,7 +560,9 @@ const BrandSignup = () => {
                         handleOCR();
                       }
                     }}
-                    disabled={!file || !RegisterNumber}
+                    disabled={
+                      !file || !RegisterNumber || RegisterNumber.length !== 10
+                    }
                     variant="contained"
                   >
                     {!clickValidate
@@ -856,6 +872,7 @@ const BrandSignup = () => {
                   {!isNICValidationSuccess &&
                   nic !== "" &&
                   RegisterNumber !== "" &&
+                  RegisterNumber.length === 10 &&
                   file !== null &&
                   nicFile !== null ? (
                     <Button
