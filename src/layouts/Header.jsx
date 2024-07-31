@@ -71,15 +71,21 @@ function Header() {
 
   const menuItems = [
     { text: 'Home', path: '/' },
-    { text: 'How It Works', path: '/signup' },
-    {
-      text: 'Snapit For',
-      subItems: [
-        { text: 'Customer', path: '/customer' },
-        { text: 'Brands', path: '/brands' },
-        { text: 'Merchants', path: '/merchants' },
-      ],
-    },
+    { text: 'How It Works', path: '/how-it-works' },
+    { text: 'Customer', path: '/customer' },
+    { text: 'Brands', path: '/brands' },
+    { text: 'Merchants', path: '/merchants' },
+
+
+
+    // {
+    //   text: 'Snapit For',
+    //   subItems: [
+    //     { text: 'Customer', path: '/customer' },
+    //     { text: 'Brands', path: '/brands' },
+    //     { text: 'Merchants', path: '/merchants' },
+    //   ],
+    // },
     { text: 'About us', path: '/about-us' },
     { text: 'Contact us', path: '/contact-us' },
   ];
