@@ -84,10 +84,10 @@ const MerchantSignup = () => {
     console.log("Selected file:", file);
 
     // Check if the file size exceeds 2MB
-    if (file.size > 2 * 1024 * 1024) {
-      console.log("File size must be less than 2MB");
+    if (file.size > 1 * 1024 * 1024) {
+      console.log("File size must be less than 1MB");
       showAlertMessage({
-        message: "File size must be less than 2MB",
+        message: "File size must be less than 1MB",
         type: "error",
       });
       event.target.value = null; // Clear the file input
@@ -236,13 +236,13 @@ const MerchantSignup = () => {
     const selectedFile = event.target.files[0];
 
     // Check if the file size is greater than 2MB
-    if (selectedFile.size > 2 * 1024 * 1024) {
+    if (selectedFile.size > 1 * 1024 * 1024) {
       showAlertMessage({
-        message: "File size must be less than 2MB",
+        message: "File size must be less than 1MB",
         type: "error",
       });
       event.target.value = null; // Clear the file input
-      setError("File size must be less than 2MB");
+      setError("File size must be less than 1MB");
       return; // Exit the function
     }
 
