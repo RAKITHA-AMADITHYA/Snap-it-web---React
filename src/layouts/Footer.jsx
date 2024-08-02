@@ -2,17 +2,13 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MailIcon from '@mui/icons-material/Mail';
 import { Box, Button, Divider, Grid, Typography } from '@mui/material';
-import appstore from '../assets/img/appstore.png';
-import logo from '../assets/img/footer3.png';
-import playstore from '../assets/img/playstore.png';
-import copyrights from '../assets/img/copyrights.png';
-import footer1 from '../assets/img/footer1.png';
-import FbImage from '../assets/img/fb.png'
-import TikTokImage from '../assets/img/tiktok.png'
-import InstaImage from '../assets/img/insta1.png'
-import PlayStore from '../assets/img/playstore.png';
-import Appstore from '../assets/img/appstore.png';
 import { useNavigate } from 'react-router-dom';
+import { default as appstore, default as Appstore } from '../assets/img/appstore.png';
+import FbImage from '../assets/img/fb.png';
+import logo from '../assets/img/snapitlogo white.png';
+import InstaImage from '../assets/img/insta1.png';
+import { default as playstore, default as PlayStore } from '../assets/img/playstore.png';
+import TikTokImage from '../assets/img/tiktok.png';
 
 
 
@@ -70,11 +66,7 @@ const Footer = () => {
 
 
             </Grid>
-        {/* <Box display={'flex'} justifyContent={'center'} gap={2} mt={2}>
-          <img src={playstore} width={'40%'} height={'50%'} alt="" />
-          <img src={appstore} width={'40%'} height={'50%'} alt="" />
-        </Box> */}
-
+      
         <Grid item xs={3} color={'#fff'} mt={5} >
           {/* Phone */}
           <div style={{ display: 'flex', gap: '25px', color: '#fff', marginTop: '10px', justifyContent: 'center', alignItems: 'end' }}>

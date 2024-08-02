@@ -3,17 +3,16 @@ import { Box, Card, Grid, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import brandsCard from '../assets/img/brandC.png';
-import Customer from '../assets/img/customerC.png';
-import Merchant from '../assets/img/merchantC.png';
+import brandsCard from '../assets/img/brands5.png';
+import Customer from '../assets/img/customer5.png';
+import Merchant from '../assets/img/merchant5.png';
 
 
 const PublicSignup = () => {
-    const section2Ref = useRef(null);
     const navigate = useNavigate();
 
     const handleNavigate = (path) => {
@@ -50,14 +49,24 @@ const PublicSignup = () => {
 
 
 
-    const handleButtonClick = () => {
-        section2Ref.current.scrollIntoView({ behavior: 'smooth' });
-    };
+   
 
 
     return (
         <>
 
+<Box
+        sx={{
+          margin: {
+            xs: '20px',
+            md: '120px',
+          },
+          mt: {
+            xs: '20px',
+            md: '-10px',
+          },
+        }}
+      >
             <section >
 
                 <Grid
@@ -66,13 +75,13 @@ const PublicSignup = () => {
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
-                    sx={{ display: 'flex', justifyContent: 'center', p: 2, textAlign: 'center' }}
+                    sx={{ display: 'flex', justifyContent: 'center',  textAlign: 'center' }}
                 >
                     <motion.div variants={cardVariants}>
-                        <Typography variant='h2' fontWeight={800}>
+                        <Typography variant='h3' fontWeight={800}>
                             Sign up <span> </span>
                             <span style={{ color: '#f2b51c' }}>Now!</span></Typography>
-                        <Typography variant='h4' fontWeight={400}>Choose your account type</Typography>
+                        <Typography variant='h6' fontWeight={400}>Choose your account type</Typography>
                     </motion.div>
                 </Grid>
 
@@ -81,27 +90,41 @@ const PublicSignup = () => {
             </section>
             <section>
 
-                <Grid container >
+                <Grid container  mt={2}>
 
-                    <Grid item xs={12} md={4} p={{ xs: 5, lg: 10 }}
+                    <Grid item xs={12} md={4} 
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
                         display={'flex'}
                         justifyContent={'center'}
                         flexDirection={'column'}
+                        sx={{
+                            display:'flex',
+                            justifyContent:'center',
+                            alignItems:'center',
+                            p:0
+                        }}
                     >
                         <Card
                             onClick={() => handleNavigate('/customer-signup')}
+
                             sx={{
+                                
                                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                                 boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                maxWidth:'250px',
+                                minWidth:'250px',
+                                maxHeight:'250px',
+                                minHeight:'250px',
                                 '&:hover': {
                                     transform: 'scale(1.05)',
                                     cursor: 'pointer',
                                     boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)'
                                 }
                             }}
+
+                            
                         >
                             <Box
                                 display={'flex'}
@@ -125,19 +148,24 @@ const PublicSignup = () => {
 
                     </Grid>
 
-                    <Grid item xs={12} md={4} p={{ xs: 5, lg: 10 }}
+                    <Grid item xs={12} md={4} 
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
                         display={'flex'}
                         justifyContent={'center'}
                         flexDirection={'column'}
+                        alignItems={'center'}
                     >
                         <Card
                             onClick={() => handleNavigate('/brand-signup')}
                             sx={{
                                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                                 boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                maxWidth:'250px',
+                                minWidth:'250px',
+                                maxHeight:'250px',
+                                minHeight:'250px',
                                 '&:hover': {
                                     transform: 'scale(1.05)',
                                     cursor: 'pointer',
@@ -160,12 +188,13 @@ const PublicSignup = () => {
                         </Card>
                     </Grid>
 
-                    <Grid item xs={12} md={4} p={{ xs: 4, lg: 10 }}
+                    <Grid item xs={12} md={4}
                         data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
                         display={'flex'}
                         justifyContent={'center'}
+                        alignItems={'center'}
                         flexDirection={'column'}
                     >
                         <Card
@@ -173,6 +202,10 @@ const PublicSignup = () => {
                             sx={{
                                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                                 boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                maxWidth:'250px',
+                                minWidth:'250px',
+                                maxHeight:'250px',
+                                minHeight:'250px',
                                 '&:hover': {
                                     transform: 'scale(1.05)',
                                     cursor: 'pointer',
@@ -197,7 +230,7 @@ const PublicSignup = () => {
 
                 </Grid>
             </section>
-
+</Box>
 
 
 

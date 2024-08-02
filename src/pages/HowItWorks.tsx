@@ -7,7 +7,7 @@ const HowItWorks = () => {
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" ,flexDirection:'column',gap:2}}
     >
-      <Typography variant="h5">Still on Developing Mode</Typography>
+      <Typography variant="h5">This page will available Soon</Typography>
       <img src={Mobile} width={'400px'} alt="" />
     </Box>
   );

@@ -18,7 +18,7 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Logo from '../assets/img/logo.png';
+import Logo from '../assets/img/final_logo.png';
 import qrBtn from '../assets/img/qrBtn.png';
 import qrcode from '../assets/img/qr-code.png';
 import playstore from '../assets/img/playstore.png';

@@ -7,8 +7,8 @@ function ServiceCardThree({ img, title, description, marginTop, widthImg, imgMt,
       sx={{
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
         bgcolor: '#f2f1ef',
-        minHeight: '480px',
-        maxHeight: '480px',
+        minHeight: '420px',
+        maxHeight: '420px',
 
         transition: 'transform 0.3s ease, background-color 0.3s ease, color 0.3s ease',
         '&:hover': {

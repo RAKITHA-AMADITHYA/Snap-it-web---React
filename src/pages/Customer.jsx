@@ -1,18 +1,18 @@
 
-import { Button, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import WishList from '../assets/img/wish.png';
 import CustomerImg from '../assets/img/customer3.png';
-import Wallet from '../assets/img/wallet.png';
 import ShoppingList from '../assets/img/list.png';
 import reward2 from '../assets/img/reward2.png';
+import Wallet from '../assets/img/wallet.png';
+import WishList from '../assets/img/wish.png';
 import ServiceCardTwo from '../components/Card/ServiceCardTwo';
-import { useNavigate } from 'react-router-dom';
 
 const Customer = () => {
     const section2Ref = useRef(null);
@@ -62,9 +62,7 @@ const Customer = () => {
             }
         }
     };
-    const handleButtonClick = () => {
-        section2Ref.current.scrollIntoView({ behavior: 'smooth' });
-    };
+    
 
 
     return (
@@ -111,7 +109,10 @@ const Customer = () => {
                 </Grid>
             </section>
 
-
+            <Box    
+      sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
+        
+      >
             {/* Section 2- Features Title */}
             <section >
 
@@ -124,7 +125,7 @@ const Customer = () => {
                     sx={{ display: 'flex', justifyContent: 'center', p: { xs: 2, lg: 2 } }}
                 >
                     <motion.div variants={leftVariants}>
-                        <Typography variant='h2' textAlign={'center'} fontWeight={700}>The core features of<span> </span>
+                        <Typography variant='h3' textAlign={'center'} fontWeight={700}>The core features of<span> </span>
                             <span style={{ color: '#f2b51c' }}>SnapIt</span>    </Typography>
 
                     </motion.div>
@@ -137,7 +138,7 @@ const Customer = () => {
 
             <section ref={section2Ref} >
 
-                <Grid container p={2} mt={-5} >
+                <Grid container sx={{ p: { xs: 2, lg: 12 } }} spacing={2}  >
 
                     {/* wallet card */}
                     <Grid
@@ -147,9 +148,9 @@ const Customer = () => {
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
                         sx={{
-                            display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 }
-                        }}
-                        md={3}
+                            display: 'flex', justifyContent: 'center',alignItems:'center' 
+                        }}   
+                        sm={6}
                     >
                         <motion.div variants={cardVariants}>
                             <ServiceCardTwo fontsize={'15px'} img={Wallet} widthImg={'180px'} marginTop={'-15px'} title={"Wallet"} description={"Effortlessly accumulate your rewards by scanning the QR codes offered by brands. Our rewards never expire, so you can collect as much as you want and reach the goal you have in mind."} />
@@ -162,8 +163,9 @@ const Customer = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 } }}
-                        md={3}
+                        sx={{
+                            display: 'flex', justifyContent: 'center',alignItems:'center' 
+                        }}                           sm={6}
                     >
                         <motion.div variants={cardVariants}>
                             <ServiceCardTwo img={ShoppingList} fontsize={'15px'} imgMt={'10px'} marginTop={'-10px'} widthImg={'130px'} title={"My Shopping List"} description={"Snap it shopping list management feature helps you to shop efficiently. Add new items to your list, save a list, or even share a list, making your trips to the store/s more organized and rewarding."} />
@@ -178,10 +180,8 @@ const Customer = () => {
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
                         sx={{
-                            display: 'flex',
-                            justifyContent: 'start',
-                            p: { xs: 2, lg: 1 }
-                        }} md={3}
+                            display: 'flex', justifyContent: 'center',alignItems:'center' 
+                        }}    sm={6}
                     >
                         <motion.div variants={cardVariants}>
                             <ServiceCardTwo fontsize={'15px'} img={WishList} imgMt={'30px'} widthImg={'100px'} title={"Wish Lists"} description={"List out items you would like to have promotional offers on to your Wish list. The wish list will help the Snap it team negotiate with brand owners for customer-driven offers."} />
@@ -194,8 +194,9 @@ const Customer = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', justifyContent: 'start',  p: { xs: 2, lg: 1 } }}
-                        md={3}
+                        sx={{
+                            display: 'flex', justifyContent: 'center',alignItems:'center' 
+                        }}                           sm={6}
                     >
                         <motion.div variants={cardVariants}>
                             <ServiceCardTwo img={reward2} fontsize={'15px'} imgMt={'30px'} widthImg={'100px'} title={"Favourites"} description={"Add your preferred items on Snap it onto the Favourites list for easy viewing of available offers."} />
@@ -209,6 +210,8 @@ const Customer = () => {
                 </Grid>
 
             </section>
+
+            </Box>
 
 
         </>

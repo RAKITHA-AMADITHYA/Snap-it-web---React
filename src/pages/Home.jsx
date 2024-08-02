@@ -2,7 +2,7 @@ import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { motion } from "framer-motion";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,26 +11,22 @@ import Landingpage from "../assets/img/landing4.png";
 import Man from "../assets/img/man.png";
 import Merchant from "../assets/img/merchantImg.png";
 import Mobile from "../assets/img/mobile.png";
-import Brands from "../assets/img/brands.png";
 
 
 import ServiceCard from "../components/ContentCard/ServiceCard";
 import { getProductList } from "../services/ProductServices";
 
 const Home = () => {
-  const section2Ref = useRef(null);
   const navigate = useNavigate();
   const [productList, setProductList] = React.useState([]);
-  const handleNavigate = (path) => {
-    navigate(path);
-  };
+
 
   const settings = {
     dots: false,
     infinite: true,
     speed: 1000,
     arrows: false,
-    slidesToShow: 5, // Default setting for all screen sizes
+    slidesToShow: 4, // Default setting for all screen sizes
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1000,
@@ -38,7 +34,7 @@ const Home = () => {
       {
         breakpoint: 1024, // Medium devices (tablets, less than 1024px)
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
         },
       },
       {
@@ -57,36 +53,7 @@ const Home = () => {
     ],
   };
 
-  const settingsHedder = {
-    dots: false,
-    infinite: true,
-    speed: 5000,
-    arrows: false,
-    slidesToShow: 1, // Default setting for all screen sizes
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    responsive: [
-      {
-        breakpoint: 1024, // Medium devices (tablets, less than 1024px)
-        settings: {
-          slidesToShow: 5, // Show 5 slides on medium devices
-        },
-      },
-      {
-        breakpoint: 768, // Small devices (landscape phones, 768px and up)
-        settings: {
-          slidesToShow: 2, // Show 2 slides on small devices
-        },
-      },
-      {
-        breakpoint: 480, // Extra small devices (portrait phones, less than 480px)
-        settings: {
-          slidesToShow: 1, // Show 2 slides on extra small devices
-        },
-      },
-    ],
-  };
+
 
   const fetchProducts = async () => {
     const response = await getProductList();
@@ -99,9 +66,9 @@ const Home = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Duration of the animation in milliseconds
-      once: false, // Whether animation should happen only once - while scrolling down
-      mirror: true, // Whether elements should animate out while scrolling past them
+      duration: 1000,
+      once: false,
+      mirror: true,
     });
   }, []);
 
@@ -111,13 +78,11 @@ const Home = () => {
 
   const leftVariants = {
     offscreen: {
-      // x: 300,
       opacity: 0,
     },
     onscreen: {
       x: 0,
       opacity: 1,
-      // rotate: -10,
       transition: {
         type: "spring",
         bounce: 0.4,
@@ -126,12 +91,12 @@ const Home = () => {
     },
   };
 
-  const handleButtonClick = () => {
-    section2Ref.current.scrollIntoView({ behavior: "smooth" });
-  };
+
 
   return (
     <>
+
+
       {/* Section 1 */}
       <section>
         <Grid container bgcolor={"#F3F3F3"}>
@@ -162,7 +127,7 @@ const Home = () => {
                   <span style={{ color: "#FFB800" }}>Discovery!</span>{" "}
                 </Typography>
                 <Typography
-                  variant="h6"
+                  variant="subtitle1"
                   fontWeight={500}
                   ml={8}
                   sx={{ ml: { xs: 0, md: 8 } }}
@@ -192,72 +157,64 @@ const Home = () => {
           </Grid>
         </Grid>
       </section>
-
-      {/* Section 2 */}
-      <section>
-        <Grid
-          item
-          component={motion.div}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.8 }}
-          sx={{ display: "flex", justifyContent: "start", p: [2, null, 10] }}
-        >
-          <motion.div variants={leftVariants}>
-            <Typography variant="h2" fontWeight={700}>
-              Explore{" "}
-            </Typography>
-            <Divider
-              sx={{
-                width: "100%",
-                height: "5px",
-                backgroundColor: "#f2b51c",
-                marginTop: "10px",
-              }}
-            />
-          </motion.div>
-        </Grid>
-
-        <Grid item p={5} sx={{ mt: [0, null, -10] }}>
-          <Slider {...settings}>
-            {/* <div >
-              <ServiceCard product={product2} title={"Body Loation"} price={"850"} point={"4.00"} packet={"Bottel 45"} />
-            </div> */}
-            {productList && productList.map((product) => (
-              <div>
-                <ServiceCard
-                  product={product?.productImageUrl}
-                  title={product?.description}
-                  price={product?.unitPrice}
-                  point={product?.productPoint}
-                  packet={product?.packet}
-                />
-              </div>
-            ))}
-
-
-          </Slider>
-        </Grid>
-      </section>
-
-
-
       <Box
-        sx={{
-          margin: {
-            xs: '20px',
-            md: '120px',
-          },
-        }}
+      sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
+        
       >
+        {/* Section 2 */}
+        <section>
+          <Grid
+            item
+            component={motion.div}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            sx={{ display: "flex", justifyContent: "start", p: [2, null, 0], mt: 2 }}
+          >
+            <motion.div variants={leftVariants}>
+              <Typography variant="h3" fontWeight={700}>
+                Explore{" "}
+              </Typography>
+              <Divider
+                sx={{
+                  width: "100%",
+                  height: "5px",
+                  backgroundColor: "#f2b51c",
+                  marginTop: "10px",
+                }}
+              />
+            </motion.div>
+          </Grid>
+
+          <Grid item p={5} sx={{ mt: [0, null, 2] }}>
+            <Slider {...settings}>
+
+              {productList && productList.map((product) => (
+                <div>
+                  <ServiceCard 
+                    product={product?.productImageUrl}
+                    title={product?.description}
+                    price={product?.unitPrice}
+                    point={product?.productPoint}
+                    packet={product?.packet}
+                  />
+                </div>
+              ))}
+
+
+            </Slider>
+          </Grid>
+        </section>
+
+
+
+
         {/*Snapit for Customer */}
         <section>
-          <motion.div variants={leftVariants}>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Typography variant="h3" fontWeight={700}>
-                Snapit for Customer            </Typography>
-            </Box></motion.div>
+
           <Grid container>
+
+
             <Grid
               item
               xs={12}
@@ -270,9 +227,10 @@ const Home = () => {
             >
               <motion.div variants={leftVariants}>
                 {" "}
-                <img src={Mobile} width={"350px"} alt="" />
+                <img src={Mobile} width={"auto"} alt="" />
               </motion.div>
             </Grid>
+
             <Grid
               item
               xs={12}
@@ -281,15 +239,17 @@ const Home = () => {
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
-              sx={{ display: "flex", justifyContent: "start",alignItems:'center' }}
+              sx={{ display: "flex", justifyContent: "start", alignItems: 'center' }}
             >
               <motion.div variants={leftVariants}>
                 <Box>
+                  <Typography variant="h3" fontWeight={700}>
+                    Snapit for Customer            </Typography>
                   <Typography
                     variant="h4"
                     mt={2}
                     fontWeight={700}
-                    
+
                   >Earn amazing rewards and spend <br /> on your daily needs ! </Typography>
 
                   <Typography
@@ -301,14 +261,14 @@ const Home = () => {
                   </Typography>
 
                   <Box>
-              <Typography
-                variant="subtitle1"
-                fontWeight={700}
-                sx={{ ml: { xs: 0, md: 0 }, mt: 2 }}
-              >
-                With Snap It, you can:
-              </Typography>
-            </Box>
+                    <Typography
+                      variant="subtitle1"
+                      fontWeight={700}
+                      sx={{ ml: { xs: 0, md: 0 }, mt: 2 }}
+                    >
+                      With Snap It, you can:
+                    </Typography>
+                  </Box>
                   <Box sx={{ ml: { xs: 0, md: 1 }, mt: 2 }} gap={2}>
                     <Typography variant="subtitle2" fontWeight={500}>
                       - Provide your views to your favorite brands to satisfy your requirements and improve their offerings.
@@ -358,7 +318,8 @@ const Home = () => {
 
           <section>
             <Grid container mt={5}>
-              {/* <Grid
+
+            <Grid
                 item
                 xs={12}
                 md={6}
@@ -366,37 +327,18 @@ const Home = () => {
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.8 }}
-                sx={{ display: "flex", justifyContent: "center" }}
+                // sx={{ display: "flex", justifyContent: "end", mt: 2 }}
+                sx={{ display: { xs: "flex", md: "none" }, justifyContent: "end", mt: 2   }}
+
               >
-                <motion.div variants={leftVariants}>
-                  <Typography variant="h3" fontWeight={800}>
-                    Snap it for brands
-                  </Typography>
-                  {" "}
-                  <img src={Man} width={"350px"} alt="" />
-                </motion.div>
-              </Grid> */}
 
-<Grid
-              item
-              xs={12}
-              md={6}
-              component={motion.div}
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.8 }}
-              sx={{ display: "flex", justifyContent: "center", mt: 2 }}
-            >
-              {/* <motion.div variants={leftVariants}> */}
-                {/* {" "} */}
                 <Box>
-                <Typography variant="h3" fontWeight={800}>
-                    Snap it for brands
-                  </Typography>
 
-                <img src={Man} width={"350px"} alt="" /></Box>
-              {/* </motion.div> */}
-            </Grid>
+
+                  <img src={Man} width={"auto"} alt="" /></Box>
+                {/* </motion.div> */}
+              </Grid>
+
               <Grid
                 item
                 xs={12}
@@ -405,119 +347,94 @@ const Home = () => {
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.8 }}
-                sx={{ display: "flex", justifyContent: "start",  }}
+                sx={{ display: "flex", justifyContent: "start", }}
               >
-                {/* <motion.div variants={leftVariants}> */}
-                  <Box
-                    // sx={{
-                    //   maxWidth: { lg: "500px" },
-                    //   minWidth: { lg: "500px" },
-                    //   margin: "0 auto",
-                    //   mt: 10,
-                    //   display: "flex",
-                    //   justifyContent: "start",
-                    //   flexDirection: "column",
-                    // }}
-                  >
-                    <Typography
-                      variant="h4"
-                      fontWeight={700}
-                      sx={{ ml: { xs: 0, md: 0 }, mt: { xs: 0, md: 2 } }}
-                    >Know your customer and reward <br /> them for their loyalty.  </Typography>
+                <Box>
+                  <Typography variant="h3" fontWeight={800}>
+                    Snap it for brands
+                  </Typography>
+                  <Typography
+                    variant="h4"
+                    fontWeight={700}
+                    sx={{ ml: { xs: 0, md: 0 }, mt: { xs: 0, md: 2 } }}
+                  >Know your customer and reward <br /> them for their loyalty.  </Typography>
 
 
-                    <Typography variant="subtitle2" fontWeight={500} mt={2}>
-                      Snap It is designed to bring you closer to your customers by providing valuable insights and enhancing your offerings. By joining Snap It, you gain access to a wealth of information about your customers, including their purchase patterns and preferences, allowing you to tailor your products and services more effectively. Snap it will provide you with,
+                  <Typography variant="subtitle2" fontWeight={500} mt={2}>
+                    Snap It is designed to bring you closer to your customers by providing valuable insights and enhancing your offerings. By joining Snap It, you gain access to a wealth of information about your customers, including their purchase patterns and preferences, allowing you to tailor your products and services more effectively. Snap it will provide you with,
+                  </Typography>
+
+                  <Box mt={2}>
+                    <Typography variant="subtitle2" gutterBottom>
+                      1. Comprehensive Customer Insights
                     </Typography>
 
+                  </Box>
 
-
-
-
-            <Box mt={2}>
-            <Typography variant="subtitle2" gutterBottom>
-              1. Comprehensive Customer Insights
-            </Typography>
-            {/* <Typography variant="body1">
-              Obtain feedback on your customers' shopping behaviors and preferences.
-            </Typography>
-            <Typography variant="body1">
-              Analyze purchase patterns to identify trends and understand customer needs better.
-            </Typography> */}
-          </Box>
-
- <Box mt={0}>
-            <Typography variant="subtitle2" gutterBottom>
-              2. A User-Friendly Interface
-            </Typography>
-            {/* <Typography variant="body1">
-              Snap It offers an intuitive and easy-to-use interface that allows you to create and manage reward programs seamlessly.
-            </Typography>
-            <Typography variant="body1">
-              Reward your customers for their loyalty with customized offers and incentives.
-            </Typography> */}
-          </Box>
-
-          <Box mt={0}>
-            <Typography variant="subtitle2" gutterBottom>
-              3. Real-Time Feedback
-            </Typography>
-            {/* <Typography variant="body1">
-              Access real-time feedback from millions of customers through a straightforward dashboard.
-            </Typography>
-            <Typography variant="body1">
-              Stay informed about customer opinions and quickly address any concerns or preferences.
-            </Typography> */}
-          </Box>
-
-          <Box mt={0}>
-            <Typography variant="subtitle2" gutterBottom>
-              4. Enhanced Customer Engagement
-            </Typography>
-            {/* <Typography variant="body1">
-              Strengthen your relationship with customers by responding to their feedback and adjusting your offerings accordingly.
-            </Typography>
-            <Typography variant="body1">
-              Foster a sense of connection and loyalty by understanding and meeting customer expectations.
-            </Typography> */}
-          </Box>
-
-          <Box mt={0}>
-            <Typography variant="subtitle2" gutterBottom>
-              5.Deep Analytics for Informed Decisions
-            </Typography>
-            {/* <Typography variant="body1">
-              Utilize advanced analytics to identify patterns in customer loyalty and behavior.
-            </Typography>
-            <Typography variant="body1">
-              Make data-driven decisions to optimize your marketing strategies and product offerings.
-            </Typography>
-            <Typography variant="body1">
-              Gain insights into customer expectations to better anticipate their future needs.
-            </Typography> */}
-          </Box>
-
-          <Box mt={0}>
-            <Typography variant="subtitle2" gutterBottom>
-              6.Increased Customer Loyalty
-            </Typography>
-            {/* <Typography variant="body1">
-              Reward your loyal customers, encouraging repeat business and long-term loyalty.
-            </Typography>
-            <Typography variant="body1">
-              Recognize and appreciate your customers' loyalty, enhancing their overall experience with your brand.
-            </Typography> */}
-          </Box>
-
-          <Typography variant="subtitle2" fontWeight={500} mt={2}>
-            Snap It empowers you to make informed decisions, create impactful rewards programs, and build lasting relationships with your customers.
-
-          </Typography>
-
+                  <Box mt={0}>
+                    <Typography variant="subtitle2" gutterBottom>
+                      2. A User-Friendly Interface
+                    </Typography>
 
                   </Box>
+
+                  <Box mt={0}>
+                    <Typography variant="subtitle2" gutterBottom>
+                      3. Real-Time Feedback
+                    </Typography>
+                  </Box>
+
+                  <Box mt={0}>
+                    <Typography variant="subtitle2" gutterBottom>
+                      4. Enhanced Customer Engagement
+                    </Typography>
+                  </Box>
+
+                  <Box mt={0}>
+                    <Typography variant="subtitle2" gutterBottom>
+                      5.Deep Analytics for Informed Decisions
+                    </Typography>
+
+                  </Box>
+
+                  <Box mt={0}>
+                    <Typography variant="subtitle2" gutterBottom>
+                      6.Increased Customer Loyalty
+                    </Typography>
+
+                  </Box>
+
+                  <Typography variant="subtitle2" fontWeight={500} mt={2}>
+                    Snap It empowers you to make informed decisions, create impactful rewards programs, and build lasting relationships with your customers.
+
+                  </Typography>
+
+
+                </Box>
                 {/* </motion.div> */}
               </Grid>
+
+              <Grid
+                item
+                xs={12}
+                md={6}
+                component={motion.div}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+                // sx={{ display: "flex", justifyContent: "end", mt: 2 }}
+                sx={{ display: { xs: "none", md: "flex" }, justifyContent: "end", mt: 2   }}
+
+              >
+
+                <Box>
+
+
+                  <img src={Man} width={"auto"} alt="" /></Box>
+                {/* </motion.div> */}
+              </Grid>
+
+
 
 
             </Grid>
@@ -526,21 +443,16 @@ const Home = () => {
         </section>
 
 
-     
-
-
         {/*Merchants */}
         <section>
           <Box
             sx={{
               display: "flex",
-              justifyContent: "end",
+              justifyContent: "start",
               mt: 10
             }}
           >
-            <Typography variant="h3" fontWeight={800}>
-              Snap it for Merchants
-            </Typography>
+
           </Box>
 
           <section>
@@ -553,15 +465,34 @@ const Home = () => {
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.8 }}
+                sx={{ display: { xs: "flex", md: "flex" }, justifyContent: "start"  }}
+              >
+                <motion.div variants={leftVariants}>
+                  {" "}
+                  <img src={Merchant} width={"auto"} alt="" />
+                </motion.div>
+              </Grid>
+
+              <Grid
+                item
+                xs={12}
+                md={6}
+                component={motion.div}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
                 sx={{ display: "flex", justifyContent: "start", }}
               >
                 <motion.div variants={leftVariants}>
-                  <Box
+                  <Box >
 
-                  >
+                    <Typography variant="h3" fontWeight={800}>
+                      Snap it for Merchants
+                    </Typography>
                     <Typography
                       variant="h4"
                       fontWeight={700}
+                      sx={{ ml: { xs: 0, md: 0 }, mt: { xs: 0, md: 2 } }}
                     >Uberize your business by going digital !</Typography>
 
                     <Typography
@@ -570,7 +501,7 @@ const Home = () => {
                       mt={1}
                     // sx={{ ml: { xs: 0, md: 8 }, mt: 2 }}
                     >
-                      Snap It merchants cater to customers' regular wants and needs. When customers collect sufficient Snap It rewards from their favorite brands, they can use these rewards to make purchases from Snap It merchants. These merchants range from utility service providers and mobile operators to supermarkets, department stores, and even local corner shops.                     </Typography>
+                      Snap It merchants cater to customers regular wants and needs. When customers collect sufficient Snap It rewards from their favorite brands, they can use these rewards to make purchases from Snap It merchants. These merchants range from utility service providers and mobile operators to supermarkets, department stores, and even local corner shops.                     </Typography>
 
                     <Typography
                       variant="subtitle2"
@@ -602,21 +533,9 @@ const Home = () => {
                   </Box>
                 </motion.div>
               </Grid>
-              <Grid
-                item
-                xs={12}
-                md={6}
-                component={motion.div}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, amount: 0.8 }}
-                sx={{ display: "flex", justifyContent: "end" }}
-              >
-                <motion.div variants={leftVariants}>
-                  {" "}
-                  <img src={Merchant} width={"350px"} alt="" />
-                </motion.div>
-              </Grid>
+
+
+
             </Grid>
           </section>
 
@@ -625,9 +544,8 @@ const Home = () => {
 
 
 
-
-
       </Box>
+
 
 
     </>

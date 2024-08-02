@@ -10,6 +10,7 @@ const ServiceCard = ({ title, product, packet, price, point }) => {
         borderRadius: 2,
         minHeight: "350px",
         maxHeight: "350px",
+        
 
         background: "#f2f2f2",
       }}
