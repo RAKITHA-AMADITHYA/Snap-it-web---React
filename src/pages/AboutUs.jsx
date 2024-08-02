@@ -1,14 +1,13 @@
 
-import { Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
 
 const AboutUs = () => {
-    const section2Ref = useRef(null);
 
 
     useEffect(() => {
@@ -18,53 +17,23 @@ const AboutUs = () => {
             mirror: true,
         });
     }, []);
-    const cardVariants = {
-        offscreen: {
-            y: 300,
-            opacity: 0
-        },
-        onscreen: {
-            y: 0,
-            opacity: 1,
-            // rotate: -10,
-            transition: {
-                type: "spring",
-                bounce: 0.4,
-                duration: 2
-            }
-        }
-    };
-    const leftVariants = {
-        offscreen: {
-            // x: 300,
-            opacity: 0
-        },
-        onscreen: {
-            x: 0,
-            opacity: 1,
-            // rotate: -10,
-            transition: {
-                type: "spring",
-                bounce: 0.4,
-                duration: 0.8
-            }
-        }
-    };
-    const handleButtonClick = () => {
-        section2Ref.current.scrollIntoView({ behavior: 'smooth' });
-    };
+    
 
 
     return (
         <>
 
+<Box
+                sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
+
+            >
             {/* Section 1 */}
             <section>
 
                 <Grid item xs={12} md={8} p={{ xs: 2, lg: 10 }} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center' }}
-                    data-aos="fade-right"
-                    data-aos-anchor-placement="top-bottom"
-                    data-aos-duration="2500"
+                    // data-aos="fade-right"
+                    // data-aos-anchor-placement="top-bottom"
+                    // data-aos-duration="2500"
                 >
                     <Typography variant='h2' fontWeight={800}>
                         About <span> </span>
@@ -81,9 +50,9 @@ const AboutUs = () => {
             <section>
 
                 <Grid item xs={12} md={8} p={{ xs: 2, lg: 10 }} mt={{ xs: -5, lg: -15 }} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center' }}
-                    data-aos="fade-right"
-                    data-aos-anchor-placement="top-bottom"
-                    data-aos-duration="2500"
+                    // data-aos="fade-right"
+                    // data-aos-anchor-placement="top-bottom"
+                    // data-aos-duration="2500"
                 >
                     <Typography variant='h2' fontWeight={800}>
                         Our <span> </span>
@@ -102,9 +71,9 @@ const AboutUs = () => {
             <section>
 
                 <Grid item xs={12} md={8} p={{ xs: 2, lg: 10 }} mt={{ xs: -5, lg: -15 }} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center' }}
-                    data-aos="fade-right"
-                    data-aos-anchor-placement="top-bottom"
-                    data-aos-duration="2500"
+                    // data-aos="fade-right"
+                    // data-aos-anchor-placement="top-bottom"
+                    // data-aos-duration="2500"
                 >
                     <Typography variant='h2' fontWeight={800}>
                         Who We<span> </span>
@@ -121,9 +90,9 @@ const AboutUs = () => {
             <section>
 
                 <Grid item xs={12} md={8} p={{ xs: 2, lg: 10 }} mt={{ xs: -5, lg: -15 }} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center' }}
-                    data-aos="fade-right"
-                    data-aos-anchor-placement="top-bottom"
-                    data-aos-duration="2500"
+                    // data-aos="fade-right"
+                    // data-aos-anchor-placement="top-bottom"
+                    // data-aos-duration="2500"
                 >
                     <Typography variant='h2' fontWeight={800}>
                         What We <span> </span>
@@ -158,9 +127,9 @@ const AboutUs = () => {
             <section>
 
                 <Grid item xs={12} md={8} p={{ xs: 2, lg: 10 }} mt={{ xs: -5, lg: -15 }} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center' }}
-                    data-aos="fade-right"
-                    data-aos-anchor-placement="top-bottom"
-                    data-aos-duration="2500"
+                    // data-aos="fade-right"
+                    // data-aos-anchor-placement="top-bottom"
+                    // data-aos-duration="2500"
                 >
                     <Typography variant='h2' fontWeight={800}>
                     Why Choose  <span> </span>
@@ -173,6 +142,7 @@ const AboutUs = () => {
                    <br/> Join us on our journey to create a connected and rewarding ecosystem for all. Snap it, earn it, and spend it with SnapIt! </Typography>                </Grid>
             </section>
 
+</Box>
 
 
         </>

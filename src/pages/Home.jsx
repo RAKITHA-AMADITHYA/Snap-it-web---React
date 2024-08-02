@@ -40,7 +40,7 @@ const Home = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         },
       },
       {
@@ -96,10 +96,13 @@ const Home = () => {
   return (
     <>
 
-
+<Box
+      sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
+        
+      >
       {/* Section 1 */}
       <section>
-        <Grid container bgcolor={"#F3F3F3"}>
+        <Grid container >
           <Grid
             item
             xs={12}
@@ -108,20 +111,14 @@ const Home = () => {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
-            sx={{ display: "flex", justifyContent: "start", p: [1, 2, 10] }}
+            sx={{ display: "flex", justifyContent: "start" ,alignItems:'center'}}
           >
             <motion.div variants={leftVariants}>
-              <Box
-                sx={{
-                  maxWidth: { lg: "500px" },
-                  minWidth: { lg: "500px" },
-                  margin: "0 auto",
-                }}
-              >
+              <Box>
                 <Typography
-                  variant="h1"
+                  variant="h2"
                   fontWeight={800}
-                  sx={{ ml: { xs: 0, md: 8 }, mt: { xs: 0, md: -5 } }}
+                  // sx={{ ml: { xs: 0, md: 8 },  }}
                 >
                   Experience The Thrill of{" "}
                   <span style={{ color: "#FFB800" }}>Discovery!</span>{" "}
@@ -129,8 +126,9 @@ const Home = () => {
                 <Typography
                   variant="subtitle1"
                   fontWeight={500}
-                  ml={8}
-                  sx={{ ml: { xs: 0, md: 8 } }}
+                  // ml={8}
+                  // sx={{ ml: { xs: 0, md: 8 } }}
+                  mt={2}
                 >
                   transforming your everyday shopping into a rewards when
                   purchasing your favourite brands and products from any store
@@ -138,7 +136,10 @@ const Home = () => {
                 </Typography>
                 <Button
                   variant="contained"
-                  sx={{ mt: 2, ml: { xs: 0, md: 8 } }}
+                  sx={{ mt: 2, 
+                    // ml: { xs: 0, md: 8 } 
+                  
+                  }}
                   onClick={() => navigate("/signup")}
                 >
                   Get Started
@@ -157,10 +158,7 @@ const Home = () => {
           </Grid>
         </Grid>
       </section>
-      <Box
-      sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
-        
-      >
+      
         {/* Section 2 */}
         <section>
           <Grid

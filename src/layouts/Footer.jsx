@@ -28,6 +28,10 @@ const Footer = () => {
 
   return (
     <>
+            <Box
+                sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
+
+            >
 
       {/* Below md screens */}
       <Box sx={{ display: { xs: 'block', md: 'none' }, bgcolor: '#2f2f2f', p: 2, color: '#fff' }}>
@@ -207,10 +211,10 @@ const Footer = () => {
                     backgroundImage: `url(${PlayStore})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    width: '14vw',
-                    height: '8vh',
+                    width: '15vw',
+                    height: '6vh',
                     padding: 0,
-                    borderRadius: '8px',
+                    borderRadius: '5px',
                     '&:hover': {
                       backgroundImage: `url(${PlayStore})`,
                       backgroundSize: 'cover',
@@ -227,8 +231,8 @@ const Footer = () => {
                     backgroundImage: `url(${Appstore})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    width: '14vw',
-                    height: '8vh',
+                    width: '15vw',
+                    height: '6vh',
                     padding: 0,
                     borderRadius: '8px',
                     '&:hover': {
@@ -248,10 +252,10 @@ const Footer = () => {
           <Divider sx={{ backgroundColor: '#2e2930' }} />
 
           <Box sx={{ display: 'flex', justifyContent: 'start', mt: '5px' }}>
-            {/* <img src={copyrights} width={'200px'} alt="" /> */}          <Typography variant='p'>Copyright © 2024 design by mobios</Typography>
+            <Typography variant='p'>Copyright © 2024 design by mobios</Typography>
 
           </Box>
-        </section></Box>
+        </section></Box></Box>
     </>
   )
 }

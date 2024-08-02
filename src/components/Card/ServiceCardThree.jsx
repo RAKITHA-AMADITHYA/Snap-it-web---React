@@ -25,7 +25,7 @@ function ServiceCardThree({ img, title, description, marginTop, widthImg, imgMt,
         <img src={img} width={widthImg} alt="" />
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center', p: 3, mt: marginTop }}>
-        <Typography variant="h6" gutterBottom fontWeight={600} fontSize={fontsizeTitle}>
+        <Typography variant="body1" gutterBottom fontWeight={600} fontSize={fontsizeTitle}>
           {title}
         </Typography>
         <Typography variant="body1" textAlign="justify" fontSize={fontsize}>

@@ -62,28 +62,33 @@ const Customer = () => {
             }
         }
     };
-    
+
 
 
     return (
         <>
+<Box
+                sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
 
+            >
             {/* Section 1 */}
             <section>
 
                 <Grid container>
-                <Grid item xs={12} md={6} p={{ xs: 2, lg: 15 }} sx={{ mt: { lg: -10 } }}
-                data-aos="fade-right"
+                    <Grid item xs={12} md={6} 
+                        data-aos="fade-right"
                         data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2500"
+                        p={1}
+                        sx={{display:'flex',justifyContent:'center',alignItems:'start', flexDirection:'column'}}
                     >
-                        <Typography variant='h1' fontWeight={800} sx={{ fontSize: { xs: '2.5rem', lg: '3.5rem' } }}>
+                        <Typography variant='h2' fontWeight={800} >
                             Snap it for <br /><span> </span>
                             <span style={{ color: '#f2b51c' }}>Customers</span>
 
                         </Typography>
 
-                        <Typography variant='subtitle1' mt={1} textAlign={'justify'} sx={{ fontSize: { xs: '15px', lg: '18px' } }}>
+                        <Typography variant='subtitle1' mt={1} textAlign={'justify'} >
 
                             Snap it is a revolutionary platform that offers delightful rewards to customers by connecting with favorite brands. It transforms everyday interactions into rewarding experiences, making shopping journeys more enjoyable and memorable. It ensures customers feel appreciated and valued.
                         </Typography>
@@ -98,7 +103,7 @@ const Customer = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{ display: 'flex', mt: { xs: -8, sm: 0, md: 5, lg: -5 }, justifyContent: 'end', p: { xs: 5, lg: 0 } }}
+                        // sx={{ display: 'flex', mt: { xs: -8, sm: 0, md: 5, lg: -5 }, justifyContent: 'end', p: { xs: 5, lg: 0 } }}
                     >
                         <motion.div variants={leftVariants}>
                             <img src={CustomerImg} width={{ xs: '100%' }} alt="" />
@@ -109,84 +114,9 @@ const Customer = () => {
                 </Grid>
             </section>
 
-            <Box    
-      sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
-        
-      >
-            {/* Section 2- Features Title */}
-            <section >
-
-                <Grid
-                    item
-                    component={motion.div}
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.8 }}
-                    sx={{ display: 'flex', justifyContent: 'center', p: { xs: 2, lg: 2 } }}
-                >
-                    <motion.div variants={leftVariants}>
-                        <Typography variant='h3' textAlign={'center'} fontWeight={700}>The core features of<span> </span>
-                            <span style={{ color: '#f2b51c' }}>SnapIt</span>    </Typography>
-
-                    </motion.div>
-                </Grid>
-
-
-
-            </section>
-
-
-            <section ref={section2Ref} >
-
-                <Grid container sx={{ p: { xs: 2, lg: 12 } }} spacing={2}  >
-
-                    {/* wallet card */}
-                    <Grid
-                        item
-                        component={motion.div}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true, amount: 0.8 }}
-                        sx={{
-                            display: 'flex', justifyContent: 'center',alignItems:'center' 
-                        }}   
-                        sm={6}
-                    >
-                        <motion.div variants={cardVariants}>
-                            <ServiceCardTwo fontsize={'15px'} img={Wallet} widthImg={'180px'} marginTop={'-15px'} title={"Wallet"} description={"Effortlessly accumulate your rewards by scanning the QR codes offered by brands. Our rewards never expire, so you can collect as much as you want and reach the goal you have in mind."} />
-                        </motion.div>
-                    </Grid>
-                    {/* My Shopping list card */}
-                    <Grid
-                        item
-                        component={motion.div}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true, amount: 0.8 }}
-                        sx={{
-                            display: 'flex', justifyContent: 'center',alignItems:'center' 
-                        }}                           sm={6}
-                    >
-                        <motion.div variants={cardVariants}>
-                            <ServiceCardTwo img={ShoppingList} fontsize={'15px'} imgMt={'10px'} marginTop={'-10px'} widthImg={'130px'} title={"My Shopping List"} description={"Snap it shopping list management feature helps you to shop efficiently. Add new items to your list, save a list, or even share a list, making your trips to the store/s more organized and rewarding."} />
-                        </motion.div>
-                    </Grid>
-
-                    {/* Wish list */}
-                    <Grid
-                        item
-                        component={motion.div}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true, amount: 0.8 }}
-                        sx={{
-                            display: 'flex', justifyContent: 'center',alignItems:'center' 
-                        }}    sm={6}
-                    >
-                        <motion.div variants={cardVariants}>
-                            <ServiceCardTwo fontsize={'15px'} img={WishList} imgMt={'30px'} widthImg={'100px'} title={"Wish Lists"} description={"List out items you would like to have promotional offers on to your Wish list. The wish list will help the Snap it team negotiate with brand owners for customer-driven offers."} />
-                        </motion.div>
-                    </Grid>
+            
+                {/* Section 2- Features Title */}
+                <section >
 
                     <Grid
                         item
@@ -194,22 +124,94 @@ const Customer = () => {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.8 }}
-                        sx={{
-                            display: 'flex', justifyContent: 'center',alignItems:'center' 
-                        }}                           sm={6}
+                        sx={{ display: 'flex', justifyContent: 'center', p: { xs: 2, lg: 2 } }}
                     >
-                        <motion.div variants={cardVariants}>
-                            <ServiceCardTwo img={reward2} fontsize={'15px'} imgMt={'30px'} widthImg={'100px'} title={"Favourites"} description={"Add your preferred items on Snap it onto the Favourites list for easy viewing of available offers."} />
+                        <motion.div variants={leftVariants}>
+                            <Typography variant='h3' textAlign={'center'} fontWeight={700}>The core features of<span> </span>
+                                <span style={{ color: '#f2b51c' }}>SnapIt</span>    </Typography>
+
                         </motion.div>
                     </Grid>
 
 
 
+                </section>
 
 
-                </Grid>
+                <section ref={section2Ref} >
 
-            </section>
+                    <Grid container sx={{ p: { xs: 2, lg: 12 } }} spacing={2}  >
+
+                        {/* wallet card */}
+                        <Grid
+                            item
+                            component={motion.div}
+                            initial="offscreen"
+                            whileInView="onscreen"
+                            viewport={{ once: true, amount: 0.8 }}
+                            sx={{
+                                display: 'flex', justifyContent: 'center', alignItems: 'center'
+                            }}
+                            sm={6}
+                        >
+                            <motion.div variants={cardVariants}>
+                                <ServiceCardTwo fontsize={'15px'} img={Wallet} widthImg={'180px'} marginTop={'-15px'} title={"Wallet"} description={"Effortlessly accumulate your rewards by scanning the QR codes offered by brands. Our rewards never expire, so you can collect as much as you want and reach the goal you have in mind."} />
+                            </motion.div>
+                        </Grid>
+                        {/* My Shopping list card */}
+                        <Grid
+                            item
+                            component={motion.div}
+                            initial="offscreen"
+                            whileInView="onscreen"
+                            viewport={{ once: true, amount: 0.8 }}
+                            sx={{
+                                display: 'flex', justifyContent: 'center', alignItems: 'center'
+                            }} sm={6}
+                        >
+                            <motion.div variants={cardVariants}>
+                                <ServiceCardTwo img={ShoppingList} fontsize={'15px'} imgMt={'10px'} marginTop={'-10px'} widthImg={'130px'} title={"My Shopping List"} description={"Snap it shopping list management feature helps you to shop efficiently. Add new items to your list, save a list, or even share a list, making your trips to the store/s more organized and rewarding."} />
+                            </motion.div>
+                        </Grid>
+
+                        {/* Wish list */}
+                        <Grid
+                            item
+                            component={motion.div}
+                            initial="offscreen"
+                            whileInView="onscreen"
+                            viewport={{ once: true, amount: 0.8 }}
+                            sx={{
+                                display: 'flex', justifyContent: 'center', alignItems: 'center'
+                            }} sm={6}
+                        >
+                            <motion.div variants={cardVariants}>
+                                <ServiceCardTwo fontsize={'15px'} img={WishList} imgMt={'30px'} widthImg={'100px'} title={"Wish Lists"} description={"List out items you would like to have promotional offers on to your Wish list. The wish list will help the Snap it team negotiate with brand owners for customer-driven offers."} />
+                            </motion.div>
+                        </Grid>
+
+                        <Grid
+                            item
+                            component={motion.div}
+                            initial="offscreen"
+                            whileInView="onscreen"
+                            viewport={{ once: true, amount: 0.8 }}
+                            sx={{
+                                display: 'flex', justifyContent: 'center', alignItems: 'center'
+                            }} sm={6}
+                        >
+                            <motion.div variants={cardVariants}>
+                                <ServiceCardTwo img={reward2} fontsize={'15px'} imgMt={'30px'} widthImg={'100px'} title={"Favourites"} description={"Add your preferred items on Snap it onto the Favourites list for easy viewing of available offers."} />
+                            </motion.div>
+                        </Grid>
+
+
+
+
+
+                    </Grid>
+
+                </section>
 
             </Box>
 

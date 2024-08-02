@@ -1,5 +1,5 @@
 import { Box, Grid, useMediaQuery, Typography, TextField, Button } from '@mui/material';
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import L from 'leaflet';
@@ -32,6 +32,10 @@ const Contact = () => {
   return (
     <section id="section1">
       {isMediumUp && (
+                    <Box
+                    sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
+    
+                >
         <Grid container>
           <Grid item xs={12} md={6} p={5}  data-aos="fade-in">
             <Typography variant="h3" gutterBottom>Contact</Typography>
@@ -124,7 +128,7 @@ const Contact = () => {
               </div>
             </div>
           </Grid>
-        </Grid>
+        </Grid> </Box>
       )}
 
       {isMediumDown && (

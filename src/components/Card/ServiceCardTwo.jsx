@@ -28,7 +28,7 @@ function ServiceCardTwo({ img, title, description, marginTop, widthImg, imgMt, f
         <Typography variant="h6" gutterBottom fontWeight={600} fontSize={fontsizeTitle}>
           {title}
         </Typography>
-        <Typography variant="body1" textAlign="justify" fontSize={fontsize}>
+        <Typography variant="body1" textAlign="center" fontSize={fontsize}>
           {description}
         </Typography>
       </Box>

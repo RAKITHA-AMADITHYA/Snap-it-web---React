@@ -72,20 +72,20 @@ function Header() {
   const menuItems = [
     { text: 'Home', path: '/' },
     { text: 'How It Works', path: '/how-it-works' },
-    { text: 'Customer', path: '/customer' },
-    { text: 'Brands', path: '/brands' },
-    { text: 'Merchants', path: '/merchants' },
+    // { text: 'Customer', path: '/customer' },
+    // { text: 'Brands', path: '/brands' },
+    // { text: 'Merchants', path: '/merchants' },
 
 
 
-    // {
-    //   text: 'Snapit For',
-    //   subItems: [
-    //     { text: 'Customer', path: '/customer' },
-    //     { text: 'Brands', path: '/brands' },
-    //     { text: 'Merchants', path: '/merchants' },
-    //   ],
-    // },
+    {
+      text: 'Snapit For',
+      subItems: [
+        { text: 'Customer', path: '/customer' },
+        { text: 'Brands', path: '/brands' },
+        { text: 'Merchants', path: '/merchants' },
+      ],
+    },
     { text: 'About us', path: '/about-us' },
     { text: 'Contact us', path: '/contact-us' },
   ];
@@ -93,6 +93,7 @@ function Header() {
   return (
     <Box sx={{ backgroundColor: '#ffffff' }}>
       {!isLgScreen ? (
+        
         <>
           <Box
             sx={{ display: 'flex', justifyContent: 'space-between', p: 1 }}
@@ -218,7 +219,10 @@ function Header() {
           </Drawer>
         </>
       ) : (
-        <Box sx={{ backgroundColor: '#ffffff' }}>
+        <Box
+        sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
+
+    >
           <Grid container p={1}>
             <Grid
               item
@@ -226,11 +230,11 @@ function Header() {
               md={1}
               display={'flex'}
               justifyContent={'center'}
-              alignItems={'end'}
+              alignItems={'center'}
               sx={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between', p: 1 }}
               onClick={() => handleNavigate('/')}
             >
-              <img src={Logo} width={'78rem'} alt="Logo" />
+              <img src={Logo}  alt="Logo" />
             </Grid>
 
             <Grid
@@ -249,7 +253,7 @@ function Header() {
 
             <Grid
               item
-              md={8}
+              md={7.5}
               display={{ xs: 'none', sm: 'none', md: 'flex', lg: 'flex' }}
               justifyContent={'start'}
               alignItems={'center'}
@@ -355,7 +359,7 @@ function Header() {
               </Grid>
             </Grid>
 
-            <Grid item xs={1} md={3} display={'flex'} justifyContent={'end'} alignItems={'center'}>
+            <Grid item xs={1} md={3.5} display={'flex'} justifyContent={'end'} alignItems={'center'}>
               <Box
                 sx={{
                   position: 'relative',

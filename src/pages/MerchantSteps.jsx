@@ -3,25 +3,20 @@ import { Box, Button, Card, Grid, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
+import  { useEffect } from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import MerchantShop from '../assets/img/step.png';
 import StepsImg from '../assets/img/s4.png';
-
-
+import MerchantShop from '../assets/img/step.png';
 import { useNavigate } from 'react-router-dom';
-
-
 import msteps from '../assets/img/msteps.png';
+
 const MSteps = () => {
-    const section2Ref = useRef(null);
     const navigate = useNavigate();
-
-
     const handleNavigate = (path) => {
         navigate(path);
     };
+   
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -32,13 +27,11 @@ const MSteps = () => {
 
     const leftVariants = {
         offscreen: {
-            // x: 300,
             opacity: 0
         },
         onscreen: {
             x: 0,
             opacity: 1,
-            // rotate: -10,
             transition: {
                 type: "spring",
                 bounce: 0.4,
@@ -46,8 +39,6 @@ const MSteps = () => {
             }
         }
     };
-
-
 
     return (
         <>
@@ -79,6 +70,11 @@ const MSteps = () => {
 
 
 
+
+            <Box
+                sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
+
+            >
             <section >
 
                 <Grid
@@ -102,9 +98,6 @@ const MSteps = () => {
 
 
             </section>
-
-
-
 
             <section style={{ marginTop: '20px' }}>
 
@@ -136,7 +129,7 @@ const MSteps = () => {
                     viewport={{ once: true, amount: 0.8 }}
                     sx={{
                         display: 'flex', justifyContent: 'start', p: { xs: 2, lg: 1 }
-                    }} md={2}
+                    }} sm={3}
                 >
                     <motion.div variants={leftVariants}>
                         <Card sx={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", p: 3, minHeight: '300px',bgcolor:'#f2b51c'  }}>
@@ -252,7 +245,7 @@ const MSteps = () => {
                 </Grid>
 
             </Grid>
-
+            </Box>
 
         </>
 
