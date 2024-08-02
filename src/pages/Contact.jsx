@@ -99,7 +99,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '20px' }}>
+              <div style={{ display: 'flex', gap: '20px',justifyContent:'start',alignItems:'start' }}>
                 <a href="mailto:gdsasrilanka@gmail.com">
                   {/* <PhoneButton /> */}
                 </a>
@@ -134,33 +134,39 @@ const Contact = () => {
       {isMediumDown && (
         <Grid container>
           <Grid item xs={12} p={1} data-aos="zoom-in-right">
-            <div style={{ display: 'flex', flex: 1, gap: '20px' }}>
-              <a href="tel:+94112853415">
-                <img src={contactI} alt="" />
-              </a>
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <h3>Contact Numbers</h3>
-                <h3>(+94)-112853415 / (+94)-718395305</h3>
+          <div style={{ display: 'flex', gap: '20px' }}>
+                <a href="mailto:gdsasrilanka@gmail.com">
+                  {/* <PhoneButton /> */}
+                </a>
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <h3>Contact</h3>
+                  <h4 style={{ fontWeight: 600 }}>(+94)-761234565 / (+94)-718395305</h4>
+                </div>
               </div>
-            </div>
 
-            <div style={{ display: 'flex', flex: 1, gap: '20px', marginTop: '10px' }}>
-              <a href="mailto:gdsasrilanka@gmail.com">
-                <PhoneButton />
-              </a>
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <h3>Email</h3>
-                <h3>gdsasrilanka@gmail.com</h3>
+              <div style={{ display: 'flex', gap: '20px' }}>
+                <a href="mailto:info@mobios.lk">
+                  {/* <PhoneButton /> */}
+                </a>
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <h3>Email</h3>
+                  <h4 style={{ fontWeight: 600 }}>info@mobios.lk</h4>
+                </div>
               </div>
-            </div>
 
-            <div style={{ display: 'flex', flex: 1, gap: '20px', marginTop: '10px' }}>
-              <FbBtn />
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <h3>Facebook</h3>
-                <h3>Guna dev suwa Arana</h3>
+              <div style={{ display: 'flex', gap: '20px',justifyContent:'start',alignItems:'start' }}>
+                <a href="mailto:gdsasrilanka@gmail.com">
+                  {/* <PhoneButton /> */}
+                </a>
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <h3>Address</h3>
+                  <h4 style={{ fontWeight: 600 }}>
+                    No.12 Ridgeway Place,<br />
+                    Colombo 04,<br />
+                    Sri Lanka.
+                  </h4>
+                </div>
               </div>
-            </div>
           </Grid>
 
           <Grid item xs={12} md={6} display={'flex'} justifyContent={'center'} alignItems={'center'} p={2} data-aos="zoom-in-left">
