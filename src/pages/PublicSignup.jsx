@@ -7,9 +7,9 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import brandsCard from '../assets/img/brands5.png';
-import Customer from '../assets/img/customer5.png';
-import Merchant from '../assets/img/merchant5.png';
+import brandsCard from '../assets/img/brand6.png';
+import Customer from '../assets/img/customer6.png';
+import Merchant from '../assets/img/merchants6.png';
 
 
 const PublicSignup = () => {
@@ -54,7 +54,10 @@ const PublicSignup = () => {
 
     return (
         <>
+            <Box
+                sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
 
+            >
 <Box
         sx={{
           margin: {
@@ -231,7 +234,7 @@ const PublicSignup = () => {
                 </Grid>
             </section>
 </Box>
-
+</Box>
 
 
 
