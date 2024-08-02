@@ -20,6 +20,7 @@ import Tesseract from "tesseract.js";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import PdfToText from "../utils/PdfToText";
 import NICval from "../utils/NicValidation";
+import PopUpDialogBox from "../components/PopupBox/PopUpDialogBox";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -75,20 +76,32 @@ const BrandSignup = () => {
   const [uploadedNICFileName, setUploadedNICFileName] = useState("");
   //const [error, setError] = useState(null);
   const [uploadedFileName, setUploadedFileName] = useState("");
+
+  const [show, setShow] = useState(false);
   const handleNICFileChange = async (event) => {
+    // Reset validation states
     setClickValidate(false);
     setClickNicValidate(false);
     setIsNICValidationSuccess(false);
-    // const selectedFile = event.target.files[0];
+
     const file = event.target.files[0];
-    console.log("file-", event, file);
+    console.log("Selected file:", file);
+
+    // Check if the file size exceeds 2MB
+    if (file.size > 1 * 1024 * 1024) {
+      console.log("File size must be less than 1MB");
+      showAlertMessage({
+        message: "File size must be less than 1MB",
+        type: "error",
+      });
+      event.target.value = null; // Clear the file input
+      return; // Exit the function
+    }
+
+    // Set the selected file and its name in the state
     setNicFile(file);
-    // Update the label text to the selected file name
-    console.log("Selected file namee :", file.name);
-    //setUploadedNICFileName(selectedFile.name);
+    console.log("Selected file name:", file.name);
     setNicFileName(file.name);
-    // setnicError(null);
-    // console.log("Uploaded file name:", selectedFile.name , Boolean(selectedFile.name));
   };
 
   const handleClick = () => {
@@ -175,31 +188,31 @@ const BrandSignup = () => {
       // Check if the OCR result includes the Company Reg. No.
       if (NICval(nic) !== "Correct") {
         setnicError("Invalid NIC.");
-        setIsNICValidationSuccess(false); // Set validation status to false
-      }
+        setIsNICValidationSuccess(false);
+      } else {
+        // Check if the OCR result includes the Company Reg. No.
+        if (nic.length === 10) {
+          console.log("NIC text", text);
+          console.log("NIC", nic.slice(0, 9));
+          if (!text.includes(nic.slice(0, 9))) {
+            setnicError("Invalid NIC.");
+            setIsNICValidationSuccess(false); // Set validation status to false
+          }
 
-      // Check if the OCR result includes the Company Reg. No.
-      if (nic.length === 10) {
-        console.log("NIC text", text);
-        console.log("NIC", nic.slice(0, 9));
-        if (!text.includes(nic.slice(0, 9))) {
-          setnicError("Invalid NIC.");
-          setIsNICValidationSuccess(false); // Set validation status to false
-        }
+          if (text.includes(nic.slice(0, 9))) {
+            setnicError("Success!");
+            setIsNICValidationSuccess(true); // Set validation status to true
+          }
+        } else if (nic.length === 12) {
+          if (!text.includes(nic)) {
+            setnicError("Invalid NIC.");
+            setIsNICValidationSuccess(false); // Set validation status to false
+          }
 
-        if (text.includes(nic.slice(0, 9))) {
-          setnicError("Success!");
-          setIsNICValidationSuccess(true); // Set validation status to true
-        }
-      } else if (nic.length === 12) {
-        if (!text.includes(nic)) {
-          setnicError("Invalid NIC.");
-          setIsNICValidationSuccess(false); // Set validation status to false
-        }
-
-        if (text.includes(nic)) {
-          setnicError("Success!");
-          setIsNICValidationSuccess(true); // Set validation status to true
+          if (text.includes(nic)) {
+            setnicError("Success!");
+            setIsNICValidationSuccess(true); // Set validation status to true
+          }
         }
       }
     } else if (nicFile && nic && nicFile.type.includes("pdf") === true) {
@@ -234,16 +247,32 @@ const BrandSignup = () => {
   };
 
   const handleFileChange = async (event) => {
+    // Reset validation states
     setClickValidate(false);
     setClickNicValidate(false);
     setIsValidationSuccess(false);
+
     const selectedFile = event.target.files[0];
-    console.log("file-", event);
+
+    // Check if the file size is greater than 2MB
+    if (selectedFile.size > 1 * 1024 * 1024) {
+      showAlertMessage({
+        message: "File size must be less than 1MB",
+        type: "error",
+      });
+      event.target.value = null; // Clear the file input
+      setError("File size must be less than 1MB");
+      return; // Exit the function
+    }
+
+    console.log("Selected file:", selectedFile);
+
+    // Update the state with the selected file
     setFile(selectedFile);
     // Update the label text to the selected file name
     setUploadedFileName(selectedFile.name);
+    // Clear any previous error messages
     setError(null);
-    // console.log("Uploaded file name:", selectedFile.name , Boolean(selectedFile.name));
   };
 
   const leftVariants = {
@@ -371,10 +400,11 @@ const BrandSignup = () => {
       console.log("Brand Registered Successfully", response);
 
       if (response?.status === 200) {
-        showAlertMessage({
-          message: "Registered Successfully",
-          type: "success",
-        });
+        // showAlertMessage({
+        //   message: "Registered Successfully",
+        //   type: "success",
+        // });
+        setShow(true);
 
         setFullName("");
         setAddress("");
@@ -966,6 +996,7 @@ const BrandSignup = () => {
           </Grid>
         </Grid>
       </section>
+      <PopUpDialogBox show={show} setShow={setShow} />
     </>
   );
 };
