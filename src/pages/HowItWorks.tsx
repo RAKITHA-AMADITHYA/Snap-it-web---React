@@ -1,15 +1,22 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import Mobile from "../assets/img/dev.png";
+import Video from '../assets/img/snp_fin.mp4'
 
 const HowItWorks = () => {
   return (
+
     <Box
-      sx={{ display: "flex", justifyContent: "center", alignItems: "center" ,flexDirection:'column',gap:2}}
+      sx={{ width: { xs: "auto", md: "1120px" }, mt: { xs: 0, md: 2 }, margin: { xs: 2, md: '0 auto' } }}
+        
+      >
+    <Box
+      sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column', gap: 2, p: { xs: 2, lg: 20 }, mt: { xs: 2, lg: -15 }}}
     >
-      <Typography variant="h5">This page will available Soon</Typography>
-      <img src={Mobile} width={'400px'} alt="" />
-    </Box>
+      <video style={{width: '100%', height: 'auto'}} controls>
+        <source src={Video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </Box></Box>
   );
 };
 
