@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import Video from '../assets/img/snp_fin.mp4'
+import Video from '../assets/img/Snpit ora.mp4'
 
 const HowItWorks = () => {
   return (
